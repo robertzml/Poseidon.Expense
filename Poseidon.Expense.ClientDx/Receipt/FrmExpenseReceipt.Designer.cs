@@ -34,7 +34,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageInfo = new DevExpress.XtraTab.XtraTabPage();
-            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.ExpenseAccountInfo();
+            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoModule();
             this.tabPageElectric = new DevExpress.XtraTab.XtraTabPage();
             this.electricReceipt = new Poseidon.Expense.ClientDx.ElectricReceipt();
             this.tabPageWater = new DevExpress.XtraTab.XtraTabPage();
@@ -191,7 +191,7 @@
         private DevExpress.XtraTab.XtraTabPage tabPageElectric;
         private DevExpress.XtraTab.XtraTabPage tabPageWater;
         private WaterReceipt waterReceipt;
-        private ExpenseAccountInfo ctrAccountInfo;
+        private AccountInfoModule ctrAccountInfo;
         private ElectricReceipt electricReceipt;
         private Winform.Core.GroupChildrenTree groupTree;
     }

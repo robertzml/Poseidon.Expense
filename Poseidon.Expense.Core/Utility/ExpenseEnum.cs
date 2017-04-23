@@ -10,7 +10,7 @@ namespace Poseidon.Expense.Core.Utility
     /// <summary>
     /// 能源支出类型
     /// </summary>
-    public enum ExpenseType
+    public enum EnergyExpenseType
     {
         /// <summary>
         /// 电

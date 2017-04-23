@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Expense.ClientDx
 {
-    partial class ExpenseAccountInfo
+    partial class AccountInfoModule
     {
         /// <summary> 
         /// 必需的设计器变量。

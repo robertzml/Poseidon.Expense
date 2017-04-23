@@ -30,11 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.electricExpenseRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.waterExpenseRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.energyCompareBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.electricExpenseRecordBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.waterExpenseRecordBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.energyCompareBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lookUpEdit1
@@ -43,17 +41,13 @@
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.DataSource = this.waterExpenseRecordBindingSource;
+            this.lookUpEdit1.Properties.DataSource = this.energyCompareBindingSource;
             this.lookUpEdit1.Size = new System.Drawing.Size(100, 20);
             this.lookUpEdit1.TabIndex = 0;
             // 
-            // electricExpenseRecordBindingSource
+            // energyCompareBindingSource
             // 
-            this.electricExpenseRecordBindingSource.DataSource = typeof(Poseidon.Expense.Core.DL.ElectricExpenseRecord);
-            // 
-            // waterExpenseRecordBindingSource
-            // 
-            this.waterExpenseRecordBindingSource.DataSource = typeof(Poseidon.Expense.Core.DL.WaterExpenseRecord);
+            this.energyCompareBindingSource.DataSource = typeof(Poseidon.Expense.ClientDx.Model.EnergyCompare);
             // 
             // Form1
             // 
@@ -64,8 +58,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.electricExpenseRecordBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.waterExpenseRecordBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.energyCompareBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -73,7 +66,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private System.Windows.Forms.BindingSource electricExpenseRecordBindingSource;
-        private System.Windows.Forms.BindingSource waterExpenseRecordBindingSource;
+        private System.Windows.Forms.BindingSource energyCompareBindingSource;
     }
 }

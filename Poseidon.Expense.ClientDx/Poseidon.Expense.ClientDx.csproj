@@ -109,6 +109,18 @@
     <Compile Include="Chart\EnergyCompareChart.Designer.cs">
       <DependentUpon>EnergyCompareChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chart\EnergyExpenseChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\EnergyExpenseChart.Designer.cs">
+      <DependentUpon>EnergyExpenseChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\EnergyExpenseYearChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\EnergyExpenseYearChart.Designer.cs">
+      <DependentUpon>EnergyExpenseYearChart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,18 @@
     <Compile Include="Grid\ElectricMeterGrid.Designer.cs">
       <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grid\EnergyCompareGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\EnergyCompareGrid.Designer.cs">
+      <DependentUpon>EnergyCompareGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\EnergyExpenseYearGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\EnergyExpenseYearGrid.Designer.cs">
+      <DependentUpon>EnergyExpenseYearGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grid\WaterExpenseRecordGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,17 +165,59 @@
     </Compile>
     <Compile Include="Model\EnergyCompare.cs" />
     <Compile Include="Model\EnergyExpense.cs" />
+    <Compile Include="Mod\AccountExpenseModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\AccountExpenseModule.Designer.cs">
+      <DependentUpon>AccountExpenseModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\ElectricCompareGridModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ElectricCompareGridModule.Designer.cs">
+      <DependentUpon>ElectricCompareGridModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\ElectricCompareModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ElectricCompareModule.Designer.cs">
+      <DependentUpon>ElectricCompareModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mod\ElectricReceipt.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Mod\ElectricReceipt.Designer.cs">
       <DependentUpon>ElectricReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mod\ExpenseAccountInfo.cs">
+    <Compile Include="Mod\AccountInfoModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Mod\ExpenseAccountInfo.Designer.cs">
-      <DependentUpon>ExpenseAccountInfo.cs</DependentUpon>
+    <Compile Include="Mod\AccountInfoModule.Designer.cs">
+      <DependentUpon>AccountInfoModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\ExpenseYearModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ExpenseYearModule.Designer.cs">
+      <DependentUpon>ExpenseYearModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\GroupExpenseModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\GroupExpenseModule.Designer.cs">
+      <DependentUpon>GroupExpenseModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\WaterCompareGridModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\WaterCompareGridModule.Designer.cs">
+      <DependentUpon>WaterCompareGridModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\WaterCompareModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\WaterCompareModule.Designer.cs">
+      <DependentUpon>WaterCompareModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Mod\WaterReceipt.cs">
       <SubType>UserControl</SubType>
@@ -212,6 +278,12 @@
     <EmbeddedResource Include="Chart\EnergyCompareChart.resx">
       <DependentUpon>EnergyCompareChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chart\EnergyExpenseChart.resx">
+      <DependentUpon>EnergyExpenseChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\EnergyExpenseYearChart.resx">
+      <DependentUpon>EnergyExpenseYearChart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,17 +293,44 @@
     <EmbeddedResource Include="Grid\ElectricMeterGrid.resx">
       <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grid\EnergyCompareGrid.resx">
+      <DependentUpon>EnergyCompareGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\EnergyExpenseYearGrid.resx">
+      <DependentUpon>EnergyExpenseYearGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grid\WaterExpenseRecordGrid.resx">
       <DependentUpon>WaterExpenseRecordGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grid\WaterMeterGrid.resx">
       <DependentUpon>WaterMeterGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mod\AccountExpenseModule.resx">
+      <DependentUpon>AccountExpenseModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ElectricCompareGridModule.resx">
+      <DependentUpon>ElectricCompareGridModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ElectricCompareModule.resx">
+      <DependentUpon>ElectricCompareModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mod\ElectricReceipt.resx">
       <DependentUpon>ElectricReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mod\ExpenseAccountInfo.resx">
-      <DependentUpon>ExpenseAccountInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Mod\AccountInfoModule.resx">
+      <DependentUpon>AccountInfoModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ExpenseYearModule.resx">
+      <DependentUpon>ExpenseYearModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\GroupExpenseModule.resx">
+      <DependentUpon>GroupExpenseModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\WaterCompareGridModule.resx">
+      <DependentUpon>WaterCompareGridModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\WaterCompareModule.resx">
+      <DependentUpon>WaterCompareModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\WaterReceipt.resx">
       <DependentUpon>WaterReceipt.cs</DependentUpon>
@@ -251,6 +350,7 @@
     <EmbeddedResource Include="Receipt\FrmWaterExpenseEdit.resx">
       <DependentUpon>FrmWaterExpenseEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Poseidon.Expense.ClientDx.Model.EnergyCompare.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.ClientDx.Model.EnergyExpense.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricExpense.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricExpenseRecord.datasource" />
