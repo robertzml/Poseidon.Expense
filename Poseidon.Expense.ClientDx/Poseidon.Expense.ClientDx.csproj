@@ -115,11 +115,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Grid\ElectricExpenseRecordGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\ElectricExpenseRecordGrid.Designer.cs">
+      <DependentUpon>ElectricExpenseRecordGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grid\ElectricMeterGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Grid\ElectricMeterGrid.Designer.cs">
       <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\WaterExpenseRecordGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\WaterExpenseRecordGrid.Designer.cs">
+      <DependentUpon>WaterExpenseRecordGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Grid\WaterMeterGrid.cs">
       <SubType>UserControl</SubType>
@@ -129,7 +141,57 @@
     </Compile>
     <Compile Include="Model\EnergyCompare.cs" />
     <Compile Include="Model\EnergyExpense.cs" />
+    <Compile Include="Mod\ElectricReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ElectricReceipt.Designer.cs">
+      <DependentUpon>ElectricReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\ExpenseAccountInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ExpenseAccountInfo.Designer.cs">
+      <DependentUpon>ExpenseAccountInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\WaterReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\WaterReceipt.Designer.cs">
+      <DependentUpon>WaterReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receipt\FrmElectricExpenseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmElectricExpenseAdd.Designer.cs">
+      <DependentUpon>FrmElectricExpenseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmElectricExpenseEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmElectricExpenseEdit.Designer.cs">
+      <DependentUpon>FrmElectricExpenseEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmExpenseReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmExpenseReceipt.Designer.cs">
+      <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmWaterExpenseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmWaterExpenseAdd.Designer.cs">
+      <DependentUpon>FrmWaterExpenseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmWaterExpenseEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmWaterExpenseEdit.Designer.cs">
+      <DependentUpon>FrmWaterExpenseEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\ControlUtil.cs" />
+    <Compile Include="Utility\EventUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Account\FrmExpenseAccount.resx">
@@ -153,15 +215,49 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grid\ElectricExpenseRecordGrid.resx">
+      <DependentUpon>ElectricExpenseRecordGrid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grid\ElectricMeterGrid.resx">
       <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\WaterExpenseRecordGrid.resx">
+      <DependentUpon>WaterExpenseRecordGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grid\WaterMeterGrid.resx">
       <DependentUpon>WaterMeterGrid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ElectricReceipt.resx">
+      <DependentUpon>ElectricReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ExpenseAccountInfo.resx">
+      <DependentUpon>ExpenseAccountInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\WaterReceipt.resx">
+      <DependentUpon>WaterReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmElectricExpenseAdd.resx">
+      <DependentUpon>FrmElectricExpenseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmElectricExpenseEdit.resx">
+      <DependentUpon>FrmElectricExpenseEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmExpenseReceipt.resx">
+      <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmWaterExpenseAdd.resx">
+      <DependentUpon>FrmWaterExpenseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmWaterExpenseEdit.resx">
+      <DependentUpon>FrmWaterExpenseEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Poseidon.Expense.ClientDx.Model.EnergyExpense.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricExpense.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricExpenseRecord.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricMeter.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ExpenseAccount.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.WaterExpense.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.WaterExpenseRecord.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.WaterMeter.datasource" />
     <None Include="Properties\licenses.licx" />
   </ItemGroup>
