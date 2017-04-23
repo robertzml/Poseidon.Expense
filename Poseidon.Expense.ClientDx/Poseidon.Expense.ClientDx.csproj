@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C0ACFD9-273C-44B6-8385-2AF2B21C4558}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Poseidon.Expense.ClientDx</RootNamespace>
+    <AssemblyName>Poseidon.Expense.ClientDx</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.1.Wizard, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Poseidon.Base">
+      <HintPath>..\..\Assembly\Poseidon.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Common">
+      <HintPath>..\..\Assembly\Poseidon.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Core">
+      <HintPath>..\..\Assembly\Poseidon.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Winform.Base">
+      <HintPath>..\..\Assembly\Poseidon.Winform.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Poseidon.Winform.Core">
+      <HintPath>..\..\Assembly\Poseidon.Winform.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\FrmExpenseAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FrmExpenseAccount.Designer.cs">
+      <DependentUpon>FrmExpenseAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\FrmExpenseAccountAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FrmExpenseAccountAdd.Designer.cs">
+      <DependentUpon>FrmExpenseAccountAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\FrmExpenseAccountEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FrmExpenseAccountEdit.Designer.cs">
+      <DependentUpon>FrmExpenseAccountEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\FrmElectricMeterSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FrmElectricMeterSet.Designer.cs">
+      <DependentUpon>FrmElectricMeterSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\FrmWaterMeterSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FrmWaterMeterSet.Designer.cs">
+      <DependentUpon>FrmWaterMeterSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\EnergyCompareChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chart\EnergyCompareChart.Designer.cs">
+      <DependentUpon>EnergyCompareChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\ElectricMeterGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\ElectricMeterGrid.Designer.cs">
+      <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grid\WaterMeterGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Grid\WaterMeterGrid.Designer.cs">
+      <DependentUpon>WaterMeterGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EnergyCompare.cs" />
+    <Compile Include="Model\EnergyExpense.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Account\FrmExpenseAccount.resx">
+      <DependentUpon>FrmExpenseAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FrmExpenseAccountAdd.resx">
+      <DependentUpon>FrmExpenseAccountAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FrmExpenseAccountEdit.resx">
+      <DependentUpon>FrmExpenseAccountEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FrmElectricMeterSet.resx">
+      <DependentUpon>FrmElectricMeterSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FrmWaterMeterSet.resx">
+      <DependentUpon>FrmWaterMeterSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart\EnergyCompareChart.resx">
+      <DependentUpon>EnergyCompareChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\ElectricMeterGrid.resx">
+      <DependentUpon>ElectricMeterGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\WaterMeterGrid.resx">
+      <DependentUpon>WaterMeterGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\Poseidon.Expense.ClientDx.Model.EnergyExpense.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ElectricMeter.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.ExpenseAccount.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.WaterMeter.datasource" />
+    <None Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poseidon.Expense.Core\Poseidon.Expense.Core.csproj">
+      <Project>{4c70162b-4d3a-4785-bf30-408c52fe3f40}</Project>
+      <Name>Poseidon.Expense.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
