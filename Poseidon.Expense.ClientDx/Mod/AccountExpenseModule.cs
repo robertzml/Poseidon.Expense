@@ -149,11 +149,11 @@ namespace Poseidon.Expense.ClientDx
         /// <param name="account"></param>
         private void DisplayCompare(ExpenseAccount account)
         {
-            this.electricCompareGridMod.SetAccount(account);
-            this.electricCompareChartMod.SetAccount(account);
+            this.electricCompareGridMod.SetAccount(account, EnergyExpenseType.Electric);
+            this.electricCompareChartMod.SetAccount(account, EnergyExpenseType.Electric);
 
-            this.waterCompareGridMod.SetAccount(account);
-            this.waterCompareChartMod.SetAccount(account);
+            this.waterCompareGridMod.SetAccount(account, EnergyExpenseType.Water);
+            this.waterCompareChartMod.SetAccount(account, EnergyExpenseType.Water);
         }
 
         /// <summary>

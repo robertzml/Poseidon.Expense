@@ -13,11 +13,12 @@ namespace Poseidon.Expense.ClientDx
     using Poseidon.Expense.ClientDx.Model;
     using Poseidon.Expense.Core.BL;
     using Poseidon.Expense.Core.DL;
+    using Poseidon.Expense.Core.Utility;
 
     /// <summary>
-    /// 用水支出比较表格控件
+    /// 能源支出比较表格控件
     /// </summary>
-    public partial class WaterCompareGridModule : DevExpress.XtraEditors.XtraUserControl
+    public partial class EnergyCompareGridModule : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
         /// <summary>
@@ -31,13 +32,18 @@ namespace Poseidon.Expense.ClientDx
         private ExpenseAccount currentAccount;
 
         /// <summary>
+        /// 能源支出类型
+        /// </summary>
+        private EnergyExpenseType energyType;
+
+        /// <summary>
         /// 能源比较对象
         /// </summary>
         private List<EnergyCompare> compareData;
         #endregion //Field
 
         #region Constructor
-        public WaterCompareGridModule()
+        public EnergyCompareGridModule()
         {
             InitializeComponent();
         }
@@ -78,14 +84,11 @@ namespace Poseidon.Expense.ClientDx
         }
 
         /// <summary>
-        /// 设置比较数据
+        /// 清空列数据
         /// </summary>
-        /// <param name="year"></param>
-        /// <param name="index"></param>
-        private void SetCompare(int year, int index)
+        /// <param name="index">列序号</param>
+        private void ClearColumnData(int index)
         {
-            var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(this.currentAccount.Id, year).ToList();
-
             if (index == 1)
             {
                 this.compareData.ForEach(r => r.QuantumFirst = 0);
@@ -96,7 +99,48 @@ namespace Poseidon.Expense.ClientDx
                 this.compareData.ForEach(r => r.QuantumSecond = 0);
                 this.compareData.ForEach(r => r.AmountSecond = 0);
             }
+        }
 
+        /// <summary>
+        /// 设置电能数据
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="index"></param>
+        private void SetElectricCompare(int year, int index)
+        {
+            var electricExpenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(this.currentAccount.Id, year).ToList();
+
+            ClearColumnData(index);
+            foreach (var item in electricExpenses)
+            {
+                var find = this.compareData.Find(r => r.ItemName == string.Format("{0}月", item.BelongDate.Month));
+
+                if (index == 1)
+                {
+                    find.QuantumFirst = item.TotalQuantity;
+                    find.AmountFirst = item.TotalAmount;
+                }
+                else if (index == 2)
+                {
+                    find.QuantumSecond = item.TotalQuantity;
+                    find.AmountSecond = item.TotalAmount;
+                }
+            }
+
+            this.energyGrid.SetTitle(index, year.ToString() + "年用电量(度)", year.ToString() + "年用电金额(元)");
+            this.energyGrid.UpdateBindingData();
+        }
+
+        /// <summary>
+        /// 设置用水数据
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="index"></param>
+        private void SetWaterCompare(int year, int index)
+        {
+            var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(this.currentAccount.Id, year).ToList();
+
+            ClearColumnData(index);
             foreach (var item in waterExpenses)
             {
                 var find = this.compareData.Find(r => r.ItemName == string.Format("{0}月", item.BelongDate.Month));
@@ -123,9 +167,14 @@ namespace Poseidon.Expense.ClientDx
         /// 设置关联支出账户
         /// </summary>
         /// <param name="account">支出账户</param>
-        public void SetAccount(ExpenseAccount account)
+        /// <param name="energyType">能源支出类型</param>
+        public void SetAccount(ExpenseAccount account, EnergyExpenseType energyType)
         {
             this.currentAccount = account;
+            this.energyType = energyType;
+
+            InitControls();
+            InitCompareData();
         }
 
         /// <summary>
@@ -137,25 +186,12 @@ namespace Poseidon.Expense.ClientDx
             this.chkQuantum.Checked = true;
             this.cmbFirst.SelectedIndex = -1;
             this.cmbSecond.SelectedIndex = -1;
+
             InitCompareData();
         }
         #endregion //Method
 
         #region Event
-        /// <summary>
-        /// 控件载入
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void WaterCompareGridModule_Load(object sender, EventArgs e)
-        {
-            if (!ControlUtil.IsInDesignMode())
-            {
-                InitControls();
-                InitCompareData();
-            }
-        }
-
         /// <summary>
         /// 选择数据1
         /// </summary>
@@ -167,7 +203,11 @@ namespace Poseidon.Expense.ClientDx
                 return;
 
             int year = Convert.ToInt32(this.cmbFirst.SelectedItem.ToString().Substring(0, 4));
-            SetCompare(year, 1);
+
+            if (this.energyType == EnergyExpenseType.Electric)
+                SetElectricCompare(year, 1);
+            else if (this.energyType == EnergyExpenseType.Water)
+                SetWaterCompare(year, 1);
         }
 
         /// <summary>
@@ -181,7 +221,11 @@ namespace Poseidon.Expense.ClientDx
                 return;
 
             int year = Convert.ToInt32(this.cmbSecond.SelectedItem.ToString().Substring(0, 4));
-            SetCompare(year, 2);
+
+            if (this.energyType == EnergyExpenseType.Electric)
+                SetElectricCompare(year, 2);
+            else if (this.energyType == EnergyExpenseType.Water)
+                SetWaterCompare(year, 2);
         }
 
         /// <summary>

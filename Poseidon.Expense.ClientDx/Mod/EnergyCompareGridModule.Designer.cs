@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Expense.ClientDx
 {
-    partial class WaterCompareGridModule
+    partial class EnergyCompareGridModule
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -32,15 +32,15 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chkAmount = new DevExpress.XtraEditors.CheckEdit();
             this.chkQuantum = new DevExpress.XtraEditors.CheckEdit();
+            this.energyGrid = new Poseidon.Expense.ClientDx.EnergyCompareGrid();
             this.cmbSecond = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbFirst = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.energyGrid = new Poseidon.Expense.ClientDx.EnergyCompareGrid();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -52,9 +52,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -63,8 +63,8 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(707, 461);
-            this.panelControl1.TabIndex = 0;
+            this.panelControl1.Size = new System.Drawing.Size(719, 497);
+            this.panelControl1.TabIndex = 1;
             // 
             // layoutControl1
             // 
@@ -77,17 +77,17 @@
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(703, 457);
+            this.layoutControl1.Size = new System.Drawing.Size(715, 493);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // chkAmount
             // 
             this.chkAmount.EditValue = true;
-            this.chkAmount.Location = new System.Drawing.Point(609, 12);
+            this.chkAmount.Location = new System.Drawing.Point(617, 12);
             this.chkAmount.Name = "chkAmount";
             this.chkAmount.Properties.Caption = "比较金额";
-            this.chkAmount.Size = new System.Drawing.Size(82, 19);
+            this.chkAmount.Size = new System.Drawing.Size(86, 19);
             this.chkAmount.StyleController = this.layoutControl1;
             this.chkAmount.TabIndex = 8;
             this.chkAmount.CheckedChanged += new System.EventHandler(this.chkAmount_CheckedChanged);
@@ -95,88 +95,13 @@
             // chkQuantum
             // 
             this.chkQuantum.EditValue = true;
-            this.chkQuantum.Location = new System.Drawing.Point(523, 12);
+            this.chkQuantum.Location = new System.Drawing.Point(525, 12);
             this.chkQuantum.Name = "chkQuantum";
             this.chkQuantum.Properties.Caption = "比较用量";
-            this.chkQuantum.Size = new System.Drawing.Size(82, 19);
+            this.chkQuantum.Size = new System.Drawing.Size(88, 19);
             this.chkQuantum.StyleController = this.layoutControl1;
             this.chkQuantum.TabIndex = 7;
             this.chkQuantum.CheckedChanged += new System.EventHandler(this.chkQuantum_CheckedChanged);
-            // 
-            // cmbSecond
-            // 
-            this.cmbSecond.Location = new System.Drawing.Point(320, 12);
-            this.cmbSecond.Name = "cmbSecond";
-            this.cmbSecond.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSecond.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSecond.Size = new System.Drawing.Size(199, 20);
-            this.cmbSecond.StyleController = this.layoutControl1;
-            this.cmbSecond.TabIndex = 5;
-            this.cmbSecond.SelectedIndexChanged += new System.EventHandler(this.cmbSecond_SelectedIndexChanged);
-            // 
-            // cmbFirst
-            // 
-            this.cmbFirst.Location = new System.Drawing.Point(46, 12);
-            this.cmbFirst.Name = "cmbFirst";
-            this.cmbFirst.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbFirst.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbFirst.Size = new System.Drawing.Size(236, 20);
-            this.cmbFirst.StyleController = this.layoutControl1;
-            this.cmbFirst.TabIndex = 4;
-            this.cmbFirst.SelectedIndexChanged += new System.EventHandler(this.cmbFirst_SelectedIndexChanged);
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(703, 457);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.cmbFirst;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(274, 24);
-            this.layoutControlItem1.Text = "选择1";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(31, 14);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.cmbSecond;
-            this.layoutControlItem2.Location = new System.Drawing.Point(274, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(237, 24);
-            this.layoutControlItem2.Text = "选择2";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(31, 14);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.chkQuantum;
-            this.layoutControlItem4.Location = new System.Drawing.Point(511, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(86, 24);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.chkAmount;
-            this.layoutControlItem5.Location = new System.Drawing.Point(597, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(86, 24);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // energyGrid
             // 
@@ -193,26 +118,100 @@
             this.energyGrid.ShowLineNumber = true;
             this.energyGrid.ShowMenu = false;
             this.energyGrid.ShowNavigator = false;
-            this.energyGrid.Size = new System.Drawing.Size(679, 409);
+            this.energyGrid.Size = new System.Drawing.Size(691, 445);
             this.energyGrid.TabIndex = 6;
+            // 
+            // cmbSecond
+            // 
+            this.cmbSecond.Location = new System.Drawing.Point(312, 12);
+            this.cmbSecond.Name = "cmbSecond";
+            this.cmbSecond.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSecond.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSecond.Size = new System.Drawing.Size(209, 20);
+            this.cmbSecond.StyleController = this.layoutControl1;
+            this.cmbSecond.TabIndex = 5;
+            this.cmbSecond.SelectedIndexChanged += new System.EventHandler(this.cmbSecond_SelectedIndexChanged);
+            // 
+            // cmbFirst
+            // 
+            this.cmbFirst.Location = new System.Drawing.Point(46, 12);
+            this.cmbFirst.Name = "cmbFirst";
+            this.cmbFirst.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFirst.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbFirst.Size = new System.Drawing.Size(228, 20);
+            this.cmbFirst.StyleController = this.layoutControl1;
+            this.cmbFirst.TabIndex = 4;
+            this.cmbFirst.SelectedIndexChanged += new System.EventHandler(this.cmbFirst_SelectedIndexChanged);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(715, 493);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.cmbFirst;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(266, 24);
+            this.layoutControlItem1.Text = "选择1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(31, 14);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.cmbSecond;
+            this.layoutControlItem2.Location = new System.Drawing.Point(266, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(247, 24);
+            this.layoutControlItem2.Text = "选择2";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(31, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.energyGrid;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(683, 413);
+            this.layoutControlItem3.Size = new System.Drawing.Size(695, 449);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // WaterCompareGridModule
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.chkQuantum;
+            this.layoutControlItem4.Location = new System.Drawing.Point(513, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(92, 24);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.chkAmount;
+            this.layoutControlItem5.Location = new System.Drawing.Point(605, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(90, 24);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // EnergyCompareGridModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "WaterCompareGridModule";
-            this.Size = new System.Drawing.Size(707, 461);
-            this.Load += new System.EventHandler(this.WaterCompareGridModule_Load);
+            this.Name = "EnergyCompareGridModule";
+            this.Size = new System.Drawing.Size(719, 497);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -224,9 +223,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,6 +234,8 @@
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraEditors.CheckEdit chkAmount;
+        private DevExpress.XtraEditors.CheckEdit chkQuantum;
         private EnergyCompareGrid energyGrid;
         private DevExpress.XtraEditors.ComboBoxEdit cmbSecond;
         private DevExpress.XtraEditors.ComboBoxEdit cmbFirst;
@@ -242,8 +243,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraEditors.CheckEdit chkAmount;
-        private DevExpress.XtraEditors.CheckEdit chkQuantum;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }

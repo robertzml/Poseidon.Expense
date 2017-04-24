@@ -11,6 +11,7 @@ namespace Poseidon.Expense.ClientDx
 {
     using Poseidon.Winform.Base;
     using Poseidon.Expense.Core.DL;
+    using Poseidon.Winform.Core.Utility;
 
     /// <summary>
     /// 电费支出记录表格控件
