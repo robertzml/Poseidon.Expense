@@ -29,5 +29,10 @@ namespace Poseidon.Expense.Test
         {
             ChildFormManage.LoadMdiForm(this, typeof(FrmExpenseReceipt));
         }
+
+        private void menuExpenseOverview_Click(object sender, EventArgs e)
+        {
+            ChildFormManage.LoadMdiForm(this, typeof(FrmExpenseOverview));
+        }
     }
 }

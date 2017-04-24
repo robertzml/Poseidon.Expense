@@ -61,6 +61,7 @@
             this.menuExpenseOverview.Name = "menuExpenseOverview";
             this.menuExpenseOverview.Size = new System.Drawing.Size(152, 22);
             this.menuExpenseOverview.Text = "支出总览";
+            this.menuExpenseOverview.Click += new System.EventHandler(this.menuExpenseOverview_Click);
             // 
             // menuExpenseReceipt
             // 
