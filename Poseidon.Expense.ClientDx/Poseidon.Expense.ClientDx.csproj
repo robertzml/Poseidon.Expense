@@ -245,7 +245,6 @@
     <Compile Include="Receipt\FrmWaterExpenseEdit.Designer.cs">
       <DependentUpon>FrmWaterExpenseEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\ControlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Account\FrmExpenseAccount.resx">

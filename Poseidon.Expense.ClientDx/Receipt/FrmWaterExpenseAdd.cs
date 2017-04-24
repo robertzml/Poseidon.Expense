@@ -12,6 +12,7 @@ namespace Poseidon.Expense.ClientDx
     using Poseidon.Base.Framework;
     using Poseidon.Base.System;
     using Poseidon.Winform.Base;
+    using Poseidon.Winform.Core.Utility;
     using Poseidon.Expense.Core.BL;
     using Poseidon.Expense.Core.DL;
 
@@ -44,6 +45,9 @@ namespace Poseidon.Expense.ClientDx
 
         protected override void InitForm()
         {
+            this.expenseGrid.Init();
+            this.previousGrid.Init();
+
             this.txtAccountName.Text = this.currentAccount.Name;
             this.dpTicketDate.DateTime = DateTime.Now;
             ControlUtil.BindDictToComboBox(this.cmbFeeType, typeof(WaterExpense), "FeeType");

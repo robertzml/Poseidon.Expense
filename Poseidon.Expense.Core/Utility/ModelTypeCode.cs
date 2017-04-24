@@ -15,7 +15,7 @@ namespace Poseidon.Expense.Core.Utility
         /// <summary>
         /// 支出账户模型
         /// </summary>
-        public static readonly string ExpenseAccount = "Energy.ExpenseAccount";
+        public static readonly string ExpenseAccount = "Expense.ExpenseAccount";
         #endregion //Field
     }
 }

@@ -23,7 +23,7 @@ namespace Poseidon.Expense.Core.DAL.Mongo
         /// </summary>
         public ElectricExpenseRepository()
         {
-            base.Init("energy_electricExpense");
+            base.Init("expense_electricExpense");
         }
         #endregion //Constructor
 

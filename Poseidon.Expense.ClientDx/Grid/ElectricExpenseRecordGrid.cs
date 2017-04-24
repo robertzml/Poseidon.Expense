@@ -25,19 +25,14 @@ namespace Poseidon.Expense.ClientDx
         }
         #endregion //Constructor
 
-        #region Event
+        #region Method
         /// <summary>
-        /// 控件载入
+        /// 初始化组件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ElectricExpenseRecordGrid_Load(object sender, EventArgs e)
+        public void Init()
         {
-            if (!ControlUtil.IsInDesignMode())
-            {
-                ControlUtil.BindDictToComboBox(this.repoCmbFeeType, typeof(ElectricExpenseRecord), "FeeType");
-            }
+            ControlUtil.BindDictToComboBox(this.repoCmbFeeType, typeof(ElectricExpenseRecord), "FeeType");
         }
-        #endregion //Event
+        #endregion //Method
     }
 }

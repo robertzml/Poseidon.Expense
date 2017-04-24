@@ -45,6 +45,18 @@ namespace Poseidon.Expense.ClientDx
         }
         #endregion //Method
 
+        #region Event
+        /// <summary>
+        /// 打印
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuPrint_Click(object sender, EventArgs e)
+        {
+            this.chartMain.ShowRibbonPrintPreview();
+        }
+        #endregion //Event
+
         #region Property
         /// <summary>
         /// 数据源

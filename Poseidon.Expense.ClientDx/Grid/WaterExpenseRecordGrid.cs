@@ -9,6 +9,7 @@ using System.Windows.Forms;
 namespace Poseidon.Expense.ClientDx
 {
     using Poseidon.Winform.Base;
+    using Poseidon.Winform.Core.Utility;
     using Poseidon.Expense.Core.DL;
 
     /// <summary>
@@ -23,19 +24,14 @@ namespace Poseidon.Expense.ClientDx
         }
         #endregion //Constructor
 
-        #region Event
+        #region Method
         /// <summary>
-        /// 控件载入
+        /// 初始化组件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void WaterExpenseRecordGrid_Load(object sender, EventArgs e)
+        public void Init()
         {
-            if (!ControlUtil.IsInDesignMode())
-            {
-                ControlUtil.BindDictToComboBox(this.repoCmbFeeType, typeof(WaterExpenseRecord), "FeeType");
-            }
+            ControlUtil.BindDictToComboBox(this.repoCmbFeeType, typeof(WaterExpenseRecord), "FeeType");
         }
-        #endregion //Event
+        #endregion //Method
     }
 }

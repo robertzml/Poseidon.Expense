@@ -23,7 +23,7 @@ namespace Poseidon.Expense.Core.DAL.Mongo
         /// </summary>
         public WaterExpenseRepository()
         {
-            base.Init("energy_waterExpense");
+            base.Init("expense_waterExpense");
         }
         #endregion //Constructor
 

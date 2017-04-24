@@ -53,6 +53,7 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void InitControls()
         {
+            this.ccbYears.Properties.Items.Clear();
             for (int i = nowYear; i >= startYear; i--)
             {
                 this.ccbYears.Properties.Items.Add(i.ToString() + "年");

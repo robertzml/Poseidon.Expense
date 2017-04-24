@@ -105,6 +105,7 @@ namespace Poseidon.Expense.ClientDx
         public void SetAccount(ExpenseAccount account)
         {
             this.currentAccount = account;
+            this.electricExpRecGrid.Init();
 
             LoadReceipts();
         }
