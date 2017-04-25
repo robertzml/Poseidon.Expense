@@ -469,12 +469,12 @@
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
             // 
-            // WaterExpenseReceipt
+            // WaterReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "WaterExpenseReceipt";
+            this.Name = "WaterReceipt";
             this.Size = new System.Drawing.Size(896, 477);
             this.Load += new System.EventHandler(this.WaterExpenseControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lbWaterReceipt)).EndInit();

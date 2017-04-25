@@ -58,8 +58,10 @@ namespace Poseidon.Expense.ClientDx
             {
                 LoadWater();
             }
-            //if (this.currentAccount.EnergyType.Contains(3))
-            //    this.chkType3.Checked = true;
+            if (this.currentAccount.EnergyType.Contains(3))
+            {
+                LoadGas();
+            }
             //if (this.currentAccount.EnergyType.Contains(4))
             //    this.chkType4.Checked = true;
         }
@@ -69,7 +71,6 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void LoadElectric()
         {
-            this.tabPageElectric.PageVisible = true;
             this.electricReceipt.SetAccount(this.currentAccount);
         }
 
@@ -78,8 +79,15 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void LoadWater()
         {
-            this.tabPageWater.PageVisible = true;
             this.waterReceipt.SetAccount(this.currentAccount);
+        }
+
+        /// <summary>
+        /// 载入气费相关数据
+        /// </summary>
+        private void LoadGas()
+        {
+            this.gasReceipt.SetAccount(this.currentAccount);
         }
         #endregion //Function
 

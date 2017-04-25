@@ -112,13 +112,13 @@
             this.plFill.Appearance.BackColor = System.Drawing.Color.White;
             this.plFill.Appearance.Options.UseBackColor = true;
             this.plFill.Controls.Add(this.tableLayoutPanel1);
-            this.plFill.Size = new System.Drawing.Size(884, 535);
+            this.plFill.Size = new System.Drawing.Size(884, 542);
             // 
             // plBottom
             // 
             this.plBottom.Appearance.BackColor = System.Drawing.Color.White;
             this.plBottom.Appearance.Options.UseBackColor = true;
-            this.plBottom.Location = new System.Drawing.Point(0, 535);
+            this.plBottom.Location = new System.Drawing.Point(0, 542);
             this.plBottom.Size = new System.Drawing.Size(884, 60);
             // 
             // tableLayoutPanel1
@@ -136,7 +136,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 535);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(884, 542);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupControl3
@@ -145,7 +145,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(3, 363);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(878, 169);
+            this.groupControl3.Size = new System.Drawing.Size(878, 176);
             this.groupControl3.TabIndex = 3;
             this.groupControl3.Text = "上期记录";
             // 
@@ -157,7 +157,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(2, 21);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(874, 146);
+            this.layoutControl2.Size = new System.Drawing.Size(874, 153);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -168,13 +168,15 @@
             this.previousGrid.AllowSort = false;
             this.previousGrid.DataSource = null;
             this.previousGrid.Editable = false;
+            this.previousGrid.EnableMasterView = false;
             this.previousGrid.Location = new System.Drawing.Point(2, 26);
             this.previousGrid.Name = "previousGrid";
             this.previousGrid.ShowAddMenu = false;
             this.previousGrid.ShowFooter = false;
             this.previousGrid.ShowLineNumber = true;
+            this.previousGrid.ShowMenu = false;
             this.previousGrid.ShowNavigator = false;
-            this.previousGrid.Size = new System.Drawing.Size(870, 118);
+            this.previousGrid.Size = new System.Drawing.Size(870, 125);
             this.previousGrid.TabIndex = 1;
             // 
             // txtPreviousDate
@@ -198,7 +200,7 @@
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(874, 146);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(874, 153);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem9
@@ -215,7 +217,7 @@
             this.layoutControlItem10.Control = this.previousGrid;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(874, 122);
+            this.layoutControlItem10.Size = new System.Drawing.Size(874, 129);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -237,11 +239,13 @@
             this.expenseGrid.DataSource = null;
             this.expenseGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.expenseGrid.Editable = true;
+            this.expenseGrid.EnableMasterView = false;
             this.expenseGrid.Location = new System.Drawing.Point(2, 21);
             this.expenseGrid.Name = "expenseGrid";
             this.expenseGrid.ShowAddMenu = false;
             this.expenseGrid.ShowFooter = true;
             this.expenseGrid.ShowLineNumber = true;
+            this.expenseGrid.ShowMenu = false;
             this.expenseGrid.ShowNavigator = true;
             this.expenseGrid.Size = new System.Drawing.Size(874, 171);
             this.expenseGrid.TabIndex = 0;
@@ -480,12 +484,12 @@
             this.layoutControlItem11.Text = "费用类型";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(70, 14);
             // 
-            // FrmExpenseWaterEdit
+            // FrmWaterExpenseEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 595);
-            this.Name = "FrmExpenseWaterEdit";
+            this.ClientSize = new System.Drawing.Size(884, 602);
+            this.Name = "FrmWaterExpenseEdit";
             this.Text = "编辑水费支出";
             ((System.ComponentModel.ISupportInitialize)(this.plFill)).EndInit();
             this.plFill.ResumeLayout(false);

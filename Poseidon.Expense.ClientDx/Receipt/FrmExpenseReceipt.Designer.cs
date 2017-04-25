@@ -39,6 +39,8 @@
             this.electricReceipt = new Poseidon.Expense.ClientDx.ElectricReceipt();
             this.tabPageWater = new DevExpress.XtraTab.XtraTabPage();
             this.waterReceipt = new Poseidon.Expense.ClientDx.WaterReceipt();
+            this.tabPageGas = new DevExpress.XtraTab.XtraTabPage();
+            this.gasReceipt = new Poseidon.Expense.ClientDx.GasReceipt();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -49,6 +51,7 @@
             this.tabPageInfo.SuspendLayout();
             this.tabPageElectric.SuspendLayout();
             this.tabPageWater.SuspendLayout();
+            this.tabPageGas.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -79,6 +82,7 @@
             // 
             // groupTree
             // 
+            this.groupTree.CascadeOrganization = false;
             this.groupTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupTree.Location = new System.Drawing.Point(2, 21);
             this.groupTree.Name = "groupTree";
@@ -108,7 +112,8 @@
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageInfo,
             this.tabPageElectric,
-            this.tabPageWater});
+            this.tabPageWater,
+            this.tabPageGas});
             // 
             // tabPageInfo
             // 
@@ -129,7 +134,6 @@
             // 
             this.tabPageElectric.Controls.Add(this.electricReceipt);
             this.tabPageElectric.Name = "tabPageElectric";
-            this.tabPageElectric.PageVisible = false;
             this.tabPageElectric.Size = new System.Drawing.Size(693, 481);
             this.tabPageElectric.Text = "电费单据";
             // 
@@ -146,7 +150,6 @@
             // 
             this.tabPageWater.Controls.Add(this.waterReceipt);
             this.tabPageWater.Name = "tabPageWater";
-            this.tabPageWater.PageVisible = false;
             this.tabPageWater.Size = new System.Drawing.Size(693, 481);
             this.tabPageWater.Text = "水费单据";
             // 
@@ -158,6 +161,22 @@
             this.waterReceipt.Name = "waterReceipt";
             this.waterReceipt.Size = new System.Drawing.Size(693, 481);
             this.waterReceipt.TabIndex = 0;
+            // 
+            // tabPageGas
+            // 
+            this.tabPageGas.Controls.Add(this.gasReceipt);
+            this.tabPageGas.Name = "tabPageGas";
+            this.tabPageGas.Size = new System.Drawing.Size(693, 481);
+            this.tabPageGas.Text = "气费单据";
+            // 
+            // gasReceipt
+            // 
+            this.gasReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gasReceipt.Editable = true;
+            this.gasReceipt.Location = new System.Drawing.Point(0, 0);
+            this.gasReceipt.Name = "gasReceipt";
+            this.gasReceipt.Size = new System.Drawing.Size(693, 481);
+            this.gasReceipt.TabIndex = 0;
             // 
             // FrmExpenseReceipt
             // 
@@ -177,6 +196,7 @@
             this.tabPageInfo.ResumeLayout(false);
             this.tabPageElectric.ResumeLayout(false);
             this.tabPageWater.ResumeLayout(false);
+            this.tabPageGas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -194,5 +214,7 @@
         private AccountInfoModule ctrAccountInfo;
         private ElectricReceipt electricReceipt;
         private Winform.Core.GroupChildrenTree groupTree;
+        private DevExpress.XtraTab.XtraTabPage tabPageGas;
+        private GasReceipt gasReceipt;
     }
 }
