@@ -63,9 +63,14 @@ namespace Poseidon.Expense.ClientDx
                 return;
 
             this.currentAccount = this.lbAccount.SelectedItem as ExpenseAccount;
+
+            this.txtName.Text = this.currentAccount.Name;
+            this.txtShortName.Text = this.currentAccount.ShortName;
+            this.txtRemark.Text = this.currentAccount.Remark;
+
             this.electricGrid.DataSource = this.currentAccount.ElectricMeters;
             this.waterGrid.DataSource = this.currentAccount.WaterMeters;
-            this.txtName.Text = this.currentAccount.Name;
+            this.gasGrid.DataSource = this.currentAccount.GasMeters;
         }
 
         /// <summary>
@@ -118,6 +123,20 @@ namespace Poseidon.Expense.ClientDx
                 return;
 
             ChildFormManage.ShowDialogForm(typeof(FrmWaterMeterSet), new object[] { this.currentAccount.Id });
+            LoadAccount();
+        }
+
+        /// <summary>
+        /// 设置气表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSetGas_Click(object sender, EventArgs e)
+        {
+            if (this.currentAccount == null)
+                return;
+
+            ChildFormManage.ShowDialogForm(typeof(FrmGasMeterSet), new object[] { this.currentAccount.Id });
             LoadAccount();
         }
         #endregion //Event
