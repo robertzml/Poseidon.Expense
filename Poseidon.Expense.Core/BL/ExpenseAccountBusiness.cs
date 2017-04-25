@@ -49,6 +49,18 @@ namespace Poseidon.Expense.Core.BL
             entity.WaterMeters = meters;
             this.baseDal.Update(entity);
         }
+
+        /// <summary>
+        /// 设置气表
+        /// </summary>
+        /// <param name="id">账户ID</param>
+        /// <param name="meters">气表列表</param>
+        public void SetGasMeters(string id, List<GasMeter> meters)
+        {
+            var entity = this.baseDal.FindById(id);
+            entity.GasMeters = meters;
+            this.baseDal.Update(entity);
+        }
         #endregion //Method
     }
 }

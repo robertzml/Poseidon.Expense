@@ -38,6 +38,12 @@ namespace Poseidon.Expense.Core.DL
         /// </summary>
         [Display(Name = "包含水表")]
         public List<WaterMeter> WaterMeters { get; set; }
+
+        /// <summary>
+        /// 包含气表
+        /// </summary>
+        [Display(Name = "包含气表")]
+        public List<GasMeter> GasMeters { get; set; }
         #endregion //Property
     }
 }
