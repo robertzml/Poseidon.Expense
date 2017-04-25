@@ -54,6 +54,10 @@ namespace Poseidon.Expense.ClientDx
                     this.colQuantum.Caption = "用水量(吨)";
                     this.colUnitPrice.Caption = "单价(元/吨)";
                     break;
+                case EnergyExpenseType.Gas:
+                    this.colQuantum.Caption = "用气量(立方)";
+                    this.colUnitPrice.Caption = "单价(元/立方)";
+                    break;
             }
         }
 

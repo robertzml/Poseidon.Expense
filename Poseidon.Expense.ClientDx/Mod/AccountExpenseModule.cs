@@ -54,12 +54,15 @@ namespace Poseidon.Expense.ClientDx
             this.currentYearWaterChart.Clear();
 
             this.electricCompareGridMod.Clear();
-            this.electricCompareChartMod.Clear();
+            this.electricCompareChartMod.Clear();            
             this.waterCompareGridMod.Clear();
             this.waterCompareChartMod.Clear();
+            this.gasCompareGridMod.Clear();
+            this.gasCompareChartMod.Clear();
 
             this.electricYearGridMod.Clear();
             this.waterYearGridMod.Clear();
+            this.gasYearGridMod.Clear();
         }
 
         /// <summary>
@@ -100,6 +103,10 @@ namespace Poseidon.Expense.ClientDx
                 this.currentYearElectricChart.SetChartTitle(string.Format("{0}{1}年电量消耗", account.ShortName, this.nowYear));
                 this.currentYearElectricChart.SetDataSource(data);
             }
+            else
+            {
+                this.electricMeterGrid.DataSource = null;
+            }
 
             //用水
             if (account.EnergyType.Contains(2))
@@ -130,6 +137,20 @@ namespace Poseidon.Expense.ClientDx
                 this.currentYearWaterChart.SetChartTitle(string.Format("{0}{1}年水量消耗", account.ShortName, this.nowYear));
                 this.currentYearWaterChart.SetDataSource(data);
             }
+            else
+            {
+                this.waterMeterGrid.DataSource = null;
+            }
+
+            //用气
+            if (account.EnergyType.Contains(3))
+            {
+                this.gasMeterGrid.DataSource = account.GasMeters;
+            }
+            else
+            {
+                this.gasMeterGrid.DataSource = null;
+            }
         }
 
         /// <summary>
@@ -138,9 +159,29 @@ namespace Poseidon.Expense.ClientDx
         /// <param name="account"></param>
         private void DisplayReceipt(ExpenseAccount account)
         {
-            this.electricExpenseReceipt.SetAccount(account);
+            if (account.EnergyType.Contains(1))
+            {
+                this.tabPageElectricReceipt.PageVisible = true;
+                this.electricExpenseReceipt.SetAccount(account);
+            }
+            else
+                this.tabPageElectricReceipt.PageVisible = false;
 
-            this.waterExpenseReceipt.SetAccount(account);
+            if (account.EnergyType.Contains(2))
+            {
+                this.tabPageWaterReceipt.PageVisible = true;
+                this.waterExpenseReceipt.SetAccount(account);
+            }
+            else
+                this.tabPageWaterReceipt.PageVisible = false;
+
+            if (account.EnergyType.Contains(3))
+            {
+                this.tabPageGasReceipt.PageVisible = true;
+                this.gasExpenseReceipt.SetAccount(account);
+            }
+            else
+                this.tabPageGasReceipt.PageVisible = false;
         }
 
         /// <summary>
@@ -154,6 +195,9 @@ namespace Poseidon.Expense.ClientDx
 
             this.waterCompareGridMod.SetAccount(account, EnergyExpenseType.Water);
             this.waterCompareChartMod.SetAccount(account, EnergyExpenseType.Water);
+
+            this.gasCompareGridMod.SetAccount(account, EnergyExpenseType.Gas);
+            this.gasCompareChartMod.SetAccount(account, EnergyExpenseType.Gas);
         }
 
         /// <summary>
@@ -162,59 +206,112 @@ namespace Poseidon.Expense.ClientDx
         /// <param name="account"></param>
         private async void DisplayYear(ExpenseAccount account)
         {
-            var task1 = Task.Run(() =>
+            if (account.EnergyType.Contains(1))
             {
-                List<EnergyExpense> data = new List<EnergyExpense>();
-                for (int i = startYear; i <= nowYear; i++)
+                this.tabPageElectricYear.PageVisible = true;
+                var task1 = Task.Run(() =>
                 {
-                    var yearData = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, i);
-                    if (yearData.Count() == 0)
-                        continue;
+                    List<EnergyExpense> data = new List<EnergyExpense>();
+                    for (int i = startYear; i <= nowYear; i++)
+                    {
+                        var yearData = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, i);
+                        if (yearData.Count() == 0)
+                            continue;
 
-                    EnergyExpense energyExpense = new EnergyExpense();
-                    energyExpense.BelongDate = new DateTime(i, 1, 1);
-                    energyExpense.Quantum = yearData.Sum(r => r.TotalQuantity);
-                    energyExpense.Amount = yearData.Sum(r => r.TotalAmount);
+                        EnergyExpense energyExpense = new EnergyExpense();
+                        energyExpense.BelongDate = new DateTime(i, 1, 1);
+                        energyExpense.Quantum = yearData.Sum(r => r.TotalQuantity);
+                        energyExpense.Amount = yearData.Sum(r => r.TotalAmount);
 
-                    data.Add(energyExpense);
-                }
+                        data.Add(energyExpense);
+                    }
 
-                return data;
-            });
+                    return data;
+                });
 
-            var result1 = await task1;
+                var result1 = await task1;
 
-            this.electricYearChart.SetChartTitle(account.ShortName + "历年用电对比");
-            this.electricYearChart.SetSeriesLengedText(0, "用电量(度)");
-            this.electricYearChart.DataSource = result1;
+                this.electricYearChart.SetChartTitle(account.ShortName + "历年用电对比");
+                this.electricYearChart.SetSeriesLengedText(0, "用电量(度)");
+                this.electricYearChart.DataSource = result1;
 
-            var task2 = Task.Run(() =>
+                this.electricYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Electric);
+            }
+            else
             {
-                List<EnergyExpense> data = new List<EnergyExpense>();
-                for (int i = startYear; i <= nowYear; i++)
+                this.tabPageElectricYear.PageVisible = false;
+            }
+
+            if (account.EnergyType.Contains(2))
+            {
+                this.tabPageWaterYear.PageVisible = true;
+
+                var task2 = Task.Run(() =>
                 {
-                    var yearData = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, i);
-                    if (yearData.Count() == 0)
-                        continue;
+                    List<EnergyExpense> data = new List<EnergyExpense>();
+                    for (int i = startYear; i <= nowYear; i++)
+                    {
+                        var yearData = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, i);
+                        if (yearData.Count() == 0)
+                            continue;
 
-                    EnergyExpense energyExpense = new EnergyExpense();
-                    energyExpense.BelongDate = new DateTime(i, 1, 1);
-                    energyExpense.Quantum = yearData.Sum(r => r.TotalQuantity);
-                    energyExpense.Amount = yearData.Sum(r => r.TotalAmount);
+                        EnergyExpense energyExpense = new EnergyExpense();
+                        energyExpense.BelongDate = new DateTime(i, 1, 1);
+                        energyExpense.Quantum = yearData.Sum(r => r.TotalQuantity);
+                        energyExpense.Amount = yearData.Sum(r => r.TotalAmount);
 
-                    data.Add(energyExpense);
-                }
-                return data;
-            });
+                        data.Add(energyExpense);
+                    }
+                    return data;
+                });
 
-            var result2 = await task2;
+                var result2 = await task2;
 
-            this.waterYearChart.SetChartTitle(account.ShortName + "历年用水对比");
-            this.waterYearChart.SetSeriesLengedText(0, "用水量(吨)");
-            this.waterYearChart.DataSource = result2;
+                this.waterYearChart.SetChartTitle(account.ShortName + "历年用水对比");
+                this.waterYearChart.SetSeriesLengedText(0, "用水量(吨)");
+                this.waterYearChart.DataSource = result2;
 
-            this.electricYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Electric);
-            this.waterYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Water);
+                this.waterYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Water);
+            }
+            else
+            {
+                this.tabPageWaterYear.PageVisible = false;
+            }
+
+            if (account.EnergyType.Contains(3))
+            {
+                this.tabPageGasYear.PageVisible = true;
+                var task3 = Task.Run(() =>
+                {
+                    List<EnergyExpense> data = new List<EnergyExpense>();
+                    for (int i = startYear; i <= nowYear; i++)
+                    {
+                        var yearData = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, i);
+                        if (yearData.Count() == 0)
+                            continue;
+
+                        EnergyExpense energyExpense = new EnergyExpense();
+                        energyExpense.BelongDate = new DateTime(i, 1, 1);
+                        energyExpense.Quantum = yearData.Sum(r => r.TotalQuantity);
+                        energyExpense.Amount = yearData.Sum(r => r.TotalAmount);
+
+                        data.Add(energyExpense);
+                    }
+                    return data;
+                });
+
+                var result3 = await task3;
+
+                this.gasYearChart.SetChartTitle(account.ShortName + "历年用气对比");
+                this.gasYearChart.SetSeriesLengedText(0, "用气量(立方)");
+                this.gasYearChart.DataSource = result3;
+
+                this.gasYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Gas);
+            }
+            else
+            {
+                this.tabPageGasYear.PageVisible = false;
+            }
         }
         #endregion //Function
 

@@ -86,11 +86,19 @@ namespace Poseidon.Expense.ClientDx
                     this.expenseGrid.DataSource = data1;
                     this.expenseGrid.ShowUnitPrice = false;
                     this.expenseGrid.ShowAddition("功率因数奖(元)");
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Electric);
                     break;
                 case EnergyExpenseType.Water:
                     var data2 = await LoadWater(account, year);
                     this.expenseGrid.DataSource = data2;
                     this.expenseGrid.ShowUnitPrice = true;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Water);
+                    break;
+                case EnergyExpenseType.Gas:
+                    var data3 = await LoadGas(account, year);
+                    this.expenseGrid.DataSource = data3;
+                    this.expenseGrid.ShowUnitPrice = true;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas);
                     break;
             }
         }
@@ -117,6 +125,12 @@ namespace Poseidon.Expense.ClientDx
                     this.expenseGrid.DataSource = data2;
                     this.expenseGrid.ShowUnitPrice = true;
                     this.expenseGrid.SetEnergyType(EnergyExpenseType.Water);
+                    break;
+                case EnergyExpenseType.Gas:
+                    var data3 = await LoadGas(group, year);
+                    this.expenseGrid.DataSource = data3;
+                    this.expenseGrid.ShowUnitPrice = true;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas);
                     break;
             }
         }
@@ -238,6 +252,77 @@ namespace Poseidon.Expense.ClientDx
                 foreach (var item in items)
                 {
                     var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.OrganizationId, year);
+                    foreach (var exp in expense)
+                    {
+                        var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        if (energyExpense != null)
+                        {
+                            energyExpense.Amount += exp.TotalAmount;
+                            energyExpense.Quantum += exp.TotalQuantity;
+                        }
+                        else
+                        {
+                            var model = new EnergyExpense();
+                            model.BelongDate = exp.BelongDate;
+                            model.Quantum = exp.TotalQuantity;
+                            model.Amount = exp.TotalAmount;
+                            model.UnitPrice = exp.TotalAmount / exp.TotalQuantity;
+
+                            waterData.Add(model);
+                        }
+                    }
+                }
+
+                return waterData;
+            });
+
+            return await task;
+        }
+
+        /// <summary>
+        /// 载入气费支出
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        private async Task<List<EnergyExpense>> LoadGas(ExpenseAccount account, int year)
+        {
+            var task = Task.Run(() =>
+            {
+                List<EnergyExpense> expenseData = new List<EnergyExpense>();
+                var waterExpense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year);
+
+                foreach (var exp in waterExpense)
+                {
+                    var model = new EnergyExpense();
+                    model.BelongDate = exp.BelongDate;
+                    model.Quantum = exp.TotalQuantity;
+                    model.Amount = exp.TotalAmount;
+                    model.UnitPrice = exp.TotalAmount / exp.TotalQuantity;
+
+                    expenseData.Add(model);
+                }
+                return expenseData;
+            });
+
+            return await task;
+        }
+
+        /// <summary>
+        /// 载入气费支出
+        /// </summary>
+        /// <param name="group"></param>
+        /// <param name="year"></param>
+        private async Task<List<EnergyExpense>> LoadGas(Group group, int year)
+        {
+            var task = Task.Run(() =>
+            {
+                var items = BusinessFactory<GroupBusiness>.Instance.FindAllItems(group.Id);
+
+                List<EnergyExpense> waterData = new List<EnergyExpense>();
+                foreach (var item in items)
+                {
+                    var expense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(item.OrganizationId, year);
                     foreach (var exp in expense)
                     {
                         var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);

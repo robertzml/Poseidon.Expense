@@ -145,6 +145,7 @@ namespace Poseidon.Expense.ClientDx
         {
             this.electricYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Electric);
             this.waterYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Water);
+            this.gasYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Gas);
         }
         #endregion //Function
 
