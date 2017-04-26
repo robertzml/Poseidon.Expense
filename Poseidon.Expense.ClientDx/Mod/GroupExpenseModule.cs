@@ -72,7 +72,7 @@ namespace Poseidon.Expense.ClientDx
 
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(item.OrganizationId, year);
+                    var expense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
                     foreach (var exp in expense)
                     {
                         var energyExpense = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
@@ -108,7 +108,7 @@ namespace Poseidon.Expense.ClientDx
                 List<EnergyExpense> waterData = new List<EnergyExpense>();
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.OrganizationId, year);
+                    var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
                     foreach (var exp in expense)
                     {
                         var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);

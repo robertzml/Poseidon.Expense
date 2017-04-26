@@ -50,18 +50,31 @@ namespace Poseidon.Expense.ClientDx
         {
             this.ctrAccountInfo.SetAccount(this.currentAccount);
 
+
             if (this.currentAccount.EnergyType.Contains(1))
             {
+                this.tabPageElectric.PageVisible = true;
                 LoadElectric();
             }
+            else
+                this.tabPageElectric.PageVisible = false;
+
             if (this.currentAccount.EnergyType.Contains(2))
             {
+                this.tabPageWater.PageVisible = true;
                 LoadWater();
             }
+            else
+                this.tabPageWater.PageVisible = false;
+
             if (this.currentAccount.EnergyType.Contains(3))
             {
+                this.tabPageGas.PageVisible = true;
                 LoadGas();
             }
+            else
+                this.tabPageGas.PageVisible = false;
+
             //if (this.currentAccount.EnergyType.Contains(4))
             //    this.chkType4.Checked = true;
         }
@@ -97,7 +110,7 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void groupTree_OrganizationSelected(object sender, EventArgs e)
+        private void groupTree_EntitySelected(object sender, EventArgs e)
         {
             string id = this.groupTree.GetCurrentSelectId();
             if (id == null)

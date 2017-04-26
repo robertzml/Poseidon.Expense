@@ -63,7 +63,7 @@
             // 
             // groupTree
             // 
-            this.groupTree.CascadeOrganization = false;
+            this.groupTree.CascadeEntity = false;
             this.groupTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupTree.Location = new System.Drawing.Point(2, 21);
             this.groupTree.Name = "groupTree";
@@ -71,7 +71,7 @@
             this.groupTree.Size = new System.Drawing.Size(193, 564);
             this.groupTree.TabIndex = 1;
             this.groupTree.GroupSelected += new System.EventHandler(this.groupTree_GroupSelected);
-            this.groupTree.OrganizationSelected += new System.EventHandler(this.groupTree_OrganizationSelected);
+            this.groupTree.EntitySelected += new System.EventHandler(this.groupTree_EntitySelected);
             // 
             // bsWaterExpense
             // 

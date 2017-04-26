@@ -56,7 +56,7 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void groupTree_OrganizationSelected(object sender, EventArgs e)
+        private void groupTree_EntitySelected(object sender, EventArgs e)
         {
             this.navFrame.SelectedPageIndex = 1;
             var accountId = this.groupTree.GetCurrentSelectId();

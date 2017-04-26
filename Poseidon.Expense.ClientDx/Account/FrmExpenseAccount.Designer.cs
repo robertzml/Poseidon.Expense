@@ -422,7 +422,7 @@
             // 
             this.tabPageWater.Controls.Add(this.waterGrid);
             this.tabPageWater.Name = "tabPageWater";
-            this.tabPageWater.Size = new System.Drawing.Size(618, 247);
+            this.tabPageWater.Size = new System.Drawing.Size(618, 227);
             this.tabPageWater.Text = "水表";
             // 
             // waterGrid
@@ -441,14 +441,14 @@
             this.waterGrid.ShowLineNumber = true;
             this.waterGrid.ShowMenu = false;
             this.waterGrid.ShowNavigator = false;
-            this.waterGrid.Size = new System.Drawing.Size(618, 247);
+            this.waterGrid.Size = new System.Drawing.Size(618, 227);
             this.waterGrid.TabIndex = 4;
             // 
             // tabPageGas
             // 
             this.tabPageGas.Controls.Add(this.gasGrid);
             this.tabPageGas.Name = "tabPageGas";
-            this.tabPageGas.Size = new System.Drawing.Size(618, 247);
+            this.tabPageGas.Size = new System.Drawing.Size(618, 227);
             this.tabPageGas.Text = "气表";
             // 
             // gasGrid
@@ -467,7 +467,7 @@
             this.gasGrid.ShowLineNumber = true;
             this.gasGrid.ShowMenu = false;
             this.gasGrid.ShowNavigator = false;
-            this.gasGrid.Size = new System.Drawing.Size(618, 247);
+            this.gasGrid.Size = new System.Drawing.Size(618, 227);
             this.gasGrid.TabIndex = 0;
             // 
             // FrmExpenseAccount
