@@ -65,10 +65,11 @@ namespace Poseidon.Expense.ClientDx
         /// 显示附加数据列
         /// </summary>
         /// <param name="caption">标题</param>
-        public void ShowAddition(string caption)
+        /// <param name="visible">是否显示</param>
+        public void ShowAddition(string caption, bool visible = true)
         {
             this.colAdditionData.Caption = caption;
-            this.colAdditionData.Visible = true;
+            this.colAdditionData.Visible = visible;
         }
         #endregion //Method
 
