@@ -33,9 +33,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
             this.txtGroupName = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.currentYearElectricGrid = new Poseidon.Expense.ClientDx.EnergyExpenseYearGrid();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
@@ -60,9 +62,11 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -132,6 +136,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtRemark);
             this.layoutControl1.Controls.Add(this.txtGroupName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 21);
@@ -140,6 +145,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(664, 111);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(63, 36);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Properties.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.txtRemark.Properties.Appearance.Options.UseBackColor = true;
+            this.txtRemark.Properties.ReadOnly = true;
+            this.txtRemark.Size = new System.Drawing.Size(589, 63);
+            this.txtRemark.StyleController = this.layoutControl1;
+            this.txtRemark.TabIndex = 5;
             // 
             // txtGroupName
             // 
@@ -157,7 +173,8 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(664, 111);
@@ -168,9 +185,18 @@
             this.layoutControlItem1.Control = this.txtGroupName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(644, 91);
+            this.layoutControlItem1.Size = new System.Drawing.Size(644, 24);
             this.layoutControlItem1.Text = "分组名称";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(48, 14);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txtRemark;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(644, 67);
+            this.layoutControlItem2.Text = "备注";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // groupControl2
             // 
@@ -367,9 +393,11 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -417,5 +445,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevExpress.XtraEditors.GroupControl groupControl6;
         private ExpenseYearModule gasYearGridMod;
+        private DevExpress.XtraEditors.MemoEdit txtRemark;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

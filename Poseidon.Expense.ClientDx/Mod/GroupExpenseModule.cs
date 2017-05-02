@@ -49,6 +49,9 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void ClearDisplay()
         {
+            this.txtGroupName.Text = "";
+            this.txtRemark.Text = "";
+
             this.currentYearElectricGrid.Clear();
             this.currentYearWaterGrid.Clear();
 
@@ -63,6 +66,7 @@ namespace Poseidon.Expense.ClientDx
         private async void DisplaySummary(Group group)
         {
             this.txtGroupName.Text = group.Name;
+            this.txtRemark.Text = group.Remark;
 
             var items = BusinessFactory<GroupBusiness>.Instance.FindAllItems(group.Id);
 
