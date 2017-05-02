@@ -18,21 +18,11 @@ namespace Poseidon.Expense.ClientDx
     using Poseidon.Expense.Core.Utility;
 
     /// <summary>
-    /// 年度支出模块
+    /// 年度支出图表模块
     /// </summary>
-    public partial class ExpenseYearModule : DevExpress.XtraEditors.XtraUserControl
+    public partial class ExpenseYearChartModule : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
-        /// <summary>
-        /// 是否显示单价列
-        /// </summary>
-        private bool showUnitPrice = true;
-
-        /// <summary>
-        /// 是否显示附加数据
-        /// </summary>
-        private bool showAdditionData = false;
-
         /// <summary>
         /// 当前关联账户
         /// </summary>
@@ -59,7 +49,7 @@ namespace Poseidon.Expense.ClientDx
         #endregion //Field
 
         #region Constructor
-        public ExpenseYearModule()
+        public ExpenseYearChartModule()
         {
             InitializeComponent();
         }
@@ -93,22 +83,24 @@ namespace Poseidon.Expense.ClientDx
             {
                 case EnergyExpenseType.Electric:
                     var data1 = await LoadElectric(account, year);
-                    this.expenseGrid.ShowUnitPrice = false;
-                    this.expenseGrid.ShowAddition("功率因数奖(元)");
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Electric);
-                    this.expenseGrid.DataSource = data1;
+                    this.energyChart.SetChartTitle($"{account.Name}{year}年用电情况");
+                    this.energyChart.SetSeriesName(0, "用量(度)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data1);
                     break;
                 case EnergyExpenseType.Water:
                     var data2 = await LoadWater(account, year);
-                    this.expenseGrid.ShowUnitPrice = true;
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Water);
-                    this.expenseGrid.DataSource = data2;
+                    this.energyChart.SetChartTitle($"{account.Name}{year}年用水情况");
+                    this.energyChart.SetSeriesName(0, "用量(吨)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data2);
                     break;
                 case EnergyExpenseType.Gas:
                     var data3 = await LoadGas(account, year);
-                    this.expenseGrid.ShowUnitPrice = true;
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas);
-                    this.expenseGrid.DataSource = data3;
+                    this.energyChart.SetChartTitle($"{account.Name}{year}年用气情况");
+                    this.energyChart.SetSeriesName(0, "用量(立方)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data3);
                     break;
             }
         }
@@ -125,22 +117,24 @@ namespace Poseidon.Expense.ClientDx
             {
                 case EnergyExpenseType.Electric:
                     var data1 = await LoadElectric(group, year);
-                    this.expenseGrid.ShowUnitPrice = false;
-                    this.expenseGrid.ShowAddition("功率因数奖(元)");
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Electric);
-                    this.expenseGrid.DataSource = data1;
+                    this.energyChart.SetChartTitle($"{group.Name}{year}年用电情况");     
+                    this.energyChart.SetSeriesName(0, "用量(度)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data1);
                     break;
                 case EnergyExpenseType.Water:
                     var data2 = await LoadWater(group, year);
-                    this.expenseGrid.ShowUnitPrice = true;
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Water);
-                    this.expenseGrid.DataSource = data2;
+                    this.energyChart.SetChartTitle($"{group.Name}{year}年用水情况");
+                    this.energyChart.SetSeriesName(0, "用量(吨)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data2);
                     break;
                 case EnergyExpenseType.Gas:
                     var data3 = await LoadGas(group, year);
-                    this.expenseGrid.ShowUnitPrice = true;
-                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas);
-                    this.expenseGrid.DataSource = data3;
+                    this.energyChart.SetChartTitle($"{group.Name}{year}年用气情况");
+                    this.energyChart.SetSeriesName(0, "用量(立方)");
+                    this.energyChart.SetSeriesName(1, "金额(元)");
+                    this.energyChart.SetDataSource(data3);
                     break;
             }
         }
@@ -300,9 +294,9 @@ namespace Poseidon.Expense.ClientDx
             var task = Task.Run(() =>
             {
                 List<EnergyExpense> expenseData = new List<EnergyExpense>();
-                var waterExpense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year);
+                var gasExpense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year);
 
-                foreach (var exp in waterExpense)
+                foreach (var exp in gasExpense)
                 {
                     var model = new EnergyExpense();
                     model.BelongDate = exp.BelongDate;
@@ -329,13 +323,13 @@ namespace Poseidon.Expense.ClientDx
             {
                 var items = BusinessFactory<GroupBusiness>.Instance.FindAllItems(group.Id);
 
-                List<EnergyExpense> waterData = new List<EnergyExpense>();
+                List<EnergyExpense> gasData = new List<EnergyExpense>();
                 foreach (var item in items)
                 {
                     var expense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
                     foreach (var exp in expense)
                     {
-                        var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        var energyExpense = gasData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
                         if (energyExpense != null)
                         {
                             energyExpense.Amount += exp.TotalAmount;
@@ -349,12 +343,12 @@ namespace Poseidon.Expense.ClientDx
                             model.Amount = exp.TotalAmount;
                             model.UnitPrice = exp.TotalAmount / exp.TotalQuantity;
 
-                            waterData.Add(model);
+                            gasData.Add(model);
                         }
                     }
                 }
 
-                return waterData;
+                return gasData;
             });
 
             return await task;
@@ -375,9 +369,6 @@ namespace Poseidon.Expense.ClientDx
             this.nowYear = DateTime.Now.Year;
 
             InitControls();
-
-            this.expenseGrid.ShowUnitPrice = this.showUnitPrice;
-            this.expenseGrid.ShowAddtionData = this.showAdditionData;
         }
 
         /// <summary>
@@ -393,9 +384,6 @@ namespace Poseidon.Expense.ClientDx
             this.showType = 2;
 
             InitControls();
-
-            this.expenseGrid.ShowUnitPrice = this.showUnitPrice;
-            this.expenseGrid.ShowAddtionData = this.showAdditionData;
         }
 
         /// <summary>
@@ -404,7 +392,7 @@ namespace Poseidon.Expense.ClientDx
         public void Clear()
         {
             this.cmbYear.EditValue = "";
-            this.expenseGrid.Clear();
+            this.energyChart.Clear();
         }
         #endregion //Method
 
@@ -426,39 +414,5 @@ namespace Poseidon.Expense.ClientDx
                 LoadGroupData(this.currentGroup, year, this.energyType);
         }
         #endregion //Event
-
-        #region Property
-        /// <summary>
-        /// 是否显示单价列
-        /// </summary>
-        [Description("是否显示单价列"), Category("界面"), Browsable(true)]
-        public bool ShowUnitPrice
-        {
-            get
-            {
-                return this.showUnitPrice;
-            }
-            set
-            {
-                this.showUnitPrice = value;
-            }
-        }
-
-        /// <summary>
-        /// 是否显示附加数据
-        /// </summary>
-        [Description("是否显示附加数据"), Category("界面"), Browsable(true)]
-        public bool ShowAddtionData
-        {
-            get
-            {
-                return this.showAdditionData;
-            }
-            set
-            {
-                this.showAdditionData = value;
-            }
-        }
-        #endregion //Property
     }
 }

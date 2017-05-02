@@ -54,7 +54,7 @@ namespace Poseidon.Expense.ClientDx
             this.currentYearWaterChart.Clear();
 
             this.electricCompareGridMod.Clear();
-            this.electricCompareChartMod.Clear();            
+            this.electricCompareChartMod.Clear();
             this.waterCompareGridMod.Clear();
             this.waterCompareChartMod.Clear();
             this.gasCompareGridMod.Clear();
@@ -63,6 +63,9 @@ namespace Poseidon.Expense.ClientDx
             this.electricYearGridMod.Clear();
             this.waterYearGridMod.Clear();
             this.gasYearGridMod.Clear();
+            this.electricYearChartMod.Clear();
+            this.waterYearChartMod.Clear();
+            this.gasYearChartMod.Clear();
         }
 
         /// <summary>
@@ -72,7 +75,6 @@ namespace Poseidon.Expense.ClientDx
         private async void LoadElectricSummary(ExpenseAccount account)
         {
             //用电
-
             this.electricMeterGrid.DataSource = account.ElectricMeters;
 
             var task = Task.Run(() =>
@@ -296,6 +298,7 @@ namespace Poseidon.Expense.ClientDx
                 this.electricYearChart.DataSource = result1;
 
                 this.electricYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Electric);
+                this.electricYearChartMod.SetAccount(this.currentAccount, EnergyExpenseType.Electric);
             }
             else
             {
@@ -332,6 +335,7 @@ namespace Poseidon.Expense.ClientDx
                 this.waterYearChart.DataSource = result2;
 
                 this.waterYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Water);
+                this.waterYearChartMod.SetAccount(this.currentAccount, EnergyExpenseType.Water);
             }
             else
             {
@@ -367,6 +371,7 @@ namespace Poseidon.Expense.ClientDx
                 this.gasYearChart.DataSource = result3;
 
                 this.gasYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.Gas);
+                this.gasYearChartMod.SetAccount(this.currentAccount, EnergyExpenseType.Gas);
             }
             else
             {

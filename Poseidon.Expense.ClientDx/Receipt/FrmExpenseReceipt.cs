@@ -50,7 +50,6 @@ namespace Poseidon.Expense.ClientDx
         {
             this.ctrAccountInfo.SetAccount(this.currentAccount);
 
-
             if (this.currentAccount.EnergyType.Contains(1))
             {
                 this.tabPageElectric.PageVisible = true;

@@ -128,6 +128,12 @@
     <Compile Include="Account\FrmGasMeterSet.Designer.cs">
       <DependentUpon>FrmGasMeterSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mod\ExpenseYearChartModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ExpenseYearChartModule.Designer.cs">
+      <DependentUpon>ExpenseYearChartModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receipt\FrmGasExpenseEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\EnergyCompareGridModule.resx">
       <DependentUpon>EnergyCompareGridModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ExpenseYearChartModule.resx">
+      <DependentUpon>ExpenseYearChartModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\ExpenseYearModule.resx">
       <DependentUpon>ExpenseYearModule.cs</DependentUpon>

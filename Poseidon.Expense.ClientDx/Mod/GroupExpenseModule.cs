@@ -33,7 +33,7 @@ namespace Poseidon.Expense.ClientDx
         /// <summary>
         /// 今年
         /// </summary>
-        private int year;
+        private int nowYear;
         #endregion //Field
 
         #region Constructor
@@ -57,6 +57,11 @@ namespace Poseidon.Expense.ClientDx
 
             this.electricYearGridMod.Clear();
             this.waterYearGridMod.Clear();
+            this.gasYearGridMod.Clear();
+
+            this.electricYearChartMod.Clear();
+            this.waterYearChartMod.Clear();
+            this.gasYearChartMod.Clear();
         }
 
         /// <summary>
@@ -76,7 +81,7 @@ namespace Poseidon.Expense.ClientDx
 
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
+                    var expense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, nowYear);
                     foreach (var exp in expense)
                     {
                         var energyExpense = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
@@ -107,12 +112,17 @@ namespace Poseidon.Expense.ClientDx
             this.currentYearElectricGrid.ShowAddition("功率因数奖(元)");
             this.currentYearElectricGrid.DataSource = data1;
 
+            this.electricYearChart.SetChartTitle(string.Format("{0}{1}年电量消耗", group.Name, this.nowYear));
+            this.electricYearChart.SetSeriesName(0, "用量(度)");
+            this.electricYearChart.SetSeriesName(1, "金额(元)");
+            this.electricYearChart.SetDataSource(data1);
+
             var task2 = Task.Run(() =>
             {
                 List<EnergyExpense> waterData = new List<EnergyExpense>();
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
+                    var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, nowYear);
                     foreach (var exp in expense)
                     {
                         var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
@@ -139,6 +149,11 @@ namespace Poseidon.Expense.ClientDx
             var data2 = await task2;
             this.currentYearWaterGrid.ShowUnitPrice = true;
             this.currentYearWaterGrid.DataSource = data2;
+
+            this.waterYearChart.SetChartTitle(string.Format("{0}{1}年水量消耗", group.Name, this.nowYear));
+            this.waterYearChart.SetSeriesName(0, "用量(吨)");
+            this.waterYearChart.SetSeriesName(1, "金额(元)");
+            this.waterYearChart.SetDataSource(data2);
         }
 
         /// <summary>
@@ -150,6 +165,10 @@ namespace Poseidon.Expense.ClientDx
             this.electricYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Electric);
             this.waterYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Water);
             this.gasYearGridMod.SetGroup(this.currentGroup, EnergyExpenseType.Gas);
+
+            this.electricYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Electric);
+            this.waterYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Water);
+            this.gasYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Gas);
         }
         #endregion //Function
 
@@ -161,7 +180,7 @@ namespace Poseidon.Expense.ClientDx
         public void SetGroup(string id)
         {
             this.currentGroup = BusinessFactory<GroupBusiness>.Instance.FindById(id);
-            this.year = DateTime.Now.Year;
+            this.nowYear = DateTime.Now.Year;
 
             ClearDisplay();
             DisplaySummary(this.currentGroup);

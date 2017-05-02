@@ -42,6 +42,16 @@ namespace Poseidon.Expense.ClientDx
         }
 
         /// <summary>
+        /// 设置系列标题
+        /// </summary>
+        /// <param name="index">序号</param>
+        /// <param name="text">标题</param>
+        public void SetSeriesName(int index, string text)
+        {
+            this.chartMain.Series[index].Name = text;
+        }
+
+        /// <summary>
         /// 清空显示
         /// </summary>
         public void Clear()
@@ -58,7 +68,10 @@ namespace Poseidon.Expense.ClientDx
             List<EnergyExpense> format = new List<EnergyExpense>();
 
             if (data.Count == 0)
+            {
+                this.bsEnergyExpense.DataSource = null;
                 return;
+            }
 
             format.AddRange(data);
             var last = data.Max(r => r.BelongDate);
@@ -94,6 +107,16 @@ namespace Poseidon.Expense.ClientDx
                 XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
                 diagram.AxisX.Label.TextPattern = "{A:yyyy年M月}";
             }
+        }
+
+        /// <summary>
+        /// 打印
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuPrint_Click(object sender, EventArgs e)
+        {
+            this.chartMain.ShowRibbonPrintPreview();
         }
         #endregion //Event
 
