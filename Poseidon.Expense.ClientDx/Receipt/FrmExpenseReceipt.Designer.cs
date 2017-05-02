@@ -39,6 +39,8 @@
             this.waterReceipt = new Poseidon.Expense.ClientDx.WaterReceipt();
             this.tabPageGas = new DevExpress.XtraTab.XtraTabPage();
             this.gasReceipt = new Poseidon.Expense.ClientDx.GasReceipt();
+            this.tabPageHotWater = new DevExpress.XtraTab.XtraTabPage();
+            this.hotWaterReceipt = new Poseidon.Expense.ClientDx.HotWaterReceipt();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoModule();
             this.tableLayoutPanel1.SuspendLayout();
@@ -51,6 +53,7 @@
             this.tabPageElectric.SuspendLayout();
             this.tabPageWater.SuspendLayout();
             this.tabPageGas.SuspendLayout();
+            this.tabPageHotWater.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             this.SuspendLayout();
@@ -115,7 +118,8 @@
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageElectric,
             this.tabPageWater,
-            this.tabPageGas});
+            this.tabPageGas,
+            this.tabPageHotWater});
             // 
             // tabPageElectric
             // 
@@ -137,7 +141,7 @@
             // 
             this.tabPageWater.Controls.Add(this.waterReceipt);
             this.tabPageWater.Name = "tabPageWater";
-            this.tabPageWater.Size = new System.Drawing.Size(693, 481);
+            this.tabPageWater.Size = new System.Drawing.Size(693, 321);
             this.tabPageWater.Text = "水费单据";
             // 
             // waterReceipt
@@ -146,14 +150,14 @@
             this.waterReceipt.Editable = true;
             this.waterReceipt.Location = new System.Drawing.Point(0, 0);
             this.waterReceipt.Name = "waterReceipt";
-            this.waterReceipt.Size = new System.Drawing.Size(693, 481);
+            this.waterReceipt.Size = new System.Drawing.Size(693, 321);
             this.waterReceipt.TabIndex = 0;
             // 
             // tabPageGas
             // 
             this.tabPageGas.Controls.Add(this.gasReceipt);
             this.tabPageGas.Name = "tabPageGas";
-            this.tabPageGas.Size = new System.Drawing.Size(693, 481);
+            this.tabPageGas.Size = new System.Drawing.Size(693, 321);
             this.tabPageGas.Text = "气费单据";
             // 
             // gasReceipt
@@ -162,8 +166,24 @@
             this.gasReceipt.Editable = true;
             this.gasReceipt.Location = new System.Drawing.Point(0, 0);
             this.gasReceipt.Name = "gasReceipt";
-            this.gasReceipt.Size = new System.Drawing.Size(693, 481);
+            this.gasReceipt.Size = new System.Drawing.Size(693, 321);
             this.gasReceipt.TabIndex = 0;
+            // 
+            // tabPageHotWater
+            // 
+            this.tabPageHotWater.Controls.Add(this.hotWaterReceipt);
+            this.tabPageHotWater.Name = "tabPageHotWater";
+            this.tabPageHotWater.Size = new System.Drawing.Size(693, 321);
+            this.tabPageHotWater.Text = "热水记录";
+            // 
+            // hotWaterReceipt
+            // 
+            this.hotWaterReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotWaterReceipt.Editable = true;
+            this.hotWaterReceipt.Location = new System.Drawing.Point(0, 0);
+            this.hotWaterReceipt.Name = "hotWaterReceipt";
+            this.hotWaterReceipt.Size = new System.Drawing.Size(693, 321);
+            this.hotWaterReceipt.TabIndex = 0;
             // 
             // groupControl3
             // 
@@ -201,6 +221,7 @@
             this.tabPageElectric.ResumeLayout(false);
             this.tabPageWater.ResumeLayout(false);
             this.tabPageGas.ResumeLayout(false);
+            this.tabPageHotWater.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -222,5 +243,7 @@
         private GasReceipt gasReceipt;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private AccountInfoModule ctrAccountInfo;
+        private DevExpress.XtraTab.XtraTabPage tabPageHotWater;
+        private HotWaterReceipt hotWaterReceipt;
     }
 }

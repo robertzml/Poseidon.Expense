@@ -244,6 +244,14 @@ namespace Poseidon.Expense.ClientDx
             }
             else
                 this.tabPageGasReceipt.PageVisible = false;
+
+            if (account.EnergyType.Contains(4))
+            {
+                this.tabPageHotWaterReceipt.PageVisible = true;
+                this.hotWaterExpenseReceipt.SetAccount(account);
+            }
+            else
+                this.tabPageHotWaterReceipt.PageVisible = false;
         }
 
         /// <summary>

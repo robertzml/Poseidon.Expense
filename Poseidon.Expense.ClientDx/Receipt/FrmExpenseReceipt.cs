@@ -74,8 +74,13 @@ namespace Poseidon.Expense.ClientDx
             else
                 this.tabPageGas.PageVisible = false;
 
-            //if (this.currentAccount.EnergyType.Contains(4))
-            //    this.chkType4.Checked = true;
+            if (this.currentAccount.EnergyType.Contains(4))
+            {
+                this.tabPageHotWater.PageVisible = true;
+                LoadHotWater();
+            }
+            else
+                this.tabPageHotWater.PageVisible = false;
         }
 
         /// <summary>
@@ -100,6 +105,14 @@ namespace Poseidon.Expense.ClientDx
         private void LoadGas()
         {
             this.gasReceipt.SetAccount(this.currentAccount);
+        }
+
+        /// <summary>
+        /// 载入热水相关数据
+        /// </summary>
+        private void LoadHotWater()
+        {
+            this.hotWaterReceipt.SetAccount(this.currentAccount);
         }
         #endregion //Function
 

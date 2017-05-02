@@ -39,13 +39,19 @@ namespace Poseidon.Expense.Core.DL
         /// 月份
         /// </summary>
         [Display(Name = "月份")]
-        public DateTime BelongDate { get; set; }       
+        public DateTime BelongDate { get; set; }
 
         /// <summary>
-        /// 用水量
+        /// 购水量
         /// </summary>
-        [Display(Name = "用水量")]
+        [Display(Name = "购水量")]
         public decimal TotalQuantity { get; set; }
+
+        /// <summary>
+        /// 单价
+        /// </summary>
+        [Display(Name = "单价")]
+        public decimal UnitPrice { get; set; }
 
         /// <summary>
         /// 金额

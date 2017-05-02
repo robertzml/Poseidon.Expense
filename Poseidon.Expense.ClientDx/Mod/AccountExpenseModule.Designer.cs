@@ -96,6 +96,8 @@
             this.gasCompareGridMod = new Poseidon.Expense.ClientDx.EnergyCompareGridModule();
             this.tabPageGasCompareChart = new DevExpress.XtraTab.XtraTabPage();
             this.gasCompareChartMod = new Poseidon.Expense.ClientDx.EnergyCompareChartModule();
+            this.tabPageHotWaterReceipt = new DevExpress.XtraTab.XtraTabPage();
+            this.hotWaterExpenseReceipt = new Poseidon.Expense.ClientDx.HotWaterReceipt();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -153,6 +155,7 @@
             this.tabPageWaterCompareChart.SuspendLayout();
             this.tabPageGasCompareGrid.SuspendLayout();
             this.tabPageGasCompareChart.SuspendLayout();
+            this.tabPageHotWaterReceipt.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -432,7 +435,8 @@
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageElectricReceipt,
             this.tabPageWaterReceipt,
-            this.tabPageGasReceipt});
+            this.tabPageGasReceipt,
+            this.tabPageHotWaterReceipt});
             // 
             // tabPageElectricReceipt
             // 
@@ -827,6 +831,22 @@
             this.gasCompareChartMod.Size = new System.Drawing.Size(858, 540);
             this.gasCompareChartMod.TabIndex = 0;
             // 
+            // tabPageHotWaterReceipt
+            // 
+            this.tabPageHotWaterReceipt.Controls.Add(this.hotWaterExpenseReceipt);
+            this.tabPageHotWaterReceipt.Name = "tabPageHotWaterReceipt";
+            this.tabPageHotWaterReceipt.Size = new System.Drawing.Size(858, 540);
+            this.tabPageHotWaterReceipt.Text = "热水费用";
+            // 
+            // hotWaterExpenseReceipt
+            // 
+            this.hotWaterExpenseReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotWaterExpenseReceipt.Editable = false;
+            this.hotWaterExpenseReceipt.Location = new System.Drawing.Point(0, 0);
+            this.hotWaterExpenseReceipt.Name = "hotWaterExpenseReceipt";
+            this.hotWaterExpenseReceipt.Size = new System.Drawing.Size(858, 540);
+            this.hotWaterExpenseReceipt.TabIndex = 0;
+            // 
             // AccountExpenseModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -891,6 +911,7 @@
             this.tabPageWaterCompareChart.ResumeLayout(false);
             this.tabPageGasCompareGrid.ResumeLayout(false);
             this.tabPageGasCompareChart.ResumeLayout(false);
+            this.tabPageHotWaterReceipt.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -964,5 +985,7 @@
         private ExpenseYearChartModule waterYearChartMod;
         private DevExpress.XtraEditors.GroupControl groupControl5;
         private ExpenseYearChartModule gasYearChartMod;
+        private DevExpress.XtraTab.XtraTabPage tabPageHotWaterReceipt;
+        private HotWaterReceipt hotWaterExpenseReceipt;
     }
 }

@@ -128,6 +128,24 @@
     <Compile Include="Account\FrmGasMeterSet.Designer.cs">
       <DependentUpon>FrmGasMeterSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receipt\FrmHotWaterExpenseEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmHotWaterExpenseEdit.Designer.cs">
+      <DependentUpon>FrmHotWaterExpenseEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receipt\FrmHotWaterExpenseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt\FrmHotWaterExpenseAdd.Designer.cs">
+      <DependentUpon>FrmHotWaterExpenseAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mod\HotWaterReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\HotWaterReceipt.Designer.cs">
+      <DependentUpon>HotWaterReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mod\ExpenseYearChartModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,6 +385,9 @@
     <EmbeddedResource Include="Mod\GroupExpenseModule.resx">
       <DependentUpon>GroupExpenseModule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mod\HotWaterReceipt.resx">
+      <DependentUpon>HotWaterReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mod\WaterReceipt.resx">
       <DependentUpon>WaterReceipt.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +397,7 @@
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasExpense.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasExpenseRecord.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasMeter.datasource" />
+    <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.HotWaterExpense.datasource" />
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Receipt\FrmElectricExpenseAdd.resx">
       <DependentUpon>FrmElectricExpenseAdd.cs</DependentUpon>
@@ -391,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt\FrmGasExpenseEdit.resx">
       <DependentUpon>FrmGasExpenseEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmHotWaterExpenseAdd.resx">
+      <DependentUpon>FrmHotWaterExpenseAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receipt\FrmHotWaterExpenseEdit.resx">
+      <DependentUpon>FrmHotWaterExpenseEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt\FrmWaterExpenseAdd.resx">
       <DependentUpon>FrmWaterExpenseAdd.cs</DependentUpon>

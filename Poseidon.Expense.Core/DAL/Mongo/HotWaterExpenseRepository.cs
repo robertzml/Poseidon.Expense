@@ -42,6 +42,7 @@ namespace Poseidon.Expense.Core.DAL.Mongo
             entity.Period = doc["period"].ToString();
             entity.BelongDate = doc["belongDate"].ToLocalTime();
             entity.TotalQuantity = doc["totalQuantity"].ToDecimal();
+            entity.UnitPrice = doc["unitPrice"].ToDecimal();
             entity.TotalAmount = doc["totalAmount"].ToDecimal();
 
             var createBy = doc["createBy"].ToBsonDocument();
@@ -80,6 +81,7 @@ namespace Poseidon.Expense.Core.DAL.Mongo
                 { "period", entity.Period },
                 { "belongDate", entity.BelongDate },
                 { "totalQuantity", entity.TotalQuantity },
+                { "unitPrice", entity.UnitPrice },
                 { "totalAmount", entity.TotalAmount },
                 { "createBy", new BsonDocument {
                     { "userId", entity.CreateBy.UserId },

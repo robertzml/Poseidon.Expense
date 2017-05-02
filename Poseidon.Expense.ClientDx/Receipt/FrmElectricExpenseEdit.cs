@@ -57,7 +57,7 @@ namespace Poseidon.Expense.ClientDx
 
             this.dpBelongDate.DateTime = this.currentExpense.BelongDate;
             this.dpTicketDate.DateTime = this.currentExpense.TicketDate;
-            ControlUtil.BindDictToComboBox(this.cmbFeeType, typeof(WaterExpense), "FeeType", this.currentExpense.FeeType);
+            ControlUtil.BindDictToComboBox(this.cmbFeeType, typeof(ElectricExpense), "FeeType", this.currentExpense.FeeType);
             this.spTotalQuantity.Value = this.currentExpense.TotalQuantity;
             this.spTotalAmount.Value = this.currentExpense.TotalAmount;
             this.spTotalPrize.Value = this.currentExpense.TotalPrize;
