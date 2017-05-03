@@ -134,6 +134,12 @@
     <Compile Include="Chart\ExpenseDataChart.Designer.cs">
       <DependentUpon>ExpenseDataChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Component\ExpenseDataYearChartCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\ExpenseDataYearChartCtrl.Designer.cs">
+      <DependentUpon>ExpenseDataYearChartCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mod\ExpenseDataYearGridModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,11 +256,11 @@
     <Compile Include="Mod\ElectricReceipt.Designer.cs">
       <DependentUpon>ElectricReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mod\AccountInfoModule.cs">
+    <Compile Include="Component\AccountInfoCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Mod\AccountInfoModule.Designer.cs">
-      <DependentUpon>AccountInfoModule.cs</DependentUpon>
+    <Compile Include="Component\AccountInfoCtrl.Designer.cs">
+      <DependentUpon>AccountInfoCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Mod\EnergyCompareChartModule.cs">
       <SubType>UserControl</SubType>
@@ -349,6 +355,9 @@
     <EmbeddedResource Include="Chart\ExpenseDataChart.resx">
       <DependentUpon>ExpenseDataChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Component\ExpenseDataYearChartCtrl.resx">
+      <DependentUpon>ExpenseDataYearChartCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grid\ElectricExpenseRecordGrid.resx">
       <DependentUpon>ElectricExpenseRecordGrid.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,8 +391,8 @@
     <EmbeddedResource Include="Mod\ElectricReceipt.resx">
       <DependentUpon>ElectricReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mod\AccountInfoModule.resx">
-      <DependentUpon>AccountInfoModule.cs</DependentUpon>
+    <EmbeddedResource Include="Component\AccountInfoCtrl.resx">
+      <DependentUpon>AccountInfoCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\EnergyCompareChartModule.resx">
       <DependentUpon>EnergyCompareChartModule.cs</DependentUpon>

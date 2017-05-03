@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Expense.ClientDx
 {
-    partial class ExpenseDataYearGridModule
+    partial class ExpenseDataYearChartCtrl
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.expenseGrid = new Poseidon.Expense.ClientDx.ExpenseDataGrid();
+            this.expenseChart = new Poseidon.Expense.ClientDx.ExpenseDataChart();
             this.cmbYear = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -51,42 +52,29 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(362, 336);
+            this.panelControl1.Size = new System.Drawing.Size(622, 425);
             this.panelControl1.TabIndex = 0;
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.expenseGrid);
+            this.layoutControl1.Controls.Add(this.expenseChart);
             this.layoutControl1.Controls.Add(this.cmbYear);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(358, 332);
+            this.layoutControl1.Size = new System.Drawing.Size(618, 421);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // expenseGrid
+            // expenseChart
             // 
-            this.expenseGrid.AllowFilter = false;
-            this.expenseGrid.AllowGroup = false;
-            this.expenseGrid.AllowSort = false;
-            this.expenseGrid.DataSource = null;
-            this.expenseGrid.Editable = false;
-            this.expenseGrid.EnableMasterView = false;
-            this.expenseGrid.Location = new System.Drawing.Point(12, 36);
-            this.expenseGrid.Name = "expenseGrid";
-            this.expenseGrid.ShowAddMenu = false;
-            this.expenseGrid.ShowAddtionData = false;
-            this.expenseGrid.ShowColBelongDate = true;
-            this.expenseGrid.ShowColName = true;
-            this.expenseGrid.ShowFooter = true;
-            this.expenseGrid.ShowLineNumber = true;
-            this.expenseGrid.ShowMenu = false;
-            this.expenseGrid.ShowNavigator = false;
-            this.expenseGrid.ShowUnitPrice = true;
-            this.expenseGrid.Size = new System.Drawing.Size(334, 284);
-            this.expenseGrid.TabIndex = 5;
+            this.expenseChart.DataSource = null;
+            this.expenseChart.Location = new System.Drawing.Point(12, 36);
+            this.expenseChart.Name = "expenseChart";
+            this.expenseChart.ShowMonthTick = true;
+            this.expenseChart.Size = new System.Drawing.Size(594, 373);
+            this.expenseChart.TabIndex = 5;
             // 
             // cmbYear
             // 
@@ -95,7 +83,7 @@
             this.cmbYear.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbYear.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbYear.Size = new System.Drawing.Size(307, 20);
+            this.cmbYear.Size = new System.Drawing.Size(567, 20);
             this.cmbYear.StyleController = this.layoutControl1;
             this.cmbYear.TabIndex = 4;
             this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
@@ -109,7 +97,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(358, 332);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(618, 421);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -117,26 +105,26 @@
             this.layoutControlItem1.Control = this.cmbYear;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(598, 24);
             this.layoutControlItem1.Text = "年度";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(24, 14);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.expenseGrid;
+            this.layoutControlItem2.Control = this.expenseChart;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(338, 288);
+            this.layoutControlItem2.Size = new System.Drawing.Size(598, 377);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // ExpenseDataYearGridModule
+            // ExpenseDataYearChartCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "ExpenseDataYearGridModule";
-            this.Size = new System.Drawing.Size(362, 336);
+            this.Name = "ExpenseDataYearChartCtrl";
+            this.Size = new System.Drawing.Size(622, 425);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -153,7 +141,7 @@
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private ExpenseDataGrid expenseGrid;
+        private ExpenseDataChart expenseChart;
         private DevExpress.XtraEditors.ComboBoxEdit cmbYear;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

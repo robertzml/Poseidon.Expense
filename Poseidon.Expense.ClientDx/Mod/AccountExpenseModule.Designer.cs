@@ -35,13 +35,15 @@
             this.gcYearChart2 = new DevExpress.XtraEditors.GroupControl();
             this.currentYearWaterChart = new Poseidon.Expense.ClientDx.ExpenseDataChart();
             this.gcYearChart1 = new DevExpress.XtraEditors.GroupControl();
+            this.currentYearElectricChart = new Poseidon.Expense.ClientDx.ExpenseDataChart();
             this.gcYearGrid2 = new DevExpress.XtraEditors.GroupControl();
             this.currentYearWaterGrid = new Poseidon.Expense.ClientDx.ExpenseDataGrid();
             this.gcYearGrid1 = new DevExpress.XtraEditors.GroupControl();
+            this.currentYearElectricGrid = new Poseidon.Expense.ClientDx.ExpenseDataGrid();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tabInfo = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageAccount = new DevExpress.XtraTab.XtraTabPage();
-            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoModule();
+            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoCtrl();
             this.tabPageElectricMeter = new DevExpress.XtraTab.XtraTabPage();
             this.electricMeterGrid = new Poseidon.Expense.ClientDx.ElectricMeterGrid();
             this.tabPageWaterMeter = new DevExpress.XtraTab.XtraTabPage();
@@ -98,8 +100,8 @@
             this.gasCompareGridMod = new Poseidon.Expense.ClientDx.EnergyCompareGridModule();
             this.tabPageGasCompareChart = new DevExpress.XtraTab.XtraTabPage();
             this.gasCompareChartMod = new Poseidon.Expense.ClientDx.EnergyCompareChartModule();
-            this.currentYearElectricGrid = new Poseidon.Expense.ClientDx.ExpenseDataGrid();
-            this.currentYearElectricChart = new Poseidon.Expense.ClientDx.ExpenseDataChart();
+            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.hotWaterYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -160,6 +162,8 @@
             this.tabPageWaterCompareChart.SuspendLayout();
             this.tabPageGasCompareGrid.SuspendLayout();
             this.tabPageGasCompareChart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -233,6 +237,16 @@
             this.gcYearChart1.TabIndex = 3;
             this.gcYearChart1.Text = "本年度用电情况";
             // 
+            // currentYearElectricChart
+            // 
+            this.currentYearElectricChart.DataSource = null;
+            this.currentYearElectricChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.currentYearElectricChart.Location = new System.Drawing.Point(2, 21);
+            this.currentYearElectricChart.Name = "currentYearElectricChart";
+            this.currentYearElectricChart.ShowMonthTick = true;
+            this.currentYearElectricChart.Size = new System.Drawing.Size(422, 156);
+            this.currentYearElectricChart.TabIndex = 0;
+            // 
             // gcYearGrid2
             // 
             this.gcYearGrid2.Controls.Add(this.currentYearWaterGrid);
@@ -275,6 +289,29 @@
             this.gcYearGrid1.Size = new System.Drawing.Size(426, 178);
             this.gcYearGrid1.TabIndex = 1;
             this.gcYearGrid1.Text = "本年度用电支出";
+            // 
+            // currentYearElectricGrid
+            // 
+            this.currentYearElectricGrid.AllowFilter = false;
+            this.currentYearElectricGrid.AllowGroup = false;
+            this.currentYearElectricGrid.AllowSort = false;
+            this.currentYearElectricGrid.DataSource = null;
+            this.currentYearElectricGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.currentYearElectricGrid.Editable = false;
+            this.currentYearElectricGrid.EnableMasterView = false;
+            this.currentYearElectricGrid.Location = new System.Drawing.Point(2, 21);
+            this.currentYearElectricGrid.Name = "currentYearElectricGrid";
+            this.currentYearElectricGrid.ShowAddMenu = false;
+            this.currentYearElectricGrid.ShowAddtionData = true;
+            this.currentYearElectricGrid.ShowColBelongDate = true;
+            this.currentYearElectricGrid.ShowColName = false;
+            this.currentYearElectricGrid.ShowFooter = true;
+            this.currentYearElectricGrid.ShowLineNumber = true;
+            this.currentYearElectricGrid.ShowMenu = false;
+            this.currentYearElectricGrid.ShowNavigator = false;
+            this.currentYearElectricGrid.ShowUnitPrice = false;
+            this.currentYearElectricGrid.Size = new System.Drawing.Size(422, 155);
+            this.currentYearElectricGrid.TabIndex = 0;
             // 
             // groupControl1
             // 
@@ -669,6 +706,7 @@
             this.tableLayoutPanel3.Controls.Add(this.groupControl8, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupControl5, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.groupControl6, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.groupControl9, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -853,38 +891,23 @@
             this.gasCompareChartMod.Size = new System.Drawing.Size(858, 540);
             this.gasCompareChartMod.TabIndex = 0;
             // 
-            // currentYearElectricGrid
+            // groupControl9
             // 
-            this.currentYearElectricGrid.AllowFilter = false;
-            this.currentYearElectricGrid.AllowGroup = false;
-            this.currentYearElectricGrid.AllowSort = false;
-            this.currentYearElectricGrid.DataSource = null;
-            this.currentYearElectricGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.currentYearElectricGrid.Editable = false;
-            this.currentYearElectricGrid.EnableMasterView = false;
-            this.currentYearElectricGrid.Location = new System.Drawing.Point(2, 21);
-            this.currentYearElectricGrid.Name = "currentYearElectricGrid";
-            this.currentYearElectricGrid.ShowAddMenu = false;
-            this.currentYearElectricGrid.ShowAddtionData = true;
-            this.currentYearElectricGrid.ShowColBelongDate = true;
-            this.currentYearElectricGrid.ShowColName = false;
-            this.currentYearElectricGrid.ShowFooter = true;
-            this.currentYearElectricGrid.ShowLineNumber = true;
-            this.currentYearElectricGrid.ShowMenu = false;
-            this.currentYearElectricGrid.ShowNavigator = false;
-            this.currentYearElectricGrid.ShowUnitPrice = false;
-            this.currentYearElectricGrid.Size = new System.Drawing.Size(422, 155);
-            this.currentYearElectricGrid.TabIndex = 0;
+            this.groupControl9.Controls.Add(this.hotWaterYearChartMod);
+            this.groupControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl9.Location = new System.Drawing.Point(432, 273);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(423, 264);
+            this.groupControl9.TabIndex = 3;
+            this.groupControl9.Text = "年度热水图表";
             // 
-            // currentYearElectricChart
+            // hotWaterYearChartMod
             // 
-            this.currentYearElectricChart.DataSource = null;
-            this.currentYearElectricChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.currentYearElectricChart.Location = new System.Drawing.Point(2, 21);
-            this.currentYearElectricChart.Name = "currentYearElectricChart";
-            this.currentYearElectricChart.ShowMonthTick = true;
-            this.currentYearElectricChart.Size = new System.Drawing.Size(422, 156);
-            this.currentYearElectricChart.TabIndex = 0;
+            this.hotWaterYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotWaterYearChartMod.Location = new System.Drawing.Point(2, 21);
+            this.hotWaterYearChartMod.Name = "hotWaterYearChartMod";
+            this.hotWaterYearChartMod.Size = new System.Drawing.Size(419, 241);
+            this.hotWaterYearChartMod.TabIndex = 0;
             // 
             // AccountExpenseModule
             // 
@@ -953,6 +976,8 @@
             this.tabPageWaterCompareChart.ResumeLayout(false);
             this.tabPageGasCompareGrid.ResumeLayout(false);
             this.tabPageGasCompareChart.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -966,7 +991,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraTab.XtraTabControl tabInfo;
         private DevExpress.XtraTab.XtraTabPage tabPageAccount;
-        private AccountInfoModule ctrAccountInfo;
+        private AccountInfoCtrl ctrAccountInfo;
         private DevExpress.XtraTab.XtraTabPage tabPageElectricMeter;
         private ElectricMeterGrid electricMeterGrid;
         private DevExpress.XtraTab.XtraTabPage tabPageWaterMeter;
@@ -1030,5 +1055,7 @@
         private ExpenseDataChart currentYearWaterChart;
         private ExpenseDataChart currentYearElectricChart;
         private ExpenseDataGrid currentYearElectricGrid;
+        private DevExpress.XtraEditors.GroupControl groupControl9;
+        private ExpenseDataYearChartCtrl hotWaterYearChartMod;
     }
 }

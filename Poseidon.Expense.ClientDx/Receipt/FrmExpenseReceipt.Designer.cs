@@ -42,7 +42,7 @@
             this.tabPageHotWater = new DevExpress.XtraTab.XtraTabPage();
             this.hotWaterReceipt = new Poseidon.Expense.ClientDx.HotWaterReceipt();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoModule();
+            this.ctrAccountInfo = new Poseidon.Expense.ClientDx.AccountInfoCtrl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -242,7 +242,7 @@
         private DevExpress.XtraTab.XtraTabPage tabPageGas;
         private GasReceipt gasReceipt;
         private DevExpress.XtraEditors.GroupControl groupControl3;
-        private AccountInfoModule ctrAccountInfo;
+        private AccountInfoCtrl ctrAccountInfo;
         private DevExpress.XtraTab.XtraTabPage tabPageHotWater;
         private HotWaterReceipt hotWaterReceipt;
     }

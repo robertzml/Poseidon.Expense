@@ -63,6 +63,7 @@ namespace Poseidon.Expense.ClientDx
             this.electricYearChartMod.Clear();
             this.waterYearChartMod.Clear();
             this.gasYearChartMod.Clear();
+            this.hotWaterYearChartMod.Clear();
         }
 
         /// <summary>
@@ -171,6 +172,7 @@ namespace Poseidon.Expense.ClientDx
             this.electricYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Electric);
             this.waterYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Water);
             this.gasYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.Gas);
+            this.hotWaterYearChartMod.SetGroup(this.currentGroup, EnergyExpenseType.HotWater);
         }
         #endregion //Function
 

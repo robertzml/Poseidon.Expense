@@ -63,9 +63,11 @@ namespace Poseidon.Expense.ClientDx
             this.electricYearGridMod.Clear();
             this.waterYearGridMod.Clear();
             this.gasYearGridMod.Clear();
+            this.hotWaterYearGridMod.Clear();
             this.electricYearChartMod.Clear();
             this.waterYearChartMod.Clear();
             this.gasYearChartMod.Clear();
+            this.hotWaterYearChartMod.Clear();
         }
 
         /// <summary>
@@ -360,6 +362,7 @@ namespace Poseidon.Expense.ClientDx
             if (account.EnergyType.Contains(4))
             {
                 this.hotWaterYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.HotWater);
+                this.hotWaterYearChartMod.SetAccount(this.currentAccount, EnergyExpenseType.HotWater);
             }
         }
         #endregion //Function
