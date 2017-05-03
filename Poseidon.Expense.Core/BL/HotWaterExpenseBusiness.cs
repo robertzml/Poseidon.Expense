@@ -46,11 +46,35 @@ namespace Poseidon.Expense.Core.BL
         /// <returns></returns>
         public IEnumerable<HotWaterExpense> FindYearByAccount(string accountId, int year)
         {
-            var data = this.baseDal.FindListByField("accountId", accountId);
-            var start = new DateTime(year, 1, 1);
-            var end = new DateTime(year, 12, 31);
+            var dal = this.baseDal as IHotWaterExpenseRepository;
+            return dal.FindYearByAccount(accountId, year);
+        }
 
-            return data.Where(r => r.BelongDate >= start && r.BelongDate <= end).OrderBy(r => r.BelongDate);
+        /// <summary>
+        /// 获取账户年度数据
+        /// </summary>
+        /// <param name="accountId">账户ID</param>
+        /// <param name="year">年份</param>
+        /// <returns></returns>
+        public IEnumerable<ExpenseDataModel> GetExpenseDataModel(string accountId, int year)
+        {
+            var dal = this.baseDal as IHotWaterExpenseRepository;
+            var data = dal.FindYearByAccount(accountId, year);
+
+            List<ExpenseDataModel> model = new List<ExpenseDataModel>();
+            foreach (var item in data)
+            {
+                ExpenseDataModel m = new ExpenseDataModel();
+                m.Name = item.Period;
+                m.BelongDate = item.BelongDate;
+                m.Quantum = item.TotalQuantity;
+                m.Amount = item.TotalAmount;
+                m.UnitPrice = item.UnitPrice;
+
+                model.Add(m);
+            }
+
+            return model;
         }
 
         /// <summary>

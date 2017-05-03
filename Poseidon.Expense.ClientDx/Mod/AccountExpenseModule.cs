@@ -385,6 +385,11 @@ namespace Poseidon.Expense.ClientDx
             {
                 this.tabPageGasYear.PageVisible = false;
             }
+
+            if (account.EnergyType.Contains(4))
+            {
+                this.hotWaterYearGridMod.SetAccount(this.currentAccount, EnergyExpenseType.HotWater);
+            }
         }
         #endregion //Function
 

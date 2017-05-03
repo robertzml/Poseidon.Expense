@@ -52,6 +52,8 @@ namespace Poseidon.Expense.Core.BL
             return data.Where(r => r.BelongDate >= start && r.BelongDate <= end).OrderBy(r => r.BelongDate);
         }
 
+
+
         /// <summary>
         /// 载入最近记录
         /// </summary>

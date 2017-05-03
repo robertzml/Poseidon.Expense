@@ -16,6 +16,18 @@ namespace Poseidon.Expense.Core.Utility
     {
         #region Property
         /// <summary>
+        /// 名称
+        /// </summary>
+        [Display(Name = "名称")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 归属日期
+        /// </summary>
+        [Display(Name = "归属日期")]
+        public DateTime BelongDate { get; set; }
+
+        /// <summary>
         /// 用量
         /// </summary>
         [Display(Name = "用量")]

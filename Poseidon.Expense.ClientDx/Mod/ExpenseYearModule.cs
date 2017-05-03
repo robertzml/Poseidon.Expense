@@ -329,13 +329,13 @@ namespace Poseidon.Expense.ClientDx
             {
                 var items = BusinessFactory<GroupBusiness>.Instance.FindAllItems(group.Id);
 
-                List<EnergyExpense> waterData = new List<EnergyExpense>();
+                List<EnergyExpense> gasData = new List<EnergyExpense>();
                 foreach (var item in items)
                 {
                     var expense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, year);
                     foreach (var exp in expense)
                     {
-                        var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        var energyExpense = gasData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
                         if (energyExpense != null)
                         {
                             energyExpense.Amount += exp.TotalAmount;
@@ -349,12 +349,12 @@ namespace Poseidon.Expense.ClientDx
                             model.Amount = exp.TotalAmount;
                             model.UnitPrice = exp.TotalAmount / exp.TotalQuantity;
 
-                            waterData.Add(model);
+                            gasData.Add(model);
                         }
                     }
                 }
 
-                return waterData;
+                return gasData;
             });
 
             return await task;
