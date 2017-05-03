@@ -12,7 +12,6 @@ namespace Poseidon.Expense.ClientDx
     using Poseidon.Base.Framework;
     using Poseidon.Core.BL;
     using Poseidon.Core.DL;
-    using Poseidon.Expense.ClientDx.Model;
     using Poseidon.Expense.Core.BL;
     using Poseidon.Expense.Core.DL;
     using Poseidon.Expense.Core.Utility;
@@ -99,16 +98,102 @@ namespace Poseidon.Expense.ClientDx
         /// <param name="energyType">能源类型</param>
         private void LoadAccountData(ExpenseAccount account, int year, EnergyExpenseType energyType)
         {
-            List<ExpenseDataModel> data = new List<ExpenseDataModel>();
+            IExpenseData handle = null;
             switch (energyType)
             {
+                case EnergyExpenseType.Electric:
+                    handle = BusinessFactory<ElectricExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Electric, "度");
+                    break;
+                case EnergyExpenseType.Water:
+                    handle = BusinessFactory<WaterExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Water, "吨");
+                    break;
+                case EnergyExpenseType.Gas:
+                    handle = BusinessFactory<GasExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas, "立方");
+                    break;
                 case EnergyExpenseType.HotWater:
-                    data = BusinessFactory<HotWaterExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, year).ToList();
+                    handle = BusinessFactory<HotWaterExpenseBusiness>.Instance;
                     this.expenseGrid.SetEnergyType(EnergyExpenseType.HotWater, "吨");
                     break;
+                default:
+                    return;
             }
 
+            var data = handle.GetExpenseDataModel(account.Id, year).ToList();
+
             this.expenseGrid.DataSource = data;
+        }
+
+        /// <summary>
+        /// 载入分组数据
+        /// </summary>
+        /// <param name="group">分组</param>
+        /// <param name="year">年度</param>
+        /// <param name="energyType">能源类型</param>
+        private async void LoadGroupData(Group group, int year, EnergyExpenseType energyType)
+        {
+            IExpenseData handle = null;
+            switch (energyType)
+            {
+                case EnergyExpenseType.Electric:
+                    handle = BusinessFactory<ElectricExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Electric, "度");
+                    break;
+                case EnergyExpenseType.Water:
+                    handle = BusinessFactory<WaterExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Water, "吨");
+                    break;
+                case EnergyExpenseType.Gas:
+                    handle = BusinessFactory<GasExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.Gas, "立方");
+                    break;
+                case EnergyExpenseType.HotWater:
+                    handle = BusinessFactory<HotWaterExpenseBusiness>.Instance;
+                    this.expenseGrid.SetEnergyType(EnergyExpenseType.HotWater, "吨");
+                    break;
+                default:
+                    return;
+            }
+
+            var task = Task.Run(() =>
+            {
+                List<ExpenseDataModel> data = new List<ExpenseDataModel>();
+
+                var items = BusinessFactory<GroupBusiness>.Instance.FindAllItems(group.Id);
+                foreach (var item in items)
+                {
+                    var expenseData = handle.GetExpenseDataModel(item.EntityId, year);
+                    foreach (var exp in expenseData)
+                    {
+                        var find = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        if (find != null)
+                        {
+                            find.Amount += exp.Amount;
+                            find.Quantum += exp.Quantum;
+                            find.AdditionData += exp.AdditionData;
+                        }
+                        else
+                        {
+                            var model = new ExpenseDataModel();
+                            model.Name = exp.Name;
+                            model.BelongDate = exp.BelongDate;
+                            model.Quantum = exp.Quantum;
+                            model.Amount = exp.Amount;
+                            model.UnitPrice = exp.UnitPrice;
+                            model.AdditionData = exp.AdditionData;
+
+                            data.Add(model);
+                        }
+                    }
+                }
+
+                return data;
+            });
+
+            var result = await task;
+            this.expenseGrid.DataSource = result;
         }
         #endregion //Function
 
@@ -123,6 +208,21 @@ namespace Poseidon.Expense.ClientDx
             this.currentAccount = account;
             this.energyType = energyType;
             this.showType = 1;
+            this.nowYear = DateTime.Now.Year;
+
+            InitControls();
+        }
+
+        /// <summary>
+        /// 设置分组
+        /// </summary>
+        /// <param name="group">分组</param>
+        /// <param name="energyType">能源类型</param>
+        public void SetGroup(Group group, EnergyExpenseType energyType)
+        {
+            this.currentGroup = group;
+            this.energyType = energyType;
+            this.showType = 2;
             this.nowYear = DateTime.Now.Year;
 
             InitControls();
@@ -152,8 +252,8 @@ namespace Poseidon.Expense.ClientDx
             int year = Convert.ToInt32(this.cmbYear.SelectedItem.ToString().Substring(0, 4));
             if (this.showType == 1)
                 LoadAccountData(this.currentAccount, year, this.energyType);
-            //else if (this.showType == 2)
-            //    LoadGroupData(this.currentGroup, year, this.energyType);
+            else if (this.showType == 2)
+                LoadGroupData(this.currentGroup, year, this.energyType);
         }
         #endregion //Event
 

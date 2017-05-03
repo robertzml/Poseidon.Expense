@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Poseidon.Expense.Core.DAL.Mongo
 {
     using MongoDB.Bson;
+    using MongoDB.Driver;
     using Poseidon.Base.Framework;
     using Poseidon.Data;
     using Poseidon.Expense.Core.DL;
@@ -143,5 +144,24 @@ namespace Poseidon.Expense.Core.DAL.Mongo
             return doc;
         }
         #endregion //Function
+
+        #region Method
+        /// <summary>
+        /// 按账户查询年度支出
+        /// </summary>
+        /// <param name="accountId">账户ID</param>
+        /// <param name="year">年份</param>
+        /// <returns></returns>
+        public IEnumerable<WaterExpense> FindYearByAccount(string accountId, int year)
+        {
+            var start = new DateTime(year, 1, 1);
+            var end = new DateTime(year, 12, 31);
+
+            var builder = Builders<BsonDocument>.Filter;
+            var filter = builder.Eq("accountId", accountId) & builder.Gte("belongDate", start) & builder.Lte("belongDate", end);
+
+            return base.FindList(filter);
+        }
+        #endregion //Method
     }
 }

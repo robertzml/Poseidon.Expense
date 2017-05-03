@@ -65,6 +65,8 @@
             this.gasYearGridMod = new Poseidon.Expense.ClientDx.ExpenseYearModule();
             this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
             this.gasYearChartMod = new Poseidon.Expense.ClientDx.ExpenseYearChartModule();
+            this.groupControl12 = new DevExpress.XtraEditors.GroupControl();
+            this.hotWaterYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridModule();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -105,6 +107,8 @@
             this.groupControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
             this.groupControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl12)).BeginInit();
+            this.groupControl12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -455,6 +459,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.groupControl6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupControl11, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.groupControl12, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -501,6 +506,28 @@
             this.gasYearChartMod.Name = "gasYearChartMod";
             this.gasYearChartMod.Size = new System.Drawing.Size(405, 259);
             this.gasYearChartMod.TabIndex = 0;
+            // 
+            // groupControl12
+            // 
+            this.groupControl12.Controls.Add(this.hotWaterYearGridMod);
+            this.groupControl12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl12.Location = new System.Drawing.Point(418, 3);
+            this.groupControl12.Name = "groupControl12";
+            this.groupControl12.Size = new System.Drawing.Size(409, 282);
+            this.groupControl12.TabIndex = 2;
+            this.groupControl12.Text = "年度热水";
+            // 
+            // hotWaterYearGridMod
+            // 
+            this.hotWaterYearGridMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotWaterYearGridMod.Location = new System.Drawing.Point(2, 21);
+            this.hotWaterYearGridMod.Name = "hotWaterYearGridMod";
+            this.hotWaterYearGridMod.ShowAddtionData = false;
+            this.hotWaterYearGridMod.ShowColBelongDate = true;
+            this.hotWaterYearGridMod.ShowColName = true;
+            this.hotWaterYearGridMod.ShowUnitPrice = true;
+            this.hotWaterYearGridMod.Size = new System.Drawing.Size(405, 259);
+            this.hotWaterYearGridMod.TabIndex = 0;
             // 
             // GroupExpenseModule
             // 
@@ -549,6 +576,8 @@
             this.groupControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
             this.groupControl11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl12)).EndInit();
+            this.groupControl12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -591,5 +620,7 @@
         private ExpenseYearChartModule waterYearChartMod;
         private DevExpress.XtraEditors.GroupControl groupControl11;
         private ExpenseYearChartModule gasYearChartMod;
+        private DevExpress.XtraEditors.GroupControl groupControl12;
+        private ExpenseDataYearGridModule hotWaterYearGridMod;
     }
 }

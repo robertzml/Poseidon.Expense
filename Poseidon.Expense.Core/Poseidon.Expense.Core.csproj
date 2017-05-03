@@ -94,6 +94,7 @@
     <Compile Include="Utility\ExpenseConstant.cs" />
     <Compile Include="Utility\ExpenseDataModel.cs" />
     <Compile Include="Utility\ExpenseEnum.cs" />
+    <Compile Include="Utility\IExpenseData.cs" />
     <Compile Include="Utility\ModelTypeCode.cs" />
   </ItemGroup>
   <ItemGroup>

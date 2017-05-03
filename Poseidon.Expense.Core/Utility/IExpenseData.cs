@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poseidon.Expense.Core.IDAL
+namespace Poseidon.Expense.Core.Utility
 {
-    using Poseidon.Base.Framework;
-    using Poseidon.Expense.Core.DL;
-
     /// <summary>
-    /// 气费支出票据数据访问接口
+    /// 支出数据接口
     /// </summary>
-    internal interface IGasExpenseRepository : IBaseDAL<GasExpense>
+    public interface IExpenseData
     {
         /// <summary>
-        /// 按账户查询年度支出
+        /// 获取账户年度数据
         /// </summary>
         /// <param name="accountId">账户ID</param>
         /// <param name="year">年份</param>
         /// <returns></returns>
-        IEnumerable<GasExpense> FindYearByAccount(string accountId, int year);
+        IEnumerable<ExpenseDataModel> GetExpenseDataModel(string accountId, int year);
     }
 }
