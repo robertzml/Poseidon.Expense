@@ -60,6 +60,7 @@ namespace Poseidon.Expense.ClientDx
                 case EnergyExpenseType.Electric:
                     this.colQuantum.Caption = $"用电量({unit})";
                     this.colUnitPrice.Caption = "单价(元/度)";
+                    this.colAdditionData.Caption = "功率因数奖(元)";
                     break;
                 case EnergyExpenseType.Water:
                     this.colQuantum.Caption = $"用水量({unit})";

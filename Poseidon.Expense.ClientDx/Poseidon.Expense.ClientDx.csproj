@@ -262,12 +262,6 @@
     <Compile Include="Mod\EnergyCompareGridModule.Designer.cs">
       <DependentUpon>EnergyCompareGridModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mod\ExpenseYearModule.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Mod\ExpenseYearModule.Designer.cs">
-      <DependentUpon>ExpenseYearModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mod\GroupExpenseModule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -393,9 +387,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\ExpenseYearChartModule.resx">
       <DependentUpon>ExpenseYearChartModule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mod\ExpenseYearModule.resx">
-      <DependentUpon>ExpenseYearModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\GasReceipt.resx">
       <DependentUpon>GasReceipt.cs</DependentUpon>
