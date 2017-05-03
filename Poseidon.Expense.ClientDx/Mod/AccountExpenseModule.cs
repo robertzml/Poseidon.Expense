@@ -115,27 +115,19 @@ namespace Poseidon.Expense.ClientDx
 
             var task = Task.Run(() =>
             {
-                List<EnergyExpense> waterData = new List<EnergyExpense>();
-                var waterExpense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, this.nowYear);
-
-                foreach (var exp in waterExpense)
-                {
-                    var model = new EnergyExpense();
-                    model.BelongDate = exp.BelongDate;
-                    model.Quantum = exp.TotalQuantity;
-                    model.Amount = exp.TotalAmount;
-
-                    waterData.Add(model);
-                }
+                var waterData = BusinessFactory<WaterExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear).ToList();
 
                 return waterData;
             });
 
-            var data = await task;
-            this.currentYearWaterGrid.DataSource = data;
+            var result = await task;
 
             this.currentYearWaterChart.SetChartTitle(string.Format("{0}{1}年水量消耗", account.ShortName, this.nowYear));
-            this.currentYearWaterChart.SetDataSource(data);
+            this.currentYearWaterChart.SetSeriesName(0, "用量(吨)");
+            this.currentYearWaterChart.SetSeriesName(1, "金额(元)");
+            this.currentYearWaterChart.SetDataSource(result);
+
+            this.currentYearWaterGrid.DataSource = result;
         }
 
         /// <summary>

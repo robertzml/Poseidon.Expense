@@ -76,6 +76,17 @@ namespace Poseidon.Expense.ClientDx
                     break;
             }
         }
+
+        /// <summary>
+        /// 显示附加数据列
+        /// </summary>
+        /// <param name="caption">标题</param>
+        /// <param name="visible">是否显示</param>
+        public void ShowAddition(string caption, bool visible = true)
+        {
+            this.colAdditionData.Caption = caption;
+            this.colAdditionData.Visible = visible;
+        }
         #endregion //Method
 
         #region Property

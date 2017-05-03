@@ -75,6 +75,7 @@
             // 
             // colBelongDate
             // 
+            this.colBelongDate.Caption = "月份";
             this.colBelongDate.DisplayFormat.FormatString = "yyyy年MM月";
             this.colBelongDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colBelongDate.FieldName = "BelongDate";
