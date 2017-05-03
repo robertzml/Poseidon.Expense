@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.energyChart = new Poseidon.Expense.ClientDx.EnergyExpenseChart();
             this.cmbYear = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.energyChart = new Poseidon.Expense.ClientDx.EnergyExpenseChart();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -66,6 +66,14 @@
             this.layoutControl1.Size = new System.Drawing.Size(646, 508);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // energyChart
+            // 
+            this.energyChart.Location = new System.Drawing.Point(12, 36);
+            this.energyChart.Name = "energyChart";
+            this.energyChart.ShowMonthTick = true;
+            this.energyChart.Size = new System.Drawing.Size(622, 460);
+            this.energyChart.TabIndex = 5;
             // 
             // cmbYear
             // 
@@ -99,14 +107,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(626, 24);
             this.layoutControlItem1.Text = "年度";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(24, 14);
-            // 
-            // energyChart
-            // 
-            this.energyChart.Location = new System.Drawing.Point(12, 36);
-            this.energyChart.Name = "energyChart";
-            this.energyChart.ShowMonthTick = true;
-            this.energyChart.Size = new System.Drawing.Size(622, 460);
-            this.energyChart.TabIndex = 5;
             // 
             // layoutControlItem2
             // 

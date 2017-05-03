@@ -79,30 +79,20 @@ namespace Poseidon.Expense.ClientDx
 
             var task = Task.Run(() =>
             {
-                List<EnergyExpense> electricData = new List<EnergyExpense>();
-                var electricExpense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, this.nowYear);
-
-                foreach (var exp in electricExpense)
-                {
-                    var model = new EnergyExpense();
-                    model.BelongDate = exp.BelongDate;
-                    model.Quantum = exp.TotalQuantity;
-                    model.Amount = exp.TotalAmount;
-                    model.AdditionData = exp.TotalPrize;
-
-                    electricData.Add(model);
-                }
-                return electricData;
+                var electricData = BusinessFactory<ElectricExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
+                return electricData.ToList();
             });
 
-            var data = await task;
+            var result = await task;
             this.gcYearGrid1.Text = "本年度用电支出";
-            this.currentYearElectricGrid.DataSource = data;
+            this.currentYearElectricGrid.DataSource = result;
             this.currentYearElectricGrid.ShowAddition("功率因数奖(元)");
 
             this.gcYearChart1.Text = "本年度用电情况";
             this.currentYearElectricChart.SetChartTitle(string.Format("{0}{1}年电量消耗", account.ShortName, this.nowYear));
-            this.currentYearElectricChart.SetDataSource(data);
+            this.currentYearElectricChart.SetSeriesName(0, "用量(度)");
+            this.currentYearElectricChart.SetSeriesName(1, "金额(元)");
+            this.currentYearElectricChart.SetDataSource(result);
         }
 
         /// <summary>
@@ -115,9 +105,8 @@ namespace Poseidon.Expense.ClientDx
 
             var task = Task.Run(() =>
             {
-                var waterData = BusinessFactory<WaterExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear).ToList();
-
-                return waterData;
+                var waterData = BusinessFactory<WaterExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
+                return waterData.ToList();
             });
 
             var result = await task;
@@ -142,30 +131,20 @@ namespace Poseidon.Expense.ClientDx
             {
                 var task = Task.Run(() =>
                 {
-                    List<EnergyExpense> gasData = new List<EnergyExpense>();
-                    var gasExpense = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, this.nowYear);
-
-                    foreach (var exp in gasExpense)
-                    {
-                        var model = new EnergyExpense();
-                        model.BelongDate = exp.BelongDate;
-                        model.Quantum = exp.TotalQuantity;
-                        model.Amount = exp.TotalAmount;
-
-                        gasData.Add(model);
-                    }
-
-                    return gasData;
+                    var gasData = BusinessFactory<GasExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
+                    return gasData.ToList();
                 });
 
-                var data = await task;
+                var result = await task;
                 this.gcYearGrid1.Text = "本年度用气支出";
-                this.currentYearElectricGrid.DataSource = data;
+                this.currentYearElectricGrid.DataSource = result;
                 this.currentYearElectricGrid.ShowAddition("", false);
 
                 this.gcYearChart1.Text = "本年度用气情况";
                 this.currentYearElectricChart.SetChartTitle($"{account.ShortName}{this.nowYear}年天然气消耗");
-                this.currentYearElectricChart.SetDataSource(data);
+                this.currentYearElectricChart.SetSeriesName(0, "用量(吨)");
+                this.currentYearElectricChart.SetSeriesName(1, "金额(元)");
+                this.currentYearElectricChart.SetDataSource(result);
             }
         }
 

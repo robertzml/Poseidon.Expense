@@ -89,6 +89,18 @@ namespace Poseidon.Expense.ClientDx
         }
         #endregion //Method
 
+        #region Event
+        /// <summary>
+        /// 打印
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuPrint_Click(object sender, EventArgs e)
+        {
+            this.chartMain.ShowRibbonPrintPreview();
+        }
+        #endregion //Event
+
         #region Property
         /// <summary>
         /// 数据源
@@ -119,6 +131,16 @@ namespace Poseidon.Expense.ClientDx
             set
             {
                 this.showMonthTick = value;
+                if (value)
+                {
+                    XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
+                    diagram.AxisX.Label.TextPattern = "{A:M月}";
+                }
+                else
+                {
+                    XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
+                    diagram.AxisX.Label.TextPattern = "{A:yyyy年M月}";
+                }
             }
         }
         #endregion //Property
