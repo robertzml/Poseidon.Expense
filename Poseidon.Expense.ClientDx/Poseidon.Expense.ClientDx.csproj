@@ -311,6 +311,12 @@
     <Compile Include="Receipt\FrmWaterExpenseEdit.Designer.cs">
       <DependentUpon>FrmWaterExpenseEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mod\WaterMeterTraceModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\WaterMeterTraceModule.Designer.cs">
+      <DependentUpon>WaterMeterTraceModule.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Account\FrmExpenseAccount.resx">
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\ElectricMeterTraceModule.resx">
       <DependentUpon>ElectricMeterTraceModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\WaterMeterTraceModule.resx">
+      <DependentUpon>WaterMeterTraceModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\WaterReceipt.resx">
       <DependentUpon>WaterReceipt.cs</DependentUpon>

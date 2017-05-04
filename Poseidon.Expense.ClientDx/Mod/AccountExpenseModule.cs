@@ -70,6 +70,7 @@ namespace Poseidon.Expense.ClientDx
             this.hotWaterYearChartMod.Clear();
 
             this.electricTraceMod.Clear();
+            this.waterTraceMod.Clear();
         }
 
         /// <summary>
@@ -375,6 +376,7 @@ namespace Poseidon.Expense.ClientDx
         private void DisplayTrace(ExpenseAccount account)
         {
             this.electricTraceMod.SetAccount(account);
+            this.waterTraceMod.SetAccount(account);
         }
         #endregion //Function
 

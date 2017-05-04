@@ -40,6 +40,7 @@
             this.colRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCalQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCalcAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBelongDate = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgcEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntity)).BeginInit();
@@ -59,6 +60,7 @@
             // dgvEntity
             // 
             this.dgvEntity.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBelongDate,
             this.colMeterNumber,
             this.colMeterName,
             this.colFeeType,
@@ -78,6 +80,7 @@
             this.dgvEntity.OptionsView.EnableAppearanceEvenRow = true;
             this.dgvEntity.OptionsView.EnableAppearanceOddRow = true;
             this.dgvEntity.OptionsView.ShowGroupPanel = false;
+            this.dgvEntity.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.dgvEntity_CustomUnboundColumnData);
             // 
             // colMeterNumber
             // 
@@ -85,7 +88,7 @@
             this.colMeterNumber.FieldName = "MeterNumber";
             this.colMeterNumber.Name = "colMeterNumber";
             this.colMeterNumber.Visible = true;
-            this.colMeterNumber.VisibleIndex = 0;
+            this.colMeterNumber.VisibleIndex = 1;
             // 
             // colMeterName
             // 
@@ -93,7 +96,7 @@
             this.colMeterName.FieldName = "MeterName";
             this.colMeterName.Name = "colMeterName";
             this.colMeterName.Visible = true;
-            this.colMeterName.VisibleIndex = 1;
+            this.colMeterName.VisibleIndex = 2;
             // 
             // colFeeType
             // 
@@ -102,7 +105,7 @@
             this.colFeeType.FieldName = "FeeType";
             this.colFeeType.Name = "colFeeType";
             this.colFeeType.Visible = true;
-            this.colFeeType.VisibleIndex = 2;
+            this.colFeeType.VisibleIndex = 3;
             // 
             // repoCmbFeeType
             // 
@@ -117,7 +120,7 @@
             this.colPrevious.FieldName = "Previous";
             this.colPrevious.Name = "colPrevious";
             this.colPrevious.Visible = true;
-            this.colPrevious.VisibleIndex = 3;
+            this.colPrevious.VisibleIndex = 4;
             // 
             // colCurrent
             // 
@@ -125,7 +128,7 @@
             this.colCurrent.FieldName = "Current";
             this.colCurrent.Name = "colCurrent";
             this.colCurrent.Visible = true;
-            this.colCurrent.VisibleIndex = 4;
+            this.colCurrent.VisibleIndex = 5;
             // 
             // colQuantity
             // 
@@ -135,7 +138,7 @@
             this.colQuantity.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Quantity", "合计={0:0.##}")});
             this.colQuantity.Visible = true;
-            this.colQuantity.VisibleIndex = 6;
+            this.colQuantity.VisibleIndex = 7;
             // 
             // colUnitPrice
             // 
@@ -143,7 +146,7 @@
             this.colUnitPrice.FieldName = "UnitPrice";
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.Visible = true;
-            this.colUnitPrice.VisibleIndex = 7;
+            this.colUnitPrice.VisibleIndex = 8;
             // 
             // colAmount
             // 
@@ -153,7 +156,7 @@
             this.colAmount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Amount", "合计={0:0.##}")});
             this.colAmount.Visible = true;
-            this.colAmount.VisibleIndex = 9;
+            this.colAmount.VisibleIndex = 10;
             // 
             // colRemark
             // 
@@ -161,7 +164,7 @@
             this.colRemark.FieldName = "Remark";
             this.colRemark.Name = "colRemark";
             this.colRemark.Visible = true;
-            this.colRemark.VisibleIndex = 10;
+            this.colRemark.VisibleIndex = 11;
             // 
             // colCalQuantity
             // 
@@ -172,7 +175,7 @@
             this.colCalQuantity.UnboundExpression = "[Current] - [Previous]";
             this.colCalQuantity.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.colCalQuantity.Visible = true;
-            this.colCalQuantity.VisibleIndex = 5;
+            this.colCalQuantity.VisibleIndex = 6;
             // 
             // colCalcAmount
             // 
@@ -183,7 +186,18 @@
             this.colCalcAmount.UnboundExpression = "[colCalQuantity] * [UnitPrice]";
             this.colCalcAmount.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.colCalcAmount.Visible = true;
-            this.colCalcAmount.VisibleIndex = 8;
+            this.colCalcAmount.VisibleIndex = 9;
+            // 
+            // colBelongDate
+            // 
+            this.colBelongDate.Caption = "归属日期";
+            this.colBelongDate.DisplayFormat.FormatString = "yyyy年MM月";
+            this.colBelongDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colBelongDate.FieldName = "colBelongDate";
+            this.colBelongDate.Name = "colBelongDate";
+            this.colBelongDate.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
+            this.colBelongDate.Visible = true;
+            this.colBelongDate.VisibleIndex = 0;
             // 
             // WaterExpenseRecordGrid
             // 
@@ -212,5 +226,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCalQuantity;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repoCmbFeeType;
         private DevExpress.XtraGrid.Columns.GridColumn colCalcAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn colBelongDate;
     }
 }

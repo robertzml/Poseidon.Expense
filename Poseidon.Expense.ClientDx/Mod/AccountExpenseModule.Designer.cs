@@ -105,8 +105,9 @@
             this.tabPageTrace = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageElectricTrace = new DevExpress.XtraTab.XtraTabPage();
-            this.tabPageWaterTrace = new DevExpress.XtraTab.XtraTabPage();
             this.electricTraceMod = new Poseidon.Expense.ClientDx.ElectricMeterTraceModule();
+            this.tabPageWaterTrace = new DevExpress.XtraTab.XtraTabPage();
+            this.waterTraceMod = new Poseidon.Expense.ClientDx.WaterMeterTraceModule();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -173,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
             this.xtraTabControl4.SuspendLayout();
             this.tabPageElectricTrace.SuspendLayout();
+            this.tabPageWaterTrace.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -945,12 +947,6 @@
             this.tabPageElectricTrace.Size = new System.Drawing.Size(858, 540);
             this.tabPageElectricTrace.Text = "电表查询";
             // 
-            // tabPageWaterTrace
-            // 
-            this.tabPageWaterTrace.Name = "tabPageWaterTrace";
-            this.tabPageWaterTrace.Size = new System.Drawing.Size(858, 540);
-            this.tabPageWaterTrace.Text = "水表查询";
-            // 
             // electricTraceMod
             // 
             this.electricTraceMod.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -958,6 +954,21 @@
             this.electricTraceMod.Name = "electricTraceMod";
             this.electricTraceMod.Size = new System.Drawing.Size(858, 540);
             this.electricTraceMod.TabIndex = 0;
+            // 
+            // tabPageWaterTrace
+            // 
+            this.tabPageWaterTrace.Controls.Add(this.waterTraceMod);
+            this.tabPageWaterTrace.Name = "tabPageWaterTrace";
+            this.tabPageWaterTrace.Size = new System.Drawing.Size(858, 540);
+            this.tabPageWaterTrace.Text = "水表查询";
+            // 
+            // waterTraceMod
+            // 
+            this.waterTraceMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.waterTraceMod.Location = new System.Drawing.Point(0, 0);
+            this.waterTraceMod.Name = "waterTraceMod";
+            this.waterTraceMod.Size = new System.Drawing.Size(858, 540);
+            this.waterTraceMod.TabIndex = 0;
             // 
             // AccountExpenseModule
             // 
@@ -1032,6 +1043,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
             this.xtraTabControl4.ResumeLayout(false);
             this.tabPageElectricTrace.ResumeLayout(false);
+            this.tabPageWaterTrace.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1116,5 +1128,6 @@
         private DevExpress.XtraTab.XtraTabPage tabPageElectricTrace;
         private DevExpress.XtraTab.XtraTabPage tabPageWaterTrace;
         private ElectricMeterTraceModule electricTraceMod;
+        private WaterMeterTraceModule waterTraceMod;
     }
 }

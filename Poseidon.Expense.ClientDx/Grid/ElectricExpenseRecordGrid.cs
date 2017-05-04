@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace Poseidon.Expense.ClientDx
 {
-    using Poseidon.Base.Framework;
     using Poseidon.Winform.Base;
     using Poseidon.Expense.Core.BL;
     using Poseidon.Expense.Core.DL;
@@ -91,6 +90,5 @@ namespace Poseidon.Expense.ClientDx
             }
         }
         #endregion //Property
-
     }
 }

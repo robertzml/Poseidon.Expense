@@ -18,9 +18,9 @@ namespace Poseidon.Expense.ClientDx
     using Poseidon.Expense.Core.Utility;
 
     /// <summary>
-    /// 电表查询模块
+    /// 水表查询模块
     /// </summary>
-    public partial class ElectricMeterTraceModule : DevExpress.XtraEditors.XtraUserControl
+    public partial class WaterMeterTraceModule : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
         /// <summary>
@@ -29,13 +29,13 @@ namespace Poseidon.Expense.ClientDx
         private ExpenseAccount currentAccount;
 
         /// <summary>
-        /// 用电记录
+        /// 用水记录
         /// </summary>
-        private List<ElectricExpenseRecord> electricRecords;
+        private List<WaterExpenseRecord> waterRecords;
         #endregion //Field
 
         #region Constructor
-        public ElectricMeterTraceModule()
+        public WaterMeterTraceModule()
         {
             InitializeComponent();
         }
@@ -47,7 +47,7 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void InitControls()
         {
-            this.bsMeter.DataSource = this.currentAccount.ElectricMeters;
+            this.bsMeter.DataSource = this.currentAccount.WaterMeters;
             this.recordGrid.Init();
         }
 
@@ -55,14 +55,12 @@ namespace Poseidon.Expense.ClientDx
         /// 显示表具信息
         /// </summary>
         /// <param name="meter"></param>
-        private void DisplayMeterInfo(ElectricMeter meter)
+        private void DisplayMeterInfo(WaterMeter meter)
         {
             this.txtExpenseAccountName.Text = this.currentAccount.Name;
             this.txtMeterName.Text = meter.Name;
             this.txtMeterNumber.Text = meter.Number;
             this.txtAccountName.Text = meter.AccountName;
-            this.txtMultiple.Text = meter.Multiple.ToString();
-            this.txtSectionNumber.Text = meter.SectionNumber;
             this.txtAddress.Text = meter.Address;
             this.txtRemark.Text = meter.Remark;
         }
@@ -71,11 +69,11 @@ namespace Poseidon.Expense.ClientDx
         /// 显示记录
         /// </summary>
         /// <param name="meter"></param>
-        private void DisplayRecords(ElectricMeter meter)
+        private void DisplayRecords(WaterMeter meter)
         {
-            var expenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindByAccount(this.currentAccount.Id).OrderByDescending(r => r.BelongDate);
+            var expenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindByAccount(this.currentAccount.Id).OrderByDescending(r => r.BelongDate);
 
-            List<ElectricExpenseRecord> records = new List<ElectricExpenseRecord>();
+            List<WaterExpenseRecord> records = new List<WaterExpenseRecord>();
             foreach (var expense in expenses)
             {
                 var rec = expense.Records.Where(r => r.MeterName == meter.Name && r.MeterNumber == meter.Number).ToList();
@@ -83,7 +81,7 @@ namespace Poseidon.Expense.ClientDx
                 records.AddRange(rec);
             }
 
-            this.electricRecords = records;
+            this.waterRecords = records;
             this.recordGrid.DataSource = records;
         }
 
@@ -91,13 +89,13 @@ namespace Poseidon.Expense.ClientDx
         /// 显示趋势
         /// </summary>
         /// <param name="meter"></param>
-        private async void DisplayTrend(ElectricMeter meter)
+        private async void DisplayTrend(WaterMeter meter)
         {
             this.trendChart.Clear();
             var task = Task.Run(() =>
             {
                 List<ExpenseDataModel> model = new List<ExpenseDataModel>();
-                foreach (var item in this.electricRecords)
+                foreach (var item in this.waterRecords)
                 {
                     ExpenseDataModel m = new ExpenseDataModel();
                     m.BelongDate = Convert.ToDateTime(item.Id);
@@ -113,7 +111,7 @@ namespace Poseidon.Expense.ClientDx
             var result = await task;
 
             this.trendChart.SetChartTitle($"{meter.Name}用能趋势");
-            this.trendChart.SetSeriesName(0, "用电量(度)");
+            this.trendChart.SetSeriesName(0, "用水量(吨)");
             this.trendChart.SetSeriesName(1, "金额", false);
             this.trendChart.SetShowRange(10);
             this.trendChart.SetLabelVisible(true);
@@ -143,8 +141,6 @@ namespace Poseidon.Expense.ClientDx
             this.txtMeterName.Text = "";
             this.txtMeterNumber.Text = "";
             this.txtAccountName.Text = "";
-            this.txtMultiple.Text = "";
-            this.txtSectionNumber.Text = "";
             this.txtAddress.Text = "";
             this.txtRemark.Text = "";
 
@@ -164,7 +160,7 @@ namespace Poseidon.Expense.ClientDx
             if (this.luMeter.EditValue == null)
                 return;
 
-            var meter = this.luMeter.GetSelectedDataRow() as ElectricMeter;
+            var meter = this.luMeter.GetSelectedDataRow() as WaterMeter;
             DisplayMeterInfo(meter);
             DisplayRecords(meter);
             DisplayTrend(meter);
