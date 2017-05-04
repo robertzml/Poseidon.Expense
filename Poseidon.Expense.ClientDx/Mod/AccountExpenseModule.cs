@@ -68,6 +68,8 @@ namespace Poseidon.Expense.ClientDx
             this.waterYearChartMod.Clear();
             this.gasYearChartMod.Clear();
             this.hotWaterYearChartMod.Clear();
+
+            this.electricTraceMod.Clear();
         }
 
         /// <summary>
@@ -365,6 +367,15 @@ namespace Poseidon.Expense.ClientDx
                 this.hotWaterYearChartMod.SetAccount(this.currentAccount, EnergyExpenseType.HotWater);
             }
         }
+
+        /// <summary>
+        /// 显示表具查询
+        /// </summary>
+        /// <param name="account"></param>
+        private void DisplayTrace(ExpenseAccount account)
+        {
+            this.electricTraceMod.SetAccount(account);
+        }
         #endregion //Function
 
         #region Method
@@ -382,6 +393,7 @@ namespace Poseidon.Expense.ClientDx
             DisplayReceipt(this.currentAccount);
             DisplayCompare(this.currentAccount);
             DisplayYear(this.currentAccount);
+            DisplayTrace(this.currentAccount);
         }
         #endregion //Method
     }

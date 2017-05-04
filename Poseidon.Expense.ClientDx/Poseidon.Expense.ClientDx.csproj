@@ -146,6 +146,12 @@
     <Compile Include="Grid\ExpenseDataGrid.Designer.cs">
       <DependentUpon>ExpenseDataGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mod\ElectricMeterTraceModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mod\ElectricMeterTraceModule.Designer.cs">
+      <DependentUpon>ElectricMeterTraceModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receipt\FrmHotWaterExpenseEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\HotWaterReceipt.resx">
       <DependentUpon>HotWaterReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mod\ElectricMeterTraceModule.resx">
+      <DependentUpon>ElectricMeterTraceModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mod\WaterReceipt.resx">
       <DependentUpon>WaterReceipt.cs</DependentUpon>

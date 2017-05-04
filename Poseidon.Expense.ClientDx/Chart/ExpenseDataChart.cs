@@ -46,9 +46,11 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         /// <param name="index">序号</param>
         /// <param name="text">名称</param>
-        public void SetSeriesName(int index, string text)
+        /// <param name="visible">是否显示</param>
+        public void SetSeriesName(int index, string text, bool visible = true)
         {
             this.chartMain.Series[index].Name = text;
+            this.chartMain.Series[index].Visible = visible;
         }
 
         /// <summary>
@@ -86,6 +88,34 @@ namespace Poseidon.Expense.ClientDx
         public void Clear()
         {
             this.bsExpense.DataSource = null;
+        }
+
+        /// <summary>
+        /// 设置显示范围
+        /// </summary>
+        public void SetShowRange(int range)
+        {
+            XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
+
+            diagram.EnableAxisXScrolling = true;
+            diagram.AxisX.VisualRange.Auto = false;
+            diagram.AxisX.VisualRange.AutoSideMargins = false;
+            diagram.AxisX.VisualRange.SideMarginsValue = range;
+        }
+
+        /// <summary>
+        /// 设置数值标签是否显示
+        /// </summary>
+        /// <param name="visible"></param>
+        public void SetLabelVisible(bool visible)
+        {
+            for (int i = 0; i < this.chartMain.Series.Count; i++)
+            {
+                if (visible)
+                    this.chartMain.Series[i].LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+                else
+                    this.chartMain.Series[i].LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+            }
         }
         #endregion //Method
 
