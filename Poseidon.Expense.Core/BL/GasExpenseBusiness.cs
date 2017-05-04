@@ -69,7 +69,7 @@ namespace Poseidon.Expense.Core.BL
                 m.BelongDate = item.BelongDate;
                 m.Quantum = item.TotalQuantity;
                 m.Amount = item.TotalAmount;
-                m.UnitPrice = m.Quantum == 0 ? 0 : m.Amount / m.Quantum;
+                m.UnitPrice = m.Quantum == 0 ? 0 : Math.Round(m.Amount / m.Quantum, 2);
 
                 model.Add(m);
             }

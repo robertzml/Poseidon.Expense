@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Expense.ClientDx
 {
-    partial class ExpenseDataYearGridModule
+    partial class ExpenseDataYearGridCtrl
     {
         /// <summary> 
         /// 必需的设计器变量。

@@ -71,21 +71,21 @@
             this.tabPageYearGrid = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.electricYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridModule();
+            this.electricYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridCtrl();
             this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.waterYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridModule();
+            this.waterYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridCtrl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.electricYearChartMod = new Poseidon.Expense.ClientDx.ExpenseYearChartModule();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.waterYearChartMod = new Poseidon.Expense.ClientDx.ExpenseYearChartModule();
             this.tabPageYearGrid2 = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
-            this.gasYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridModule();
+            this.gasYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridCtrl();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.gasYearChartMod = new Poseidon.Expense.ClientDx.ExpenseYearChartModule();
+            this.gasYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
-            this.hotWaterYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridModule();
+            this.hotWaterYearGridMod = new Poseidon.Expense.ClientDx.ExpenseDataYearGridCtrl();
+            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.hotWaterYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
             this.tabPageCompare = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageElectricCompareGrid = new DevExpress.XtraTab.XtraTabPage();
@@ -100,8 +100,8 @@
             this.gasCompareGridMod = new Poseidon.Expense.ClientDx.EnergyCompareGridModule();
             this.tabPageGasCompareChart = new DevExpress.XtraTab.XtraTabPage();
             this.gasCompareChartMod = new Poseidon.Expense.ClientDx.EnergyCompareChartModule();
-            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
-            this.hotWaterYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
+            this.waterYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
+            this.electricYearChartMod = new Poseidon.Expense.ClientDx.ExpenseDataYearChartCtrl();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -153,6 +153,8 @@
             this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
             this.tabPageCompare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
@@ -162,8 +164,6 @@
             this.tabPageWaterCompareChart.SuspendLayout();
             this.tabPageGasCompareGrid.SuspendLayout();
             this.tabPageGasCompareChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
-            this.groupControl9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -665,14 +665,6 @@
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "年度用电图表";
             // 
-            // electricYearChartMod
-            // 
-            this.electricYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.electricYearChartMod.Location = new System.Drawing.Point(2, 21);
-            this.electricYearChartMod.Name = "electricYearChartMod";
-            this.electricYearChartMod.Size = new System.Drawing.Size(419, 241);
-            this.electricYearChartMod.TabIndex = 0;
-            // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.waterYearChartMod);
@@ -682,14 +674,6 @@
             this.groupControl4.Size = new System.Drawing.Size(423, 264);
             this.groupControl4.TabIndex = 3;
             this.groupControl4.Text = "年度用水图表";
-            // 
-            // waterYearChartMod
-            // 
-            this.waterYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.waterYearChartMod.Location = new System.Drawing.Point(2, 21);
-            this.waterYearChartMod.Name = "waterYearChartMod";
-            this.waterYearChartMod.Size = new System.Drawing.Size(419, 241);
-            this.waterYearChartMod.TabIndex = 0;
             // 
             // tabPageYearGrid2
             // 
@@ -777,6 +761,24 @@
             this.hotWaterYearGridMod.ShowUnitPrice = true;
             this.hotWaterYearGridMod.Size = new System.Drawing.Size(419, 241);
             this.hotWaterYearGridMod.TabIndex = 0;
+            // 
+            // groupControl9
+            // 
+            this.groupControl9.Controls.Add(this.hotWaterYearChartMod);
+            this.groupControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl9.Location = new System.Drawing.Point(432, 273);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(423, 264);
+            this.groupControl9.TabIndex = 3;
+            this.groupControl9.Text = "年度热水图表";
+            // 
+            // hotWaterYearChartMod
+            // 
+            this.hotWaterYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotWaterYearChartMod.Location = new System.Drawing.Point(2, 21);
+            this.hotWaterYearChartMod.Name = "hotWaterYearChartMod";
+            this.hotWaterYearChartMod.Size = new System.Drawing.Size(419, 241);
+            this.hotWaterYearChartMod.TabIndex = 0;
             // 
             // tabPageCompare
             // 
@@ -891,23 +893,21 @@
             this.gasCompareChartMod.Size = new System.Drawing.Size(858, 540);
             this.gasCompareChartMod.TabIndex = 0;
             // 
-            // groupControl9
+            // waterYearChartMod
             // 
-            this.groupControl9.Controls.Add(this.hotWaterYearChartMod);
-            this.groupControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl9.Location = new System.Drawing.Point(432, 273);
-            this.groupControl9.Name = "groupControl9";
-            this.groupControl9.Size = new System.Drawing.Size(423, 264);
-            this.groupControl9.TabIndex = 3;
-            this.groupControl9.Text = "年度热水图表";
+            this.waterYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.waterYearChartMod.Location = new System.Drawing.Point(2, 21);
+            this.waterYearChartMod.Name = "waterYearChartMod";
+            this.waterYearChartMod.Size = new System.Drawing.Size(419, 241);
+            this.waterYearChartMod.TabIndex = 0;
             // 
-            // hotWaterYearChartMod
+            // electricYearChartMod
             // 
-            this.hotWaterYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hotWaterYearChartMod.Location = new System.Drawing.Point(2, 21);
-            this.hotWaterYearChartMod.Name = "hotWaterYearChartMod";
-            this.hotWaterYearChartMod.Size = new System.Drawing.Size(419, 241);
-            this.hotWaterYearChartMod.TabIndex = 0;
+            this.electricYearChartMod.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.electricYearChartMod.Location = new System.Drawing.Point(2, 21);
+            this.electricYearChartMod.Name = "electricYearChartMod";
+            this.electricYearChartMod.Size = new System.Drawing.Size(419, 241);
+            this.electricYearChartMod.TabIndex = 0;
             // 
             // AccountExpenseModule
             // 
@@ -967,6 +967,8 @@
             this.groupControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
             this.tabPageCompare.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
@@ -976,8 +978,6 @@
             this.tabPageWaterCompareChart.ResumeLayout(false);
             this.tabPageGasCompareGrid.ResumeLayout(false);
             this.tabPageGasCompareChart.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
-            this.groupControl9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1039,23 +1039,23 @@
         private DevExpress.XtraTab.XtraTabPage tabPageGasCompareChart;
         private EnergyCompareChartModule gasCompareChartMod;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private ExpenseYearChartModule electricYearChartMod;
         private DevExpress.XtraEditors.GroupControl groupControl4;
-        private ExpenseYearChartModule waterYearChartMod;
         private DevExpress.XtraEditors.GroupControl groupControl5;
-        private ExpenseYearChartModule gasYearChartMod;
         private DevExpress.XtraTab.XtraTabPage tabPageHotWaterReceipt;
         private HotWaterReceipt hotWaterExpenseReceipt;
         private DevExpress.XtraEditors.GroupControl groupControl6;
-        private ExpenseDataYearGridModule hotWaterYearGridMod;
-        private ExpenseDataYearGridModule gasYearGridMod;
-        private ExpenseDataYearGridModule waterYearGridMod;
-        private ExpenseDataYearGridModule electricYearGridMod;
+        private ExpenseDataYearGridCtrl hotWaterYearGridMod;
+        private ExpenseDataYearGridCtrl gasYearGridMod;
+        private ExpenseDataYearGridCtrl waterYearGridMod;
+        private ExpenseDataYearGridCtrl electricYearGridMod;
         private ExpenseDataGrid currentYearWaterGrid;
         private ExpenseDataChart currentYearWaterChart;
         private ExpenseDataChart currentYearElectricChart;
         private ExpenseDataGrid currentYearElectricGrid;
         private DevExpress.XtraEditors.GroupControl groupControl9;
         private ExpenseDataYearChartCtrl hotWaterYearChartMod;
+        private ExpenseDataYearChartCtrl gasYearChartMod;
+        private ExpenseDataYearChartCtrl electricYearChartMod;
+        private ExpenseDataYearChartCtrl waterYearChartMod;
     }
 }

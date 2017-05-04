@@ -79,83 +79,88 @@ namespace Poseidon.Expense.ClientDx
 
             var task1 = Task.Run(() =>
             {
-                List<EnergyExpense> data = new List<EnergyExpense>();
+                List<ExpenseDataModel> data = new List<ExpenseDataModel>();
 
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, nowYear);
-                    foreach (var exp in expense)
+                    var expenseData = BusinessFactory<ElectricExpenseBusiness>.Instance.GetExpenseDataModel(item.EntityId, nowYear);
+                    foreach (var exp in expenseData)
                     {
-                        var energyExpense = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
-                        if (energyExpense != null)
+                        var find = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        if (find != null)
                         {
-                            energyExpense.Amount += exp.TotalAmount;
-                            energyExpense.Quantum += exp.TotalQuantity;
-                            energyExpense.AdditionData += exp.TotalPrize;
+                            find.Amount += exp.Amount;
+                            find.Quantum += exp.Quantum;
+                            find.AdditionData += exp.AdditionData;
                         }
                         else
                         {
-                            var model = new EnergyExpense();
+                            var model = new ExpenseDataModel();
+                            model.Name = exp.Name;
                             model.BelongDate = exp.BelongDate;
-                            model.Quantum = exp.TotalQuantity;
-                            model.Amount = exp.TotalAmount;
-                            model.AdditionData = exp.TotalPrize;
+                            model.Quantum = exp.Quantum;
+                            model.Amount = exp.Amount;
+                            model.UnitPrice = exp.UnitPrice;
+                            model.AdditionData = exp.AdditionData;
 
                             data.Add(model);
                         }
                     }
                 }
 
-                return data;
+                return data.OrderBy(r => r.BelongDate).ToList();
             });
 
-            var data1 = await task1;
-            this.currentYearElectricGrid.ShowUnitPrice = false;
+            var result1 = await task1;
             this.currentYearElectricGrid.ShowAddition("功率因数奖(元)");
-            this.currentYearElectricGrid.DataSource = data1;
+            this.currentYearElectricGrid.DataSource = result1;
 
             this.electricYearChart.SetChartTitle(string.Format("{0}{1}年电量消耗", group.Name, this.nowYear));
             this.electricYearChart.SetSeriesName(0, "用量(度)");
             this.electricYearChart.SetSeriesName(1, "金额(元)");
-            this.electricYearChart.SetDataSource(data1);
+            this.electricYearChart.SetDataSource(result1);
 
             var task2 = Task.Run(() =>
             {
-                List<EnergyExpense> waterData = new List<EnergyExpense>();
+                List<ExpenseDataModel> data = new List<ExpenseDataModel>();
+
                 foreach (var item in items)
                 {
-                    var expense = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(item.EntityId, nowYear);
-                    foreach (var exp in expense)
+                    var expenseData = BusinessFactory<WaterExpenseBusiness>.Instance.GetExpenseDataModel(item.EntityId, nowYear);
+                    foreach (var exp in expenseData)
                     {
-                        var energyExpense = waterData.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
-                        if (energyExpense != null)
+                        var find = data.SingleOrDefault(r => r.BelongDate == exp.BelongDate);
+                        if (find != null)
                         {
-                            energyExpense.Amount += exp.TotalAmount;
-                            energyExpense.Quantum += exp.TotalQuantity;
+                            find.Amount += exp.Amount;
+                            find.Quantum += exp.Quantum;
+                            find.AdditionData += exp.AdditionData;
                         }
                         else
                         {
-                            var model = new EnergyExpense();
+                            var model = new ExpenseDataModel();
+                            model.Name = exp.Name;
                             model.BelongDate = exp.BelongDate;
-                            model.Quantum = exp.TotalQuantity;
-                            model.Amount = exp.TotalAmount;
+                            model.Quantum = exp.Quantum;
+                            model.Amount = exp.Amount;
+                            model.UnitPrice = exp.UnitPrice;
+                            model.AdditionData = exp.AdditionData;
 
-                            waterData.Add(model);
+                            data.Add(model);
                         }
                     }
                 }
 
-                return waterData;
+                return data.OrderBy(r => r.BelongDate).ToList();
             });
 
-            var data2 = await task2;
-            this.currentYearWaterGrid.ShowUnitPrice = true;
-            this.currentYearWaterGrid.DataSource = data2;
+            var result2 = await task2;
+            this.currentYearWaterGrid.DataSource = result2;
 
             this.waterYearChart.SetChartTitle(string.Format("{0}{1}年水量消耗", group.Name, this.nowYear));
             this.waterYearChart.SetSeriesName(0, "用量(吨)");
             this.waterYearChart.SetSeriesName(1, "金额(元)");
-            this.waterYearChart.SetDataSource(data2);
+            this.waterYearChart.SetDataSource(result2);
         }
 
         /// <summary>

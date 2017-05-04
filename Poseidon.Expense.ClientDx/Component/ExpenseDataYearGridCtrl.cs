@@ -19,7 +19,7 @@ namespace Poseidon.Expense.ClientDx
     /// <summary>
     /// 年度支出数据模块
     /// </summary>
-    public partial class ExpenseDataYearGridModule : DevExpress.XtraEditors.XtraUserControl
+    public partial class ExpenseDataYearGridCtrl : DevExpress.XtraEditors.XtraUserControl
     {
         #region Field
         /// <summary>
@@ -68,7 +68,7 @@ namespace Poseidon.Expense.ClientDx
         #endregion //Field
 
         #region Constructor
-        public ExpenseDataYearGridModule()
+        public ExpenseDataYearGridCtrl()
         {
             InitializeComponent();
         }
@@ -189,7 +189,7 @@ namespace Poseidon.Expense.ClientDx
                     }
                 }
 
-                return data;
+                return data.OrderBy(r => r.BelongDate).ToList();
             });
 
             var result = await task;
