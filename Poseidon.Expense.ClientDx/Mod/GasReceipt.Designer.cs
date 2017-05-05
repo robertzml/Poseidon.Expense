@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbGasReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsGasExpense = new System.Windows.Forms.BindingSource(this.components);
+            this.bsGasExpense = new System.Windows.Forms.BindingSource();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gasExpRecGrid = new Poseidon.Expense.ClientDx.GasExpenseRecordGrid();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();

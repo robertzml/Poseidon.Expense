@@ -45,6 +45,16 @@ namespace Poseidon.Expense.ClientDx
 
         #region Event
         /// <summary>
+        /// 控件载入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ElectricExpenseRecordGrid_Load(object sender, EventArgs e)
+        {
+            this.colBelongDate.Visible = this.showBelongDate;
+        }
+
+        /// <summary>
         /// 自定义数据显示
         /// </summary>
         /// <param name="sender"></param>
@@ -86,7 +96,6 @@ namespace Poseidon.Expense.ClientDx
             set
             {
                 showBelongDate = value;
-                this.colBelongDate.Visible = value;
             }
         }
         #endregion //Property

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lbWaterReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsWaterExpense = new System.Windows.Forms.BindingSource(this.components);
+            this.bsWaterExpense = new System.Windows.Forms.BindingSource();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.waterExpRecGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
@@ -162,6 +161,7 @@
             this.waterExpRecGrid.Location = new System.Drawing.Point(12, 177);
             this.waterExpRecGrid.Name = "waterExpRecGrid";
             this.waterExpRecGrid.ShowAddMenu = false;
+            this.waterExpRecGrid.ShowBelongDate = false;
             this.waterExpRecGrid.ShowFooter = false;
             this.waterExpRecGrid.ShowLineNumber = true;
             this.waterExpRecGrid.ShowMenu = false;

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbElectricReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsElectricExpense = new System.Windows.Forms.BindingSource(this.components);
+            this.bsElectricExpense = new System.Windows.Forms.BindingSource();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.electricExpRecGrid = new Poseidon.Expense.ClientDx.ElectricExpenseRecordGrid();
             this.txtRemark = new DevExpress.XtraEditors.MemoEdit();
@@ -167,6 +166,7 @@
             this.electricExpRecGrid.Location = new System.Drawing.Point(12, 177);
             this.electricExpRecGrid.Name = "electricExpRecGrid";
             this.electricExpRecGrid.ShowAddMenu = false;
+            this.electricExpRecGrid.ShowBelongDate = false;
             this.electricExpRecGrid.ShowFooter = false;
             this.electricExpRecGrid.ShowLineNumber = true;
             this.electricExpRecGrid.ShowMenu = false;
