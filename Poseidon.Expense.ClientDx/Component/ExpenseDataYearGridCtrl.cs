@@ -240,6 +240,19 @@ namespace Poseidon.Expense.ClientDx
 
         #region Event
         /// <summary>
+        /// 控件载入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExpenseDataYearGridCtrl_Load(object sender, EventArgs e)
+        {
+            this.expenseGrid.ShowColName = this.showColName;
+            this.expenseGrid.ShowColBelongDate = this.showColBelongDate;
+            this.expenseGrid.ShowUnitPrice = this.showUnitPrice;
+            this.expenseGrid.ShowAddtionData = this.showAdditionData;
+        }
+
+        /// <summary>
         /// 年度选择
         /// </summary>
         /// <param name="sender"></param>

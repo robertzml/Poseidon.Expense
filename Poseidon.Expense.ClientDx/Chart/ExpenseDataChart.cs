@@ -121,6 +121,25 @@ namespace Poseidon.Expense.ClientDx
 
         #region Event
         /// <summary>
+        /// 控件载入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExpenseDataChart_Load(object sender, EventArgs e)
+        {
+            if (this.showMonthTick)
+            {
+                XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
+                diagram.AxisX.Label.TextPattern = "{A:M月}";
+            }
+            else
+            {
+                XYDiagram diagram = this.chartMain.Diagram as XYDiagram;
+                diagram.AxisX.Label.TextPattern = "{A:yyyy年M月}";
+            }
+        }
+
+        /// <summary>
         /// 打印
         /// </summary>
         /// <param name="sender"></param>

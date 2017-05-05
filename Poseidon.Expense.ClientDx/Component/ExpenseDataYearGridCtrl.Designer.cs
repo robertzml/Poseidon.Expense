@@ -130,13 +130,14 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // ExpenseDataYearGridModule
+            // ExpenseDataYearGridCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "ExpenseDataYearGridModule";
+            this.Name = "ExpenseDataYearGridCtrl";
             this.Size = new System.Drawing.Size(362, 336);
+            this.Load += new System.EventHandler(this.ExpenseDataYearGridCtrl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -104,6 +104,7 @@
             this.Controls.Add(this.chartMain);
             this.Name = "ExpenseDataChart";
             this.Size = new System.Drawing.Size(648, 413);
+            this.Load += new System.EventHandler(this.ExpenseDataChart_Load);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
