@@ -332,6 +332,7 @@
             this.recordGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recordGrid.Editable = false;
             this.recordGrid.EnableMasterView = false;
+            this.recordGrid.EnableMultiSelect = true;
             this.recordGrid.Location = new System.Drawing.Point(0, 0);
             this.recordGrid.Name = "recordGrid";
             this.recordGrid.ShowAddMenu = false;

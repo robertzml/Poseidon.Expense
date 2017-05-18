@@ -74,6 +74,7 @@
             this.expenseGrid.DataSource = null;
             this.expenseGrid.Editable = false;
             this.expenseGrid.EnableMasterView = false;
+            this.expenseGrid.EnableMultiSelect = true;
             this.expenseGrid.Location = new System.Drawing.Point(12, 36);
             this.expenseGrid.Name = "expenseGrid";
             this.expenseGrid.ShowAddMenu = false;

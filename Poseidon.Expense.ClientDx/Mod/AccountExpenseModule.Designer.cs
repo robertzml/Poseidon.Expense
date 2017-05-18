@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageSummary = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -278,6 +277,7 @@
             this.currentYearWaterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentYearWaterGrid.Editable = false;
             this.currentYearWaterGrid.EnableMasterView = false;
+            this.currentYearWaterGrid.EnableMultiSelect = true;
             this.currentYearWaterGrid.Location = new System.Drawing.Point(2, 21);
             this.currentYearWaterGrid.Name = "currentYearWaterGrid";
             this.currentYearWaterGrid.ShowAddMenu = false;
@@ -311,6 +311,7 @@
             this.currentYearElectricGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentYearElectricGrid.Editable = false;
             this.currentYearElectricGrid.EnableMasterView = false;
+            this.currentYearElectricGrid.EnableMultiSelect = true;
             this.currentYearElectricGrid.Location = new System.Drawing.Point(2, 21);
             this.currentYearElectricGrid.Name = "currentYearElectricGrid";
             this.currentYearElectricGrid.ShowAddMenu = false;
@@ -381,6 +382,7 @@
             this.electricMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.electricMeterGrid.Editable = false;
             this.electricMeterGrid.EnableMasterView = false;
+            this.electricMeterGrid.EnableMultiSelect = false;
             this.electricMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.electricMeterGrid.Name = "electricMeterGrid";
             this.electricMeterGrid.ShowAddMenu = false;
@@ -407,6 +409,7 @@
             this.waterMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.waterMeterGrid.Editable = false;
             this.waterMeterGrid.EnableMasterView = false;
+            this.waterMeterGrid.EnableMultiSelect = false;
             this.waterMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.waterMeterGrid.Name = "waterMeterGrid";
             this.waterMeterGrid.ShowAddMenu = false;
@@ -433,6 +436,7 @@
             this.gasMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gasMeterGrid.Editable = false;
             this.gasMeterGrid.EnableMasterView = false;
+            this.gasMeterGrid.EnableMultiSelect = false;
             this.gasMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.gasMeterGrid.Name = "gasMeterGrid";
             this.gasMeterGrid.ShowAddMenu = false;
