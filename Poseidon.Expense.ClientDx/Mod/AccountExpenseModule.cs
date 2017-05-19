@@ -85,7 +85,7 @@ namespace Poseidon.Expense.ClientDx
             var task = Task.Run(() =>
             {
                 var electricData = BusinessFactory<ElectricExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
-                return electricData.ToList();
+                return electricData.OrderBy(r => r.BelongDate).ToList();
             });
 
             var result = await task;
@@ -111,7 +111,7 @@ namespace Poseidon.Expense.ClientDx
             var task = Task.Run(() =>
             {
                 var waterData = BusinessFactory<WaterExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
-                return waterData.ToList();
+                return waterData.OrderBy(r => r.BelongDate).ToList();
             });
 
             var result = await task;
@@ -137,7 +137,7 @@ namespace Poseidon.Expense.ClientDx
                 var task = Task.Run(() =>
                 {
                     var gasData = BusinessFactory<GasExpenseBusiness>.Instance.GetExpenseDataModel(account.Id, this.nowYear);
-                    return gasData.ToList();
+                    return gasData.OrderBy(r => r.BelongDate).ToList();
                 });
 
                 var result = await task;
