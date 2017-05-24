@@ -107,7 +107,7 @@ namespace Poseidon.Expense.ClientDx
                 int year = years[i];
                 string title = $"{year}年";
 
-                var electricExpenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).ToList();
+                var electricExpenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
 
                 List<SeriesPoint> points = new List<SeriesPoint>();
                 string unit = "";
@@ -149,7 +149,7 @@ namespace Poseidon.Expense.ClientDx
                 int year = years[i];
                 string title = $"{year}年";
 
-                var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).ToList();
+                var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
 
                 List<SeriesPoint> points = new List<SeriesPoint>();
                 string unit = "";
@@ -191,7 +191,7 @@ namespace Poseidon.Expense.ClientDx
                 int year = years[i];
                 string title = $"{year}年";
 
-                var gasExpenses = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).ToList();
+                var gasExpenses = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
 
                 List<SeriesPoint> points = new List<SeriesPoint>();
                 string unit = "";
