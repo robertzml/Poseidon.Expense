@@ -8,11 +8,12 @@ namespace Poseidon.Expense.Core.DL
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.Utility;
+    using Poseidon.Attachment.Core.Utility;
 
     /// <summary>
     /// 水费支出类
     /// </summary>
-    public class WaterExpense : BusinessEntity
+    public class WaterExpense : BusinessEntity, IAttachmentEntity
     {
         #region Property
         /// <summary>
@@ -57,6 +58,12 @@ namespace Poseidon.Expense.Core.DL
         /// </summary>
         [Display(Name = "详细记录")]
         public List<WaterExpenseRecord> Records { get; set; }
+
+        /// <summary>
+        /// 附件ID
+        /// </summary>
+        [Display(Name = "附件ID")]
+        public List<string> AttachmentIds { get; set; }
         #endregion //Property
     }
 

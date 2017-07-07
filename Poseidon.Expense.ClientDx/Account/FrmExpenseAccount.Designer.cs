@@ -408,6 +408,7 @@
             this.electricGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.electricGrid.Editable = false;
             this.electricGrid.EnableMasterView = false;
+            this.electricGrid.EnableMultiSelect = false;
             this.electricGrid.Location = new System.Drawing.Point(0, 0);
             this.electricGrid.Name = "electricGrid";
             this.electricGrid.ShowAddMenu = false;
@@ -434,6 +435,7 @@
             this.waterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.waterGrid.Editable = false;
             this.waterGrid.EnableMasterView = false;
+            this.waterGrid.EnableMultiSelect = false;
             this.waterGrid.Location = new System.Drawing.Point(0, 0);
             this.waterGrid.Name = "waterGrid";
             this.waterGrid.ShowAddMenu = false;
@@ -460,6 +462,7 @@
             this.gasGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gasGrid.Editable = false;
             this.gasGrid.EnableMasterView = false;
+            this.gasGrid.EnableMultiSelect = false;
             this.gasGrid.Location = new System.Drawing.Point(0, 0);
             this.gasGrid.Name = "gasGrid";
             this.gasGrid.ShowAddMenu = false;
