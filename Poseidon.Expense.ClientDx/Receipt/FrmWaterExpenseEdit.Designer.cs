@@ -31,12 +31,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.previousGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.txtPreviousDate = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.expenseGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.attachTool = new Poseidon.Winform.Core.AttachmentTool();
             this.cmbFeeType = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.btnSum = new DevExpress.XtraEditors.SimpleButton();
             this.spTotalAmount = new DevExpress.XtraEditors.SpinEdit();
@@ -55,10 +59,6 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.previousGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.expenseGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
-            this.attachTool = new Poseidon.Winform.Core.AttachmentTool();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.plFill)).BeginInit();
             this.plFill.SuspendLayout();
@@ -72,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPreviousDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -97,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +164,26 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // previousGrid
+            // 
+            this.previousGrid.AllowFilter = false;
+            this.previousGrid.AllowGroup = false;
+            this.previousGrid.AllowSort = false;
+            this.previousGrid.DataSource = null;
+            this.previousGrid.Editable = false;
+            this.previousGrid.EnableMasterView = false;
+            this.previousGrid.EnableMultiSelect = false;
+            this.previousGrid.Location = new System.Drawing.Point(2, 26);
+            this.previousGrid.Name = "previousGrid";
+            this.previousGrid.ShowAddMenu = false;
+            this.previousGrid.ShowBelongDate = false;
+            this.previousGrid.ShowFooter = false;
+            this.previousGrid.ShowLineNumber = true;
+            this.previousGrid.ShowMenu = false;
+            this.previousGrid.ShowNavigator = false;
+            this.previousGrid.Size = new System.Drawing.Size(890, 125);
+            this.previousGrid.TabIndex = 1;
+            // 
             // txtPreviousDate
             // 
             this.txtPreviousDate.Location = new System.Drawing.Point(53, 2);
@@ -197,6 +217,15 @@
             this.layoutControlItem9.Text = "上期日期";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(48, 14);
             // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.previousGrid;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(894, 129);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.expenseGrid);
@@ -206,6 +235,27 @@
             this.groupControl2.Size = new System.Drawing.Size(898, 194);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "支出明细";
+            // 
+            // expenseGrid
+            // 
+            this.expenseGrid.AllowFilter = false;
+            this.expenseGrid.AllowGroup = false;
+            this.expenseGrid.AllowSort = false;
+            this.expenseGrid.DataSource = null;
+            this.expenseGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.expenseGrid.Editable = true;
+            this.expenseGrid.EnableMasterView = false;
+            this.expenseGrid.EnableMultiSelect = false;
+            this.expenseGrid.Location = new System.Drawing.Point(2, 21);
+            this.expenseGrid.Name = "expenseGrid";
+            this.expenseGrid.ShowAddMenu = false;
+            this.expenseGrid.ShowBelongDate = false;
+            this.expenseGrid.ShowFooter = true;
+            this.expenseGrid.ShowLineNumber = true;
+            this.expenseGrid.ShowMenu = false;
+            this.expenseGrid.ShowNavigator = true;
+            this.expenseGrid.Size = new System.Drawing.Size(894, 171);
+            this.expenseGrid.TabIndex = 0;
             // 
             // groupControl1
             // 
@@ -235,6 +285,13 @@
             this.layoutControl1.Size = new System.Drawing.Size(894, 131);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // attachTool
+            // 
+            this.attachTool.Location = new System.Drawing.Point(725, 12);
+            this.attachTool.Name = "attachTool";
+            this.attachTool.Size = new System.Drawing.Size(157, 107);
+            this.attachTool.TabIndex = 12;
             // 
             // cmbFeeType
             // 
@@ -443,63 +500,6 @@
             this.layoutControlItem11.Text = "费用类型";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(70, 14);
             // 
-            // previousGrid
-            // 
-            this.previousGrid.AllowFilter = false;
-            this.previousGrid.AllowGroup = false;
-            this.previousGrid.AllowSort = false;
-            this.previousGrid.DataSource = null;
-            this.previousGrid.Editable = false;
-            this.previousGrid.EnableMasterView = false;
-            this.previousGrid.EnableMultiSelect = false;
-            this.previousGrid.Location = new System.Drawing.Point(2, 26);
-            this.previousGrid.Name = "previousGrid";
-            this.previousGrid.ShowAddMenu = false;
-            this.previousGrid.ShowBelongDate = false;
-            this.previousGrid.ShowFooter = false;
-            this.previousGrid.ShowLineNumber = true;
-            this.previousGrid.ShowMenu = false;
-            this.previousGrid.ShowNavigator = false;
-            this.previousGrid.Size = new System.Drawing.Size(890, 125);
-            this.previousGrid.TabIndex = 1;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.previousGrid;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(894, 129);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
-            // expenseGrid
-            // 
-            this.expenseGrid.AllowFilter = false;
-            this.expenseGrid.AllowGroup = false;
-            this.expenseGrid.AllowSort = false;
-            this.expenseGrid.DataSource = null;
-            this.expenseGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.expenseGrid.Editable = true;
-            this.expenseGrid.EnableMasterView = false;
-            this.expenseGrid.EnableMultiSelect = false;
-            this.expenseGrid.Location = new System.Drawing.Point(2, 21);
-            this.expenseGrid.Name = "expenseGrid";
-            this.expenseGrid.ShowAddMenu = false;
-            this.expenseGrid.ShowBelongDate = false;
-            this.expenseGrid.ShowFooter = true;
-            this.expenseGrid.ShowLineNumber = true;
-            this.expenseGrid.ShowMenu = false;
-            this.expenseGrid.ShowNavigator = true;
-            this.expenseGrid.Size = new System.Drawing.Size(894, 171);
-            this.expenseGrid.TabIndex = 0;
-            // 
-            // attachTool
-            // 
-            this.attachTool.Location = new System.Drawing.Point(725, 12);
-            this.attachTool.Name = "attachTool";
-            this.attachTool.Size = new System.Drawing.Size(157, 107);
-            this.attachTool.TabIndex = 12;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.attachTool;
@@ -528,6 +528,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPreviousDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -553,7 +554,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
