@@ -102,6 +102,7 @@
             this.electricGrid.DataSource = null;
             this.electricGrid.Editable = true;
             this.electricGrid.EnableMasterView = false;
+            this.electricGrid.EnableMultiSelect = false;
             this.electricGrid.Location = new System.Drawing.Point(12, 36);
             this.electricGrid.Name = "electricGrid";
             this.electricGrid.ShowAddMenu = false;
