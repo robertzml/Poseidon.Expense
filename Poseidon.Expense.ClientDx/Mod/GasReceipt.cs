@@ -73,6 +73,7 @@ namespace Poseidon.Expense.ClientDx
             this.txtEditTime.Text = entity.UpdateBy.Time.ToDateTimeString();
 
             this.gasExpRecGrid.DataSource = entity.Records;
+            this.attachmentTool.Init(entity.AttachmentIds);
         }
 
         /// <summary>

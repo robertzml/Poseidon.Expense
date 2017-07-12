@@ -58,6 +58,12 @@ namespace Poseidon.Expense.Core.DL
         /// </summary>
         [Display(Name = "详细记录")]
         public List<GasExpenseRecord> Records { get; set; }
+
+        /// <summary>
+        /// 附件ID
+        /// </summary>
+        [Display(Name = "附件ID")]
+        public List<string> AttachmentIds { get; set; }
         #endregion //Property
     }
 

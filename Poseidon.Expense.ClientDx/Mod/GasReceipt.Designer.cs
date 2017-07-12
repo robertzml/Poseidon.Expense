@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbGasReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsGasExpense = new System.Windows.Forms.BindingSource();
+            this.bsGasExpense = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gasExpRecGrid = new Poseidon.Expense.ClientDx.GasExpenseRecordGrid();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -62,6 +63,8 @@
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.attachmentTool = new Poseidon.Winform.Core.AttachmentTool();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbGasReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsGasExpense)).BeginInit();
@@ -93,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -129,6 +133,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.attachmentTool);
             this.layoutControl1.Controls.Add(this.gasExpRecGrid);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnEdit);
@@ -159,6 +164,7 @@
             this.gasExpRecGrid.DataSource = null;
             this.gasExpRecGrid.Editable = false;
             this.gasExpRecGrid.EnableMasterView = false;
+            this.gasExpRecGrid.EnableMultiSelect = false;
             this.gasExpRecGrid.Location = new System.Drawing.Point(12, 177);
             this.gasExpRecGrid.Name = "gasExpRecGrid";
             this.gasExpRecGrid.ShowAddMenu = false;
@@ -166,7 +172,7 @@
             this.gasExpRecGrid.ShowLineNumber = true;
             this.gasExpRecGrid.ShowMenu = false;
             this.gasExpRecGrid.ShowNavigator = false;
-            this.gasExpRecGrid.Size = new System.Drawing.Size(611, 287);
+            this.gasExpRecGrid.Size = new System.Drawing.Size(611, 141);
             this.gasExpRecGrid.TabIndex = 17;
             // 
             // btnDelete
@@ -325,7 +331,8 @@
             this.layoutControlItem9,
             this.layoutControlItem10,
             this.lcGroupAction,
-            this.layoutControlItem14});
+            this.layoutControlItem14,
+            this.layoutControlItem15});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(635, 476);
@@ -464,9 +471,25 @@
             this.layoutControlItem14.Control = this.gasExpRecGrid;
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 165);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(615, 291);
+            this.layoutControlItem14.Size = new System.Drawing.Size(615, 145);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
+            // 
+            // attachmentTool
+            // 
+            this.attachmentTool.Location = new System.Drawing.Point(12, 322);
+            this.attachmentTool.Name = "attachmentTool";
+            this.attachmentTool.Size = new System.Drawing.Size(611, 142);
+            this.attachmentTool.TabIndex = 18;
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.attachmentTool;
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 310);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(615, 146);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
             // 
             // GasReceipt
             // 
@@ -507,6 +530,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,5 +571,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private GasExpenseRecordGrid gasExpRecGrid;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private Winform.Core.AttachmentTool attachmentTool;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
     }
 }

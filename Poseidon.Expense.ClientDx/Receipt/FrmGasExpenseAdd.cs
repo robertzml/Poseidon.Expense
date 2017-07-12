@@ -47,6 +47,7 @@ namespace Poseidon.Expense.ClientDx
         {
             this.expenseGrid.Init();
             this.previousGrid.Init();
+            this.upTool.Init();
 
             this.txtAccountName.Text = this.currentAccount.Name;
             this.dpTicketDate.DateTime = DateTime.Now;
@@ -105,6 +106,7 @@ namespace Poseidon.Expense.ClientDx
                 item.MeterName = item.MeterName ?? "";
                 item.Remark = item.Remark ?? "";
             }
+            entity.AttachmentIds = this.upTool.AttachmentIds;
         }
 
         /// <summary>
