@@ -8,11 +8,12 @@ namespace Poseidon.Expense.Core.DL
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.Utility;
+    using Poseidon.Attachment.Core.Utility;
 
     /// <summary>
     /// 电费支出票据类
     /// </summary>
-    public class ElectricExpense : BusinessEntity
+    public class ElectricExpense : BusinessEntity, IAttachmentEntity
     {
         #region Property
         /// <summary>

@@ -9,11 +9,12 @@ namespace Poseidon.Expense.Core.DL
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.Utility;
+    using Poseidon.Attachment.Core.Utility;
 
     /// <summary>
     /// 天然气费支出类
     /// </summary>
-    public class GasExpense : BusinessEntity
+    public class GasExpense : BusinessEntity, IAttachmentEntity
     {
         #region Property
         /// <summary>

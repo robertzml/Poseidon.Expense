@@ -43,7 +43,8 @@
       <HintPath>..\packages\MongoDB.Driver.Core.2.4.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Poseidon.Attachment.Core">
+    <Reference Include="Poseidon.Attachment.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Assembly\Poseidon.Attachment.Core.dll</HintPath>
     </Reference>
     <Reference Include="Poseidon.Base">
