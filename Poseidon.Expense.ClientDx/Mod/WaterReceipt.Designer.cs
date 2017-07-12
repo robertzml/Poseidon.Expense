@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lbWaterReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsWaterExpense = new System.Windows.Forms.BindingSource(this.components);
+            this.bsWaterExpense = new System.Windows.Forms.BindingSource();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -61,7 +60,7 @@
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.imgAttachTool = new Poseidon.Winform.Core.ImageAttachmentTool();
+            this.attachmentTool = new Poseidon.Winform.Core.AttachmentTool();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.waterExpRecGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -132,7 +131,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.imgAttachTool);
+            this.layoutControl1.Controls.Add(this.attachmentTool);
             this.layoutControl1.Controls.Add(this.waterExpRecGrid);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnEdit);
@@ -447,19 +446,19 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // imgAttachTool
+            // attachmentTool
             // 
-            this.imgAttachTool.Location = new System.Drawing.Point(12, 284);
-            this.imgAttachTool.Name = "imgAttachTool";
-            this.imgAttachTool.Size = new System.Drawing.Size(746, 175);
-            this.imgAttachTool.TabIndex = 19;
+            this.attachmentTool.Location = new System.Drawing.Point(12, 311);
+            this.attachmentTool.Name = "attachmentTool";
+            this.attachmentTool.Size = new System.Drawing.Size(746, 148);
+            this.attachmentTool.TabIndex = 19;
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.imgAttachTool;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 272);
+            this.layoutControlItem1.Control = this.attachmentTool;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 299);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(750, 179);
+            this.layoutControlItem1.Size = new System.Drawing.Size(750, 152);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -480,7 +479,7 @@
             this.waterExpRecGrid.ShowLineNumber = true;
             this.waterExpRecGrid.ShowMenu = false;
             this.waterExpRecGrid.ShowNavigator = false;
-            this.waterExpRecGrid.Size = new System.Drawing.Size(746, 103);
+            this.waterExpRecGrid.Size = new System.Drawing.Size(746, 130);
             this.waterExpRecGrid.TabIndex = 18;
             // 
             // layoutControlItem23
@@ -488,7 +487,7 @@
             this.layoutControlItem23.Control = this.waterExpRecGrid;
             this.layoutControlItem23.Location = new System.Drawing.Point(0, 165);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(750, 107);
+            this.layoutControlItem23.Size = new System.Drawing.Size(750, 134);
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
             // 
@@ -571,7 +570,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
-        private Winform.Core.ImageAttachmentTool imgAttachTool;
+        private Winform.Core.AttachmentTool attachmentTool;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

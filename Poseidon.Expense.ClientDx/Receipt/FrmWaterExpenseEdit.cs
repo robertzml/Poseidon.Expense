@@ -71,7 +71,7 @@ namespace Poseidon.Expense.ClientDx
                 this.previousGrid.DataSource = last.Records;
             }
 
-            this.attachTool.Init(this.currentExpense.AttachmentIds);
+            this.upTool.Init(this.currentExpense.AttachmentIds);
 
             base.InitForm();
         }
@@ -98,7 +98,7 @@ namespace Poseidon.Expense.ClientDx
                 item.Remark = item.Remark ?? "";
             }
 
-            entity.AttachmentIds = this.attachTool.AttachmentIds;
+            entity.AttachmentIds = this.upTool.AttachmentIds;
         }
 
         /// <summary>
