@@ -8,7 +8,7 @@ namespace Poseidon.Expense.Core.DL
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.Utility;
-    using Poseidon.Attachment.Core.Utility;
+    using Poseidon.Archives.Core.Utility;
 
     /// <summary>
     /// 电费支出票据类

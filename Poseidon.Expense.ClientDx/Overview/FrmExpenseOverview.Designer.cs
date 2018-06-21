@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupTree = new Poseidon.Winform.Core.GroupChildrenTree();
-            this.bsWaterExpense = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.navFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -40,7 +38,6 @@
             this.accountExpenseMod = new Poseidon.Expense.ClientDx.AccountExpenseModule();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsWaterExpense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             this.navFrame.SuspendLayout();
@@ -69,10 +66,6 @@
             this.groupTree.TabIndex = 1;
             this.groupTree.GroupSelected += new System.EventHandler(this.groupTree_GroupSelected);
             this.groupTree.EntitySelected += new System.EventHandler(this.groupTree_EntitySelected);
-            // 
-            // bsWaterExpense
-            // 
-            this.bsWaterExpense.DataSource = typeof(Poseidon.Expense.Core.DL.WaterExpense);
             // 
             // splitContainerControl1
             // 
@@ -107,6 +100,7 @@
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.groupExpenseMod);
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(703, 587);
@@ -144,7 +138,6 @@
             this.Text = "支出总览";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsWaterExpense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             this.navFrame.ResumeLayout(false);
@@ -156,7 +149,6 @@
 
         #endregion
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.BindingSource bsWaterExpense;
         private Winform.Core.GroupChildrenTree groupTree;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraBars.Navigation.NavigationFrame navFrame;
