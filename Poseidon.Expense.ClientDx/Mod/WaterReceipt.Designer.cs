@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbWaterReceipt = new DevExpress.XtraEditors.ListBoxControl();
-            this.bsWaterExpense = new System.Windows.Forms.BindingSource();
+            this.bsWaterExpense = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.waterExpRecGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -60,10 +62,9 @@
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.attachmentTool = new Poseidon.Winform.Core.AttachmentTool();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.waterExpRecGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.attachmentGrid = new Poseidon.Archives.Utility.AttachmentGrid();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lbWaterReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWaterExpense)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -94,8 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbWaterReceipt
@@ -131,7 +132,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.attachmentTool);
+            this.layoutControl1.Controls.Add(this.attachmentGrid);
             this.layoutControl1.Controls.Add(this.waterExpRecGrid);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnEdit);
@@ -153,6 +154,26 @@
             this.layoutControl1.Size = new System.Drawing.Size(770, 471);
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // waterExpRecGrid
+            // 
+            this.waterExpRecGrid.AllowFilter = true;
+            this.waterExpRecGrid.AllowGroup = true;
+            this.waterExpRecGrid.AllowSort = true;
+            this.waterExpRecGrid.DataSource = null;
+            this.waterExpRecGrid.Editable = false;
+            this.waterExpRecGrid.EnableMasterView = false;
+            this.waterExpRecGrid.EnableMultiSelect = false;
+            this.waterExpRecGrid.Location = new System.Drawing.Point(12, 177);
+            this.waterExpRecGrid.Name = "waterExpRecGrid";
+            this.waterExpRecGrid.ShowAddMenu = false;
+            this.waterExpRecGrid.ShowBelongDate = false;
+            this.waterExpRecGrid.ShowFooter = false;
+            this.waterExpRecGrid.ShowLineNumber = true;
+            this.waterExpRecGrid.ShowMenu = false;
+            this.waterExpRecGrid.ShowNavigator = false;
+            this.waterExpRecGrid.Size = new System.Drawing.Size(746, 130);
+            this.waterExpRecGrid.TabIndex = 18;
             // 
             // btnDelete
             // 
@@ -311,7 +332,7 @@
             this.layoutControlItem21,
             this.lcGroupAction,
             this.layoutControlItem23,
-            this.layoutControlItem1});
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(770, 471);
@@ -446,42 +467,6 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // attachmentTool
-            // 
-            this.attachmentTool.Location = new System.Drawing.Point(12, 311);
-            this.attachmentTool.Name = "attachmentTool";
-            this.attachmentTool.Size = new System.Drawing.Size(746, 148);
-            this.attachmentTool.TabIndex = 19;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.attachmentTool;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 299);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(750, 152);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // waterExpRecGrid
-            // 
-            this.waterExpRecGrid.AllowFilter = true;
-            this.waterExpRecGrid.AllowGroup = true;
-            this.waterExpRecGrid.AllowSort = true;
-            this.waterExpRecGrid.DataSource = null;
-            this.waterExpRecGrid.Editable = false;
-            this.waterExpRecGrid.EnableMasterView = false;
-            this.waterExpRecGrid.EnableMultiSelect = false;
-            this.waterExpRecGrid.Location = new System.Drawing.Point(12, 177);
-            this.waterExpRecGrid.Name = "waterExpRecGrid";
-            this.waterExpRecGrid.ShowAddMenu = false;
-            this.waterExpRecGrid.ShowBelongDate = false;
-            this.waterExpRecGrid.ShowFooter = false;
-            this.waterExpRecGrid.ShowLineNumber = true;
-            this.waterExpRecGrid.ShowMenu = false;
-            this.waterExpRecGrid.ShowNavigator = false;
-            this.waterExpRecGrid.Size = new System.Drawing.Size(746, 130);
-            this.waterExpRecGrid.TabIndex = 18;
-            // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.waterExpRecGrid;
@@ -490,6 +475,23 @@
             this.layoutControlItem23.Size = new System.Drawing.Size(750, 134);
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
+            // 
+            // attachmentGrid
+            // 
+            this.attachmentGrid.Location = new System.Drawing.Point(12, 311);
+            this.attachmentGrid.Name = "attachmentGrid";
+            this.attachmentGrid.ShowContextMenu = false;
+            this.attachmentGrid.Size = new System.Drawing.Size(746, 148);
+            this.attachmentGrid.TabIndex = 20;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.attachmentGrid;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 299);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(750, 152);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // WaterReceipt
             // 
@@ -529,8 +531,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,7 +572,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
-        private Winform.Core.AttachmentTool attachmentTool;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private Archives.Utility.AttachmentGrid attachmentGrid;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

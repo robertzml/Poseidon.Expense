@@ -45,12 +45,12 @@
     <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Poseidon.Archives.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assembly\Poseidon.Archives.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Poseidon.Archives.Utility">
       <HintPath>..\..\Assembly\Poseidon.Archives.Utility.dll</HintPath>
-    </Reference>
-    <Reference Include="Poseidon.Attachment.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Assembly\Poseidon.Attachment.Core.dll</HintPath>
     </Reference>
     <Reference Include="Poseidon.Base">
       <HintPath>..\..\Assembly\Poseidon.Base.dll</HintPath>

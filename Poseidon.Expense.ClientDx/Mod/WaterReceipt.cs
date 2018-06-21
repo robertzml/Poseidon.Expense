@@ -74,7 +74,7 @@ namespace Poseidon.Expense.ClientDx
 
             this.waterExpRecGrid.DataSource = entity.Records;
 
-            this.attachmentTool.Init(entity.AttachmentIds);
+            this.attachmentGrid.Init(entity.AttachmentIds);
         }
 
         /// <summary>

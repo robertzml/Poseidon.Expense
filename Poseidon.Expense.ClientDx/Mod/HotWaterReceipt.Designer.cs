@@ -33,6 +33,7 @@
             this.lbHotWaterReceipt = new DevExpress.XtraEditors.ListBoxControl();
             this.bsHotWaterExpense = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtTotalAmount = new DevExpress.XtraEditors.TextEdit();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
@@ -62,13 +63,13 @@
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtTotalAmount = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbHotWaterReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsHotWaterExpense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditUser.Properties)).BeginInit();
@@ -95,7 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,6 +154,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(734, 637);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.Location = new System.Drawing.Point(586, 36);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Properties.Appearance.BackColor = System.Drawing.Color.Lavender;
+            this.txtTotalAmount.Properties.Appearance.Options.UseBackColor = true;
+            this.txtTotalAmount.Properties.ReadOnly = true;
+            this.txtTotalAmount.Size = new System.Drawing.Size(136, 20);
+            this.txtTotalAmount.StyleController = this.layoutControl1;
+            this.txtTotalAmount.TabIndex = 17;
             // 
             // btnDelete
             // 
@@ -454,17 +465,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(714, 452);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txtTotalAmount
-            // 
-            this.txtTotalAmount.Location = new System.Drawing.Point(586, 36);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.Properties.Appearance.BackColor = System.Drawing.Color.Lavender;
-            this.txtTotalAmount.Properties.Appearance.Options.UseBackColor = true;
-            this.txtTotalAmount.Properties.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(136, 20);
-            this.txtTotalAmount.StyleController = this.layoutControl1;
-            this.txtTotalAmount.TabIndex = 17;
-            // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.txtTotalAmount;
@@ -487,6 +487,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsHotWaterExpense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditUser.Properties)).EndInit();
@@ -513,7 +514,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTotalAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
 
