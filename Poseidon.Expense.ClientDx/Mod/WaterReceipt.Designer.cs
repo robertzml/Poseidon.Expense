@@ -33,6 +33,7 @@
             this.bsWaterExpense = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.attachmentGrid = new Poseidon.Archives.Utility.AttachmentGrid();
             this.waterExpRecGrid = new Poseidon.Expense.ClientDx.WaterExpenseRecordGrid();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -63,7 +64,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.attachmentGrid = new Poseidon.Archives.Utility.AttachmentGrid();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.lbWaterReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsWaterExpense)).BeginInit();
@@ -154,6 +154,14 @@
             this.layoutControl1.Size = new System.Drawing.Size(770, 471);
             this.layoutControl1.TabIndex = 5;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // attachmentGrid
+            // 
+            this.attachmentGrid.Location = new System.Drawing.Point(12, 311);
+            this.attachmentGrid.Name = "attachmentGrid";
+            this.attachmentGrid.ShowContextMenu = false;
+            this.attachmentGrid.Size = new System.Drawing.Size(746, 148);
+            this.attachmentGrid.TabIndex = 20;
             // 
             // waterExpRecGrid
             // 
@@ -475,14 +483,6 @@
             this.layoutControlItem23.Size = new System.Drawing.Size(750, 134);
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
-            // 
-            // attachmentGrid
-            // 
-            this.attachmentGrid.Location = new System.Drawing.Point(12, 311);
-            this.attachmentGrid.Name = "attachmentGrid";
-            this.attachmentGrid.ShowContextMenu = false;
-            this.attachmentGrid.Size = new System.Drawing.Size(746, 148);
-            this.attachmentGrid.TabIndex = 20;
             // 
             // layoutControlItem2
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageSummary = new DevExpress.XtraTab.XtraTabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -382,7 +383,7 @@
             this.electricMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.electricMeterGrid.Editable = false;
             this.electricMeterGrid.EnableMasterView = false;
-            this.electricMeterGrid.EnableMultiSelect = false;
+            this.electricMeterGrid.EnableMultiSelect = true;
             this.electricMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.electricMeterGrid.Name = "electricMeterGrid";
             this.electricMeterGrid.ShowAddMenu = false;
@@ -409,7 +410,7 @@
             this.waterMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.waterMeterGrid.Editable = false;
             this.waterMeterGrid.EnableMasterView = false;
-            this.waterMeterGrid.EnableMultiSelect = false;
+            this.waterMeterGrid.EnableMultiSelect = true;
             this.waterMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.waterMeterGrid.Name = "waterMeterGrid";
             this.waterMeterGrid.ShowAddMenu = false;
@@ -436,7 +437,7 @@
             this.gasMeterGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gasMeterGrid.Editable = false;
             this.gasMeterGrid.EnableMasterView = false;
-            this.gasMeterGrid.EnableMultiSelect = false;
+            this.gasMeterGrid.EnableMultiSelect = true;
             this.gasMeterGrid.Location = new System.Drawing.Point(0, 0);
             this.gasMeterGrid.Name = "gasMeterGrid";
             this.gasMeterGrid.ShowAddMenu = false;
