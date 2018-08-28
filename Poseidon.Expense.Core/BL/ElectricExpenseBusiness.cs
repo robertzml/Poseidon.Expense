@@ -97,7 +97,7 @@ namespace Poseidon.Expense.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        public void Create(ElectricExpense entity, LoginUser user)
+        public void Create(ElectricExpense entity, ILoginUser user)
         {
             entity.CreateBy = new UpdateStamp
             {
@@ -122,7 +122,7 @@ namespace Poseidon.Expense.Core.BL
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public bool Update(ElectricExpense entity, LoginUser user)
+        public bool Update(ElectricExpense entity, ILoginUser user)
         {
             entity.UpdateBy = new UpdateStamp
             {
