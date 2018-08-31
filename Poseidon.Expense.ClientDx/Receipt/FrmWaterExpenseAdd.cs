@@ -62,7 +62,7 @@ namespace Poseidon.Expense.ClientDx
                 this.previousGrid.DataSource = last.Records;
             }
 
-            this.uploadTool.Init();
+            this.uploadTool.Init(Core.Utility.ExpenseConstant.ModuleName);
 
             base.InitForm();
         }

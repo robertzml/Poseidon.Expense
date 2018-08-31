@@ -47,7 +47,7 @@ namespace Poseidon.Expense.ClientDx
         {
             this.expenseGrid.Init();
             this.previousGrid.Init();
-            this.uploadTool.Init();
+            this.uploadTool.Init(Core.Utility.ExpenseConstant.ModuleName);
 
             this.txtAccountName.Text = this.currentAccount.Name;
             this.dpTicketDate.DateTime = DateTime.Now;
