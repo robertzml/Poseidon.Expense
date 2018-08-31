@@ -419,6 +419,7 @@
     <EmbeddedResource Include="Overview\FrmExpenseOverview.resx">
       <DependentUpon>FrmExpenseOverview.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasExpense.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasExpenseRecord.datasource" />
     <None Include="Properties\DataSources\Poseidon.Expense.Core.DL.GasMeter.datasource" />
