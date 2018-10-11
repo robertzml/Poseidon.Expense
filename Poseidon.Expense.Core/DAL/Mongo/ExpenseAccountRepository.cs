@@ -101,6 +101,24 @@ namespace Poseidon.Expense.Core.DAL.Mongo
                 }
             }
 
+            entity.GasMeters = new List<GasMeter>();
+            if (doc.Contains("gasMeters"))
+            {
+                BsonArray array = doc["gasMeters"].AsBsonArray;
+                foreach (BsonDocument item in array)
+                {
+                    GasMeter meter = new GasMeter();
+                    meter.Name = item["name"].ToString();
+                    meter.Number = item["number"].ToString();
+                    meter.AccountName = item["accountName"].ToString();
+                    meter.Address = item["address"].ToString();
+                    meter.Remark = item["remark"].ToString();
+                    meter.Status = item["status"].ToInt32();
+
+                    entity.GasMeters.Add(meter);
+                }
+            }
+
             return entity;
         }
 
@@ -174,6 +192,26 @@ namespace Poseidon.Expense.Core.DAL.Mongo
                 }
 
                 doc.Add("waterMeters", array);
+            }
+
+            if (entity.GasMeters != null && entity.GasMeters.Count > 0)
+            {
+                BsonArray array = new BsonArray();
+                foreach (var item in entity.GasMeters)
+                {
+                    BsonDocument sub = new BsonDocument
+                    {
+                        { "name", item.Name },
+                        { "number", item.Number },
+                        { "accountName", item.AccountName },
+                        { "address", item.Address },
+                        { "remark", item.Remark },
+                        { "status", item.Status }
+                    };
+                    array.Add(sub);
+                }
+
+                doc.Add("gasMeters", array);
             }
 
             return doc;

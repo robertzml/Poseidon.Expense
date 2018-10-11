@@ -160,6 +160,36 @@ namespace Poseidon.Expense.ClientDx
             this.energyGrid.SetTitle(index, year.ToString() + "年用水量(吨)", year.ToString() + "年用水金额(元)");
             this.energyGrid.UpdateBindingData();
         }
+
+        /// <summary>
+        /// 设置用气数据
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="index"></param>
+        private void SetGasCompare(int year, int index)
+        {
+            var gasExpenses = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(this.currentAccount.Id, year).ToList();
+
+            ClearColumnData(index);
+            foreach (var item in gasExpenses)
+            {
+                var find = this.compareData.Find(r => r.ItemName == string.Format("{0}月", item.BelongDate.Month));
+
+                if (index == 1)
+                {
+                    find.QuantumFirst = item.TotalQuantity;
+                    find.AmountFirst = item.TotalAmount;
+                }
+                else if (index == 2)
+                {
+                    find.QuantumSecond = item.TotalQuantity;
+                    find.AmountSecond = item.TotalAmount;
+                }
+            }
+
+            this.energyGrid.SetTitle(index, year.ToString() + "年用气量(立方)", year.ToString() + "年用气金额(元)");
+            this.energyGrid.UpdateBindingData();
+        }
         #endregion //Function
 
         #region Method
@@ -208,6 +238,8 @@ namespace Poseidon.Expense.ClientDx
                 SetElectricCompare(year, 1);
             else if (this.energyType == EnergyExpenseType.Water)
                 SetWaterCompare(year, 1);
+            else if (this.energyType == EnergyExpenseType.Gas)
+                SetGasCompare(year, 1);
         }
 
         /// <summary>
@@ -226,6 +258,8 @@ namespace Poseidon.Expense.ClientDx
                 SetElectricCompare(year, 2);
             else if (this.energyType == EnergyExpenseType.Water)
                 SetWaterCompare(year, 2);
+            else if (this.energyType == EnergyExpenseType.Gas)
+                SetGasCompare(year, 2);
         }
 
         /// <summary>

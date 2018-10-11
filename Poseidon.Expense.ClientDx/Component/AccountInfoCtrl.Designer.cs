@@ -1,6 +1,6 @@
 ﻿namespace Poseidon.Expense.ClientDx
 {
-    partial class AccountInfoModule
+    partial class AccountInfoCtrl
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -246,12 +246,12 @@
             this.layoutControlItem7.Text = "备注";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(24, 14);
             // 
-            // ExpenseAccountInfo
+            // AccountInfoCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Name = "ExpenseAccountInfo";
+            this.Name = "AccountInfoCtrl";
             this.Size = new System.Drawing.Size(567, 319);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

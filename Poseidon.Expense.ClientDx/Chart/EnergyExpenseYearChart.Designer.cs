@@ -106,12 +106,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPrint});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
             // 
             // menuPrint
             // 
             this.menuPrint.Name = "menuPrint";
-            this.menuPrint.Size = new System.Drawing.Size(152, 22);
+            this.menuPrint.Size = new System.Drawing.Size(100, 22);
             this.menuPrint.Text = "打印";
             this.menuPrint.Click += new System.EventHandler(this.menuPrint_Click);
             // 
@@ -119,6 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.chartMain);
             this.Name = "EnergyExpenseYearChart";
             this.Size = new System.Drawing.Size(842, 541);

@@ -15,10 +15,10 @@ namespace Poseidon.Expense.ClientDx
     /// <summary>
     /// 支出账户信息控件
     /// </summary>
-    public partial class AccountInfoModule : DevExpress.XtraEditors.XtraUserControl
+    public partial class AccountInfoCtrl : DevExpress.XtraEditors.XtraUserControl
     {
         #region Constructor
-        public AccountInfoModule()
+        public AccountInfoCtrl()
         {
             InitializeComponent();
         }

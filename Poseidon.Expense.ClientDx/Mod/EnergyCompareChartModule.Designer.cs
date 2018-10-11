@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chkShowLabel = new DevExpress.XtraEditors.CheckEdit();
+            this.energyChart = new Poseidon.Expense.ClientDx.EnergyCompareChart();
             this.cmbDataType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.ccbYears = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.energyChart = new Poseidon.Expense.ClientDx.EnergyCompareChart();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -49,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -86,6 +87,13 @@
             this.chkShowLabel.StyleController = this.layoutControl1;
             this.chkShowLabel.TabIndex = 7;
             this.chkShowLabel.CheckedChanged += new System.EventHandler(this.chkShowLabel_CheckedChanged);
+            // 
+            // energyChart
+            // 
+            this.energyChart.Location = new System.Drawing.Point(12, 36);
+            this.energyChart.Name = "energyChart";
+            this.energyChart.Size = new System.Drawing.Size(508, 328);
+            this.energyChart.TabIndex = 6;
             // 
             // cmbDataType
             // 
@@ -147,22 +155,6 @@
             this.layoutControlItem2.Text = "显示数据";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.chkShowLabel;
-            this.layoutControlItem4.Location = new System.Drawing.Point(438, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(74, 24);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // energyChart
-            // 
-            this.energyChart.Location = new System.Drawing.Point(12, 36);
-            this.energyChart.Name = "energyChart";
-            this.energyChart.Size = new System.Drawing.Size(508, 328);
-            this.energyChart.TabIndex = 6;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.energyChart;
@@ -171,6 +163,15 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(512, 332);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.chkShowLabel;
+            this.layoutControlItem4.Location = new System.Drawing.Point(438, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(74, 24);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // EnergyCompareChartModule
             // 
@@ -189,8 +190,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }

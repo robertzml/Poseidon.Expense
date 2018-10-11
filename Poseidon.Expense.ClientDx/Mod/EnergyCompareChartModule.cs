@@ -65,6 +65,8 @@ namespace Poseidon.Expense.ClientDx
                 this.energyChart.SetChartTitle(currentAccount.ShortName + "年度用电支出对比");
             else if (energyType == EnergyExpenseType.Water)
                 this.energyChart.SetChartTitle(currentAccount.ShortName + "年度用水支出对比");
+            else if (energyType == EnergyExpenseType.Gas)
+                this.energyChart.SetChartTitle(currentAccount.ShortName + "年度用气支出对比");
         }
 
         /// <summary>
@@ -105,7 +107,7 @@ namespace Poseidon.Expense.ClientDx
                 int year = years[i];
                 string title = $"{year}年";
 
-                var electricExpenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).ToList();
+                var electricExpenses = BusinessFactory<ElectricExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
 
                 List<SeriesPoint> points = new List<SeriesPoint>();
                 string unit = "";
@@ -147,7 +149,7 @@ namespace Poseidon.Expense.ClientDx
                 int year = years[i];
                 string title = $"{year}年";
 
-                var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).ToList();
+                var waterExpenses = BusinessFactory<WaterExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
 
                 List<SeriesPoint> points = new List<SeriesPoint>();
                 string unit = "";
@@ -166,6 +168,48 @@ namespace Poseidon.Expense.ClientDx
                     else if (type == 1)
                     {
                         point.Values = new double[] { Convert.ToDouble(waterExpenses[j].TotalAmount) };
+                        unit = "元";
+                    }
+                    points.Add(point);
+                }
+
+                this.energyChart.AddSeries(title, points, unit, showLabel);
+            }
+        }
+
+        /// <summary>
+        /// 载入用气支出数据
+        /// </summary>
+        /// <param name="account">账户</param>
+        /// <param name="years">年度列表</param>
+        /// <param name="type">类型</param>
+        /// <param name="showLabel">是否显示标签</param>
+        private void LoadGasData(ExpenseAccount account, int[] years, int type, bool showLabel)
+        {
+            for (int i = 0; i < years.Length; i++)
+            {
+                int year = years[i];
+                string title = $"{year}年";
+
+                var gasExpenses = BusinessFactory<GasExpenseBusiness>.Instance.FindYearByAccount(account.Id, year).OrderBy(r => r.BelongDate).ToList();
+
+                List<SeriesPoint> points = new List<SeriesPoint>();
+                string unit = "";
+
+                for (int j = 0; j < gasExpenses.Count; j++)
+                {
+                    string month = $"{gasExpenses[j].BelongDate.Month}月";
+                    SeriesPoint point = new SeriesPoint();
+                    point.Argument = month;
+
+                    if (type == 0)
+                    {
+                        point.Values = new double[] { Convert.ToDouble(gasExpenses[j].TotalQuantity) };
+                        unit = "立方";
+                    }
+                    else if (type == 1)
+                    {
+                        point.Values = new double[] { Convert.ToDouble(gasExpenses[j].TotalAmount) };
                         unit = "元";
                     }
                     points.Add(point);
@@ -223,6 +267,10 @@ namespace Poseidon.Expense.ClientDx
             {
                 LoadWaterData(this.currentAccount, years, this.cmbDataType.SelectedIndex, this.chkShowLabel.Checked);
             }
+            else if (this.energyType == EnergyExpenseType.Gas)
+            {
+                LoadGasData(this.currentAccount, years, this.cmbDataType.SelectedIndex, this.chkShowLabel.Checked);
+            }
         }
 
         /// <summary>
@@ -245,6 +293,10 @@ namespace Poseidon.Expense.ClientDx
             else if (this.energyType == EnergyExpenseType.Water)
             {
                 LoadWaterData(this.currentAccount, years, this.cmbDataType.SelectedIndex, this.chkShowLabel.Checked);
+            }
+            else if (this.energyType == EnergyExpenseType.Gas)
+            {
+                LoadGasData(this.currentAccount, years, this.cmbDataType.SelectedIndex, this.chkShowLabel.Checked);
             }
         }
 

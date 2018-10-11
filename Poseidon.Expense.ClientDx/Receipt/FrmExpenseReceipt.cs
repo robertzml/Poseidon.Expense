@@ -52,16 +52,35 @@ namespace Poseidon.Expense.ClientDx
 
             if (this.currentAccount.EnergyType.Contains(1))
             {
+                this.tabPageElectric.PageVisible = true;
                 LoadElectric();
             }
+            else
+                this.tabPageElectric.PageVisible = false;
+
             if (this.currentAccount.EnergyType.Contains(2))
             {
+                this.tabPageWater.PageVisible = true;
                 LoadWater();
             }
-            //if (this.currentAccount.EnergyType.Contains(3))
-            //    this.chkType3.Checked = true;
-            //if (this.currentAccount.EnergyType.Contains(4))
-            //    this.chkType4.Checked = true;
+            else
+                this.tabPageWater.PageVisible = false;
+
+            if (this.currentAccount.EnergyType.Contains(3))
+            {
+                this.tabPageGas.PageVisible = true;
+                LoadGas();
+            }
+            else
+                this.tabPageGas.PageVisible = false;
+
+            if (this.currentAccount.EnergyType.Contains(4))
+            {
+                this.tabPageHotWater.PageVisible = true;
+                LoadHotWater();
+            }
+            else
+                this.tabPageHotWater.PageVisible = false;
         }
 
         /// <summary>
@@ -69,7 +88,6 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void LoadElectric()
         {
-            this.tabPageElectric.PageVisible = true;
             this.electricReceipt.SetAccount(this.currentAccount);
         }
 
@@ -78,8 +96,23 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         private void LoadWater()
         {
-            this.tabPageWater.PageVisible = true;
             this.waterReceipt.SetAccount(this.currentAccount);
+        }
+
+        /// <summary>
+        /// 载入气费相关数据
+        /// </summary>
+        private void LoadGas()
+        {
+            this.gasReceipt.SetAccount(this.currentAccount);
+        }
+
+        /// <summary>
+        /// 载入热水相关数据
+        /// </summary>
+        private void LoadHotWater()
+        {
+            this.hotWaterReceipt.SetAccount(this.currentAccount);
         }
         #endregion //Function
 
@@ -89,7 +122,7 @@ namespace Poseidon.Expense.ClientDx
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void groupTree_OrganizationSelected(object sender, EventArgs e)
+        private void groupTree_EntitySelected(object sender, EventArgs e)
         {
             string id = this.groupTree.GetCurrentSelectId();
             if (id == null)

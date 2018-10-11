@@ -111,6 +111,7 @@
             this.energyGrid.DataSource = null;
             this.energyGrid.Editable = true;
             this.energyGrid.EnableMasterView = false;
+            this.energyGrid.EnableMultiSelect = true;
             this.energyGrid.Location = new System.Drawing.Point(12, 36);
             this.energyGrid.Name = "energyGrid";
             this.energyGrid.ShowAddMenu = false;

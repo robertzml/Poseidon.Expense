@@ -15,7 +15,7 @@ namespace Poseidon.Expense.Core.BL
     /// <summary>
     /// 电费支出单据业务类
     /// </summary>
-    public class ElectricExpenseBusiness : AbstractBusiness<ElectricExpense>
+    public class ElectricExpenseBusiness : AbstractBusiness<ElectricExpense>, IExpenseData
     {
         #region Constructor
         /// <summary>
@@ -60,11 +60,36 @@ namespace Poseidon.Expense.Core.BL
         /// <returns></returns>
         public IEnumerable<ElectricExpense> FindYearByAccount(string accountId, int year)
         {
-            var data = this.baseDal.FindListByField("accountId", accountId);
-            var start = new DateTime(year, 1, 1);
-            var end = new DateTime(year, 12, 31);
+            var dal = this.baseDal as IElectricExpenseRepository;
+            return dal.FindYearByAccount(accountId, year);
+        }
 
-            return data.Where(r => r.BelongDate >= start && r.BelongDate <= end).OrderBy(r => r.BelongDate);
+        /// <summary>
+        /// 获取账户年度数据
+        /// </summary>
+        /// <param name="accountId">账户ID</param>
+        /// <param name="year">年份</param>
+        /// <returns></returns>
+        public IEnumerable<ExpenseDataModel> GetExpenseDataModel(string accountId, int year)
+        {
+            var dal = this.baseDal as IElectricExpenseRepository;
+            var data = dal.FindYearByAccount(accountId, year);
+
+            List<ExpenseDataModel> model = new List<ExpenseDataModel>();
+            foreach (var item in data)
+            {
+                ExpenseDataModel m = new ExpenseDataModel();
+                m.Name = "";
+                m.BelongDate = item.BelongDate;
+                m.Quantum = item.TotalQuantity;
+                m.Amount = item.TotalAmount;
+                m.AdditionData = item.TotalPrize;
+                m.UnitPrice = 0;
+
+                model.Add(m);
+            }
+
+            return model;
         }
 
         /// <summary>
@@ -72,7 +97,7 @@ namespace Poseidon.Expense.Core.BL
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
-        public void Create(ElectricExpense entity, LoginUser user)
+        public void Create(ElectricExpense entity, ILoginUser user)
         {
             entity.CreateBy = new UpdateStamp
             {
@@ -97,7 +122,7 @@ namespace Poseidon.Expense.Core.BL
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public bool Update(ElectricExpense entity, LoginUser user)
+        public bool Update(ElectricExpense entity, ILoginUser user)
         {
             entity.UpdateBy = new UpdateStamp
             {

@@ -62,6 +62,8 @@ namespace Poseidon.Expense.ClientDx
                 this.previousGrid.DataSource = last.Records;
             }
 
+            this.uploadTool.Init(Core.Utility.ExpenseConstant.ModuleName);
+
             base.InitForm();
         }
 
@@ -105,6 +107,8 @@ namespace Poseidon.Expense.ClientDx
                 item.MeterName = item.MeterName ?? "";
                 item.Remark = item.Remark ?? "";
             }
+
+            entity.AttachmentIds = this.uploadTool.AttachmentIds;
         }
 
         /// <summary>

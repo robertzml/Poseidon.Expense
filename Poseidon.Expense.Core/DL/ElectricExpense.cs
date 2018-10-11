@@ -8,11 +8,12 @@ namespace Poseidon.Expense.Core.DL
 {
     using Poseidon.Base.Framework;
     using Poseidon.Base.Utility;
+    using Poseidon.Archives.Core.Utility;
 
     /// <summary>
     /// 电费支出票据类
     /// </summary>
-    public class ElectricExpense : BusinessEntity
+    public class ElectricExpense : BusinessEntity, IAttachmentEntity
     {
         #region Property
         /// <summary>
@@ -63,6 +64,12 @@ namespace Poseidon.Expense.Core.DL
         /// </summary>
         [Display(Name = "详细记录")]
         public List<ElectricExpenseRecord> Records { get; set; }
+
+        /// <summary>
+        /// 附件ID
+        /// </summary>
+        [Display(Name = "附件ID")]
+        public List<string> AttachmentIds { get; set; }
         #endregion //Property
     }
 

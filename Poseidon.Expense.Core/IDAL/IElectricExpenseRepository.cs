@@ -13,5 +13,12 @@ namespace Poseidon.Expense.Core.IDAL
     /// </summary>
     internal interface IElectricExpenseRepository : IBaseDAL<ElectricExpense>
     {
+        /// <summary>
+        /// 按账户查询年度支出
+        /// </summary>
+        /// <param name="accountId">账户ID</param>
+        /// <param name="year">年份</param>
+        /// <returns></returns>
+        IEnumerable<ElectricExpense> FindYearByAccount(string accountId, int year);
     }
 }

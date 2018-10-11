@@ -57,7 +57,7 @@ namespace Poseidon.Expense.ClientDx
 
             this.dpBelongDate.DateTime = this.currentExpense.BelongDate;
             this.dpTicketDate.DateTime = this.currentExpense.TicketDate;
-            ControlUtil.BindDictToComboBox(this.cmbFeeType, typeof(WaterExpense), "FeeType", this.currentExpense.FeeType);
+            ControlUtil.BindDictToComboBox(this.cmbFeeType, typeof(ElectricExpense), "FeeType", this.currentExpense.FeeType);
             this.spTotalQuantity.Value = this.currentExpense.TotalQuantity;
             this.spTotalAmount.Value = this.currentExpense.TotalAmount;
             this.spTotalPrize.Value = this.currentExpense.TotalPrize;
@@ -71,6 +71,8 @@ namespace Poseidon.Expense.ClientDx
                 this.txtPreviousDate.Text = last.BelongDate.ToString("yyyy年MM月");
                 this.previousGrid.DataSource = last.Records;
             }
+
+            this.uploadTool.Init(this.currentExpense.AttachmentIds, Core.Utility.ExpenseConstant.ModuleName);
 
             base.InitForm();
         }
@@ -97,6 +99,8 @@ namespace Poseidon.Expense.ClientDx
                 item.MeterName = item.MeterName ?? "";
                 item.Remark = item.Remark ?? "";
             }
+
+            entity.AttachmentIds = this.uploadTool.AttachmentIds;
         }
 
         /// <summary>
