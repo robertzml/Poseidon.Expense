@@ -188,10 +188,17 @@ namespace Poseidon.Expense.ClientDx
             {
                 try
                 {
-                    BusinessFactory<GasExpenseBusiness>.Instance.Delete(expense);
+                    var result = BusinessFactory<GasExpenseBusiness>.Instance.Delete(expense);
 
-                    LoadReceipts();
-                    MessageUtil.ShowInfo("删除成功");
+                    if (result.success)
+                    {
+                        LoadReceipts();
+                        MessageUtil.ShowInfo("删除成功");
+                    }
+                    else
+                    {
+                        MessageUtil.ShowClaim("删除失败: " + result.errorMessage);
+                    }
                 }
                 catch (PoseidonException pe)
                 {

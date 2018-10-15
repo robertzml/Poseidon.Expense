@@ -176,10 +176,17 @@ namespace Poseidon.Expense.ClientDx
                 var entity = BusinessFactory<WaterExpenseBusiness>.Instance.FindById(this.currentExpense.Id);
                 SetEntity(entity);
 
-                BusinessFactory<WaterExpenseBusiness>.Instance.Update(entity, this.currentUser);
+                var result = BusinessFactory<WaterExpenseBusiness>.Instance.Update(entity, this.currentUser);
 
-                MessageUtil.ShowInfo("保存成功");
-                this.Close();
+                if (result.success)
+                {
+                    MessageUtil.ShowInfo("保存成功");
+                    this.Close();
+                }
+                else
+                {
+                    MessageUtil.ShowClaim("保存失败: " + result.errorMessage);
+                }
             }
             catch (PoseidonException pe)
             {

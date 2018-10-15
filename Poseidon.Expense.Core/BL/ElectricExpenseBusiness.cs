@@ -115,14 +115,13 @@ namespace Poseidon.Expense.Core.BL
             base.Create(entity);
         }
 
-
         /// <summary>
         /// 编辑电费支出
         /// </summary>
         /// <param name="entity">实体对象</param>
         /// <param name="user">操作用户</param>
         /// <returns></returns>
-        public bool Update(ElectricExpense entity, ILoginUser user)
+        public (bool success, string errorMessage) Update(ElectricExpense entity, ILoginUser user)
         {
             entity.UpdateBy = new UpdateStamp
             {

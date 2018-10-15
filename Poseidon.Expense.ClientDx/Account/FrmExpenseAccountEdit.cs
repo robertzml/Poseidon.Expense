@@ -131,10 +131,17 @@ namespace Poseidon.Expense.ClientDx
                 var entity = BusinessFactory<ExpenseAccountBusiness>.Instance.FindById(this.currentAccount.Id);
                 SetEntity(entity);
 
-                BusinessFactory<ExpenseAccountBusiness>.Instance.Update(entity);
+                var result = BusinessFactory<ExpenseAccountBusiness>.Instance.Update(entity);
 
-                MessageUtil.ShowInfo("保存成功");
-                this.Close();
+                if (result.success)
+                {
+                    MessageUtil.ShowInfo("保存成功");
+                    this.Close();
+                }
+                else
+                {
+                    MessageUtil.ShowClaim("保存失败: " + result.errorMessage);
+                }
             }
             catch (PoseidonException pe)
             {
